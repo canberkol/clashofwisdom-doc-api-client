@@ -13,8 +13,12 @@
     },
     "servers": [
         {
+            "url": "https://rest.api.sta.clashofwisdom.com/v1",
+            "description": "Staging Environment"
+        },
+        {
             "url": "https://rest.api.dev.clashofwisdom.com/v1",
-            "description": "Dev Environment"
+            "description": "Development Environment"
         },
         {
             "url": "https://rest.api.clashofwisdom.com/v1",
