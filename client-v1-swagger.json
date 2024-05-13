@@ -12702,10 +12702,7 @@
                         "description": "The id of the player who is making the purchase."
                     },
                     "product": {
-                        "type": [
-                            "string",
-                            "integer"
-                        ],
+                        "type": "string",
                         "description": "Id or SKU of the product. Whichever is present.."
                     },
                     "quantity": {
@@ -12741,10 +12738,7 @@
                         "description": "The id of the player who is making the purchase."
                     },
                     "product": {
-                        "type": [
-                            "string",
-                            "integer"
-                        ],
+                        "type": "string",
                         "description": "Id or SKU of the product. Whichever is present.."
                     },
                     "quantity": {
