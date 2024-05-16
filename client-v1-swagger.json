@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Clash of Wisdommm",
+        "title": "Clash of Wisdom",
         "version": "1.0",
         "description": "Clash of Wisdom is a PvP trivia game created by Ravio Games. This documentation provides information only for developers who are building functionality in iOS, Android and other channels.",
         "contact": {
@@ -14,30 +14,15 @@
     "servers": [
         {
             "url": "https://rest.api.sta.clashofwisdom.com/v1",
-            "description": "Staging Environment",
-            "variables": {
-                "basuUrl": {
-                    "default": "https://rest.api.sta.clashofwisdom.com/v1"
-                }
-            }
+            "description": "Staging Environment"
         },
         {
             "url": "https://rest.api.dev.clashofwisdom.com/v1",
-            "description": "Development Environment",
-            "variables": {
-                "basuUrl": {
-                    "default": "https://rest.api.dev.clashofwisdom.com/v1"
-                }
-            }
+            "description": "Development Environment"
         },
         {
             "url": "https://rest.api.clashofwisdom.com/v1",
-            "description": "Prod Environment",
-            "variables": {
-                "basuUrl": {
-                    "default": "https://rest.api.clashofwisdom.com/v1"
-                }
-            }
+            "description": "Prod Environment"
         }
     ],
     "paths": {
@@ -7222,11 +7207,11 @@
                                 "locale": "tr-tr",
                                 "gameEffects": true,
                                 "gameMusic": true,
-                                "cdnUrl": "string",
+                                "cdnUrl": "https://cdn.clashofwisdom.com",
                                 "gameStartTimer": 3,
-                                "maxLives": 4,
-                                "timeToRegenerateLife": 720,
-                                "lifeCheckInterval": 180
+                                "maxTickets": 4,
+                                "timeToRegenerateTicket": 720,
+                                "ticketCheckInterval": 180
                             }
                         }
                     }
@@ -7243,20 +7228,20 @@
                     "Example-1": {
                         "value": {
                             "appInfo": {
-                                "forceUpdate": true,
-                                "defaultSettings": {
-                                    "locale": "tr-tr",
-                                    "gameEffects": true,
-                                    "gameMusic": true,
-                                    "cdnUrl": "string",
-                                    "gameStartTimer": 3,
-                                    "maxLives": 4,
-                                    "timeToRegenerateLife": 720,
-                                    "lifeCheckInterval": 180
-                                }
+                            "forceUpdate": true,
+                            "defaultSettings": {
+                                "locale": "tr-tr",
+                                "gameEffects": true,
+                                "gameMusic": true,
+                                "cdnUrl": "string",
+                                "gameStartTimer": 3,
+                                "maxTicket": 4,
+                                "timeToRegenerateTicket": 720,
+                                "ticketCheckInterval": 180
+                            }
                             },
                             "leagueInfo": {
-                                "leagueName": "2021 19. Hafta Ligi",
+                                "leagueName": "League | Week 19, 2019",
                                 "leagueEndsAt": "2019-08-24T14:15:22Z"
                             }
                         }
@@ -7288,7 +7273,7 @@
                     "Example-1": {
                         "value": {
                             "isCircular": true,
-                            "prevLink": "offset=9&limit=50",
+                            "prevLink": null,
                             "nextLink": "offset=1&limit=50",
                             "lastLink": "offset=10&limit=50",
                             "firstLink": "offset=0&limit=50",
@@ -7576,12 +7561,12 @@
                             "locale": "tr-tr",
                             "gameEffects": true,
                             "gameMusic": true,
-                            "cdnUrl": "string",
+                            "cdnUrl": "https://cdn.clashofwisdom.com",
                             "gameStartTimer": 3,
-                            "maxLives": 4,
-                            "timeToRegenerateLife": 720,
-                            "lifeCheckInterval": 180
-                        }
+                            "maxTickets": 4,
+                            "timeToRegenerateTicket": 720,
+                            "ticketCheckInterval": 180
+                           }
                     }
                 },
                 "x-tags": [
@@ -7608,7 +7593,8 @@
                     },
                     "cdnUrl": {
                         "type": "string",
-                        "description": "Content Delivery Network's default address."
+                        "description": "Content Delivery Network's default address.",
+                        "example": "https://cdn.clashofwisdom.com"
                     },
                     "gameStartTimer": {
                         "type": "integer",
@@ -7617,22 +7603,22 @@
                         "minimum": 0,
                         "maximum": 15
                     },
-                    "maxLives": {
+                    "maxTickets": {
                         "type": "integer",
-                        "description": "Number of maximum lives a player can have at a given time. see: MAX_LIVES",
+                        "description": "Number of maximum tickets a player can have at a given time. see: MAX_LIVES",
                         "example": 4,
                         "minimum": 0,
                         "maximum": 6
                     },
-                    "timeToRegenerateLife": {
+                    "timeToRegenerateTicket": {
                         "type": "integer",
-                        "description": "Time in seconds to regenerate a lost life. see: TIME_TO_REGENERATE_LIFE",
+                        "description": "Time in seconds to regenerate a spent ticket. see: TIME_TO_REGENERATE_TICKET",
                         "example": 720,
                         "minimum": 0
                     },
-                    "lifeCheckInterval": {
+                    "ticketCheckInterval": {
                         "type": "integer",
-                        "description": "Time in seconds to check for life updates. see: LIFE_CHECK_INTERVAL",
+                        "description": "Time in seconds to check for ticket updates. see: LIFE_CHECK_INTERVAL",
                         "example": 180,
                         "minimum": 0
                     }
@@ -7644,8 +7630,8 @@
                     "cdnUrl",
                     "gameStartTimer",
                     "maxLives",
-                    "timeToRegenerateLife",
-                    "lifeCheckInterval"
+                    "timeToRegenerateTicket",
+                    "ticketCheckInterval"
                 ]
             },
             "PlayerSettings": {
@@ -8705,6 +8691,36 @@
                     "zoneCode",
                     "totalPlayers"
                 ]
+            },
+            "LeagueInfo": {
+                "title": "LeagueInfo",
+                "type": "object",
+                "x-examples": {
+                    "Example-1": {
+                        "value": {
+                            "leagueName": "League | Week 19, 2019",
+                            "leagueEndsAt": "2019-08-24T14:15:22Z"
+                        }
+                    }
+                },
+                "properties": {
+                    "leagueName": {
+                        "type": "string",
+                        "description": "Name of the current league.",
+                        "example": "League | Week 19, 2019"
+                    },
+                    "leagueEndsAt": {
+                        "type": "string",
+                        "description": "The last day of the current league.",
+                        "format": "date-time",
+                        "readOnly": true
+                    }
+                },
+                "required": [
+                    "leagueName",
+                    "leagueEndsAt"
+                ],
+                "description": "This is a simple object which is used to provide active league related information to the client."
             },
             "LifeInfo": {
                 "title": "LifeInfo",
@@ -12267,36 +12283,6 @@
                         }
                     }
                 }
-            },
-            "LeagueInfo": {
-                "title": "LeagueInfo",
-                "type": "object",
-                "x-examples": {
-                    "Example-1": {
-                        "value": {
-                            "leagueName": "2021 19. Hafta Ligi",
-                            "leagueEndsAt": "2019-08-24T14:15:22Z"
-                        }
-                    }
-                },
-                "properties": {
-                    "leagueName": {
-                        "type": "string",
-                        "description": "Name of the current league.",
-                        "example": "2021 19. Hafta Ligi"
-                    },
-                    "leagueEndsAt": {
-                        "type": "string",
-                        "description": "The last day of the current league.",
-                        "format": "date-time",
-                        "readOnly": true
-                    }
-                },
-                "required": [
-                    "leagueName",
-                    "leagueEndsAt"
-                ],
-                "description": "Simplified league model."
             },
             "PlayerGcInfo": {
                 "title": "PlayerGcInfo",
