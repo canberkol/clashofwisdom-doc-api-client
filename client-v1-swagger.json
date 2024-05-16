@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Clash of Wisdom",
+        "title": "Clash of Wisdommm",
         "version": "1.0",
         "description": "Clash of Wisdom is a PvP trivia game created by Ravio Games. This documentation provides information only for developers who are building functionality in iOS, Android and other channels.",
         "contact": {
@@ -14,15 +14,30 @@
     "servers": [
         {
             "url": "https://rest.api.sta.clashofwisdom.com/v1",
-            "description": "Staging Environment"
+            "description": "Staging Environment",
+            "variables": {
+                "basuUrl": {
+                    "default": "https://rest.api.sta.clashofwisdom.com/v1"
+                }
+            }
         },
         {
             "url": "https://rest.api.dev.clashofwisdom.com/v1",
-            "description": "Development Environment"
+            "description": "Development Environment",
+            "variables": {
+                "basuUrl": {
+                    "default": "https://rest.api.dev.clashofwisdom.com/v1"
+                }
+            }
         },
         {
             "url": "https://rest.api.clashofwisdom.com/v1",
-            "description": "Prod Environment"
+            "description": "Prod Environment",
+            "variables": {
+                "basuUrl": {
+                    "default": "https://rest.api.clashofwisdom.com/v1"
+                }
+            }
         }
     ],
     "paths": {
