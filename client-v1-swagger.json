@@ -14,15 +14,30 @@
     "servers": [
         {
             "url": "https://rest.api.sta.clashofwisdom.com/v1",
-            "description": "Staging Environment"
+            "description": "Staging Environment",
+            "variables": {
+                "url": {
+                    "default": "https://rest.api.sta.clashofwisdom.com/v1"
+                }
+            }
         },
         {
             "url": "https://rest.api.dev.clashofwisdom.com/v1",
-            "description": "Development Environment"
+            "description": "Development Environment",
+            "variables": {
+                "url": {
+                    "default": "https://rest.api.dev.clashofwisdom.com/v1"
+                }
+            }
         },
         {
             "url": "https://rest.api.clashofwisdom.com/v1",
-            "description": "Prod Environment"
+            "description": "Prod Environment",
+            "variables": {
+                "url": {
+                    "default": "https://rest.api.clashofwisdom.com/v1"
+                }
+            }
         }
     ],
     "paths": {
