@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Clash of Wisdom",
-        "version": "1.0",
+        "version": "1.0.1",
         "description": "Clash of Wisdom is a PvP trivia game created by Ravio Games. This documentation provides information only for developers who are building functionality in iOS, Android and other channels.",
         "contact": {
             "name": "Raviosoft, A.Ş.",
@@ -7478,6 +7478,32 @@
                             "currentPage": 1
                         },
                         "set": null
+                    },
+                    "Example-2": {
+                        "pagination": null,
+                        "set": null
+                    },
+                    "Example-3": {
+                        "pagination": null,
+                        "set": {
+                            "appInfo": {
+                            "forceUpdate": true,
+                            "defaultSettings": {
+                                "locale": "tr-tr",
+                                "gameEffects": true,
+                                "gameMusic": true,
+                                "cdnUrl": "string",
+                                "gameStartTimer": 3,
+                                "maxTicket": 4,
+                                "timeToRegenerateTicket": 720,
+                                "ticketCheckInterval": 180
+                            }
+                            },
+                            "leagueInfo": {
+                                "leagueName": "League | Week 19, 2019",
+                                "leagueEndsAt": "2019-08-24T14:15:22Z"
+                            }
+                        }
                     }
                 },
                 "x-tags": [
