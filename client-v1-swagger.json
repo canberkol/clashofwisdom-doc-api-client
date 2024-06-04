@@ -12903,6 +12903,35 @@
                 }
             }
         },
+        "headers":{
+            "x-locale": {
+                "deprecated": false,
+                "required": true,
+                "description": "Sets UI locale. Default value is always en-us.",
+                "schema": {
+                    "type": "string",
+                    "enum": ["tr-tr", "en-us"],
+                    "default": "en-us"
+                }
+            },
+            "x-catalog": {
+                "deprecated": false,
+                "required": true,
+                "description": "Sets Catalog. Default value is 'global'.",
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "global", "north-america", "south-america", "americas", 
+                        "europe", "united-kingdom", "middle-east", 
+                        "turkiye", "turkic-world", "hispanic-world", 
+                        "africas", "north-africa", "asia", 
+                        "russia", "china", "usa",
+                        "nordic-world", "ocenia", "australia", "canada", "germany", "benelux"
+                    ],
+                    "default": "global"
+                }
+            }
+        },
         "securitySchemes": {
             "X-Api-Key": {
                 "type": "apiKey",
