@@ -1302,11 +1302,11 @@
                                                             "gameMusic": true,
                                                             "cdnUrl": "https://tr-tr.cd.bilgisavasi.com",
                                                             "gameStartTimer": 3,
-                                                            "maxLives": 6,
-                                                            "timeToRegenerateLife": 720,
-                                                            "lifeCheckInterval": 180,
+                                                            "maxTickets": 6,
+                                                            "timeToRegenerateTicket": 720,
+                                                            "ticketCheckInterval": 180,
                                                             "coinMultiplier": 1,
-                                                            "experienceMultiplier": 10
+                                                            "xpMultiplier": 10
                                                         }
                                                     },
                                                     "leagueInfo": {
@@ -1343,7 +1343,7 @@
                     }
                 },
                 "operationId": "get-init",
-                "description": "This is the first endpoint you need to use. It provides you environment specifics initialization values. https://docs.bonetwork.co/bilgisavasi/appinit",
+                "description": "This is the first endpoint you need to use. It provides you environment specifics initialization values.",
                 "security": [
                     {
                         "X-Api-Key": []
@@ -7226,7 +7226,9 @@
                                 "gameStartTimer": 3,
                                 "maxTickets": 4,
                                 "timeToRegenerateTicket": 720,
-                                "ticketCheckInterval": 180
+                                "ticketCheckInterval": 180,
+                                "coinMultiplier": 1,
+                                "xpMultiplier": 10
                             }
                         }
                     }
@@ -7252,7 +7254,9 @@
                                 "gameStartTimer": 3,
                                 "maxTicket": 4,
                                 "timeToRegenerateTicket": 720,
-                                "ticketCheckInterval": 180
+                                "ticketCheckInterval": 180,
+                                "coinMultiplier": 1,
+                                "xpMultiplier": 10
                             }
                             },
                             "leagueInfo": {
@@ -7290,12 +7294,25 @@
                             "isCircular": true,
                             "prevLink": null,
                             "nextLink": "offset=1&limit=50",
-                            "lastLink": "offset=10&limit=50",
+                            "lastLink": "offset=9&limit=50",
                             "firstLink": "offset=0&limit=50",
                             "totalItems": 500,
                             "itemsPerPage": 50,
-                            "pageCount": 1,
+                            "pageCount": 10,
                             "currentPage": 1
+                        }
+                    },
+                    "Example-2": {
+                        "value": {
+                            "isCircular": false,
+                            "prevLink": null,
+                            "nextLink": "offset=2&limit=50",
+                            "lastLink": "offset=49&limit=50",
+                            "firstLink": "offset=0&limit=50",
+                            "totalItems": 500,
+                            "itemsPerPage": 10,
+                            "pageCount": 50,
+                            "currentPage": 2
                         }
                     }
                 },
@@ -7386,41 +7403,15 @@
                 "x-examples": {
                     "Example-200.0000-null": {
                         "result": {
-                            "pagination": {
-                                "isCircular": true,
-                                "prevLink": "offset=9&limit=50",
-                                "nextLink": "offset=1&limit=50",
-                                "lastLink": "offset=10&limit=50",
-                                "firstLink": "offset=0&limit=50",
-                                "totalItems": 500,
-                                "itemsPerPage": 50,
-                                "pageCount": 1,
-                                "currentPage": 1
-                            },
-                            "set": {}
+                            "pagination": null,
+                            "set": null
                         },
                         "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
                         "code": "200.000",
                         "message": "Your request has been successfully completed.",
-                        "value": {
-                            "result": {
-                                "pagination": {
-                                    "isCircular": true,
-                                    "prevLink": "offset=9&limit=50",
-                                    "nextLink": "offset=1&limit=50",
-                                    "lastLink": "offset=10&limit=50",
-                                    "firstLink": "offset=0&limit=50",
-                                    "totalItems": 500,
-                                    "itemsPerPage": 50,
-                                    "pageCount": 1,
-                                    "currentPage": 1
-                                },
-                                "set": {}
-                            },
-                            "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                            "code": "200.000",
-                            "message": "Your request has been successfully completed."
-                        }
+                        "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
+                        "code": "200.000",
+                        "message": "Your request has been successfully completed."
                     }
                 },
                 "x-tags": [
@@ -7496,7 +7487,9 @@
                                 "gameStartTimer": 3,
                                 "maxTicket": 4,
                                 "timeToRegenerateTicket": 720,
-                                "ticketCheckInterval": 180
+                                "ticketCheckInterval": 180,
+                                "coinMultiplier": 1,
+                                "xpMultiplier": 10
                             }
                             },
                             "leagueInfo": {
@@ -7606,7 +7599,9 @@
                             "gameStartTimer": 3,
                             "maxTickets": 4,
                             "timeToRegenerateTicket": 720,
-                            "ticketCheckInterval": 180
+                            "ticketCheckInterval": 180,
+                            "coinMultiplier": 1,
+                            "xpMultiplier": 10
                            }
                     }
                 },
@@ -7662,6 +7657,18 @@
                         "description": "Time in seconds to check for ticket updates. see: LIFE_CHECK_INTERVAL",
                         "example": 180,
                         "minimum": 0
+                    },
+                    "coinMultiplier": {
+                        "type": "integer",
+                        "description": "see: COIN_MUTIPLLIER",
+                        "example": 1,
+                        "minimum": 1
+                    },
+                    "xpMultiplier": {
+                        "type": "integer",
+                        "description": "see: EXPERIENCE_MULTIPLIER",
+                        "example": 10,
+                        "minimum": 1
                     }
                 },
                 "required": [
@@ -7672,7 +7679,9 @@
                     "gameStartTimer",
                     "maxLives",
                     "timeToRegenerateTicket",
-                    "ticketCheckInterval"
+                    "ticketCheckInterval",
+                    "coinMultiplier",
+                    "xpMultiplier"
                 ]
             },
             "PlayerSettings": {
