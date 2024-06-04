@@ -2033,18 +2033,13 @@
                                                     "status": "a",
                                                     "placementCode": "combo-reward-ad",
                                                     "rewardInstructions": {
-                                                        "lives": {
+                                                        "tickets": {
                                                             "value": 1,
                                                             "multiplier": 1,
                                                             "type": "v"
                                                         },
-                                                        "immortabilityDuration": {
+                                                        "unlimitedTicketsDuration": {
                                                             "value": 24,
-                                                            "multiplier": 1,
-                                                            "type": "v"
-                                                        },
-                                                        "immunityDuration": {
-                                                            "value": 0,
                                                             "multiplier": 1,
                                                             "type": "v"
                                                         },
@@ -2063,7 +2058,7 @@
                                                             "multiplier": 1,
                                                             "type": "v"
                                                         },
-                                                        "insurance": {
+                                                        "stash": {
                                                             "value": 0,
                                                             "multiplier": 1,
                                                             "type": "v"
@@ -2918,7 +2913,7 @@
                 "description": "Use this endpoint to retrieve user's level related info."
             }
         },
-        "/player/{id}/life-info": {
+        "/player/{id}/ticket-info": {
             "parameters": [
                 {
                     "schema": {
@@ -2930,13 +2925,13 @@
                 }
             ],
             "get": {
-                "summary": "Retrieve Player's Life Info",
+                "summary": "Retrieve Player's Ticket Info",
                 "tags": [
                     "players"
                 ],
                 "responses": {
                     "200": {
-                        "description": "Successful response returns LifeInfo model (https://docs.bonetwork.co/bilgisavasi/lifeinfo) as value in result.set.",
+                        "description": "Successful response returns TicketInfo model as value in result.set.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -5640,18 +5635,13 @@
                                                         "status": "a",
                                                         "placementCode": "combo-reward-ad",
                                                         "rewardInstructions": {
-                                                            "lives": {
+                                                            "tickets": {
                                                                 "value": 1,
                                                                 "multiplier": 1,
                                                                 "type": "v"
                                                             },
-                                                            "immortabilityDuration": {
+                                                            "unlimitedTicketsDuration": {
                                                                 "value": 24,
-                                                                "multiplier": 1,
-                                                                "type": "v"
-                                                            },
-                                                            "immunityDuration": {
-                                                                "value": 0,
                                                                 "multiplier": 1,
                                                                 "type": "v"
                                                             },
@@ -5670,7 +5660,7 @@
                                                                 "multiplier": 1,
                                                                 "type": "v"
                                                             },
-                                                            "insurance": {
+                                                            "stash": {
                                                                 "value": 0,
                                                                 "multiplier": 1,
                                                                 "type": "v"
@@ -6848,17 +6838,12 @@
                         "placementCode": "2x-end-game",
                         "status": "a",
                         "rewardInstructions": {
-                            "lives": {
+                            "tickets": {
                                 "value": 1,
                                 "multiplier": 1,
                                 "type": "v"
                             },
-                            "immortalityDuration": {
-                                "value": 1,
-                                "multiplier": 1,
-                                "type": "v"
-                            },
-                            "immunityDuration": {
+                            "unlimitedTicketsDuration": {
                                 "value": 1,
                                 "multiplier": 1,
                                 "type": "v"
@@ -6878,7 +6863,7 @@
                                 "multiplier": 1,
                                 "type": "v"
                             },
-                            "insurance": {
+                            "stash": {
                                 "value": 1,
                                 "multiplier": 1,
                                 "type": "v"
@@ -6955,13 +6940,12 @@
                         "isRecurring": false,
                         "recursionType": "x",
                         "recursionDuration": 1,
-                        "lives": 6,
-                        "immortabilityDuration": 24,
-                        "immunityDuration": 0,
+                        "tickets": 6,
+                        "unlimitedTicketsDuration": 24,
                         "joker": 10,
                         "majority": 0,
                         "fiftyFifty": 0,
-                        "insurance": 0,
+                        "stash": 0,
                         "experience": 100,
                         "coins": 50
                     }
@@ -6971,13 +6955,10 @@
                     "rewarded-ads"
                 ],
                 "properties": {
-                    "lives": {
+                    "tickets": {
                         "$ref": "#/components/schemas/AdRewardInstructionValue"
                     },
-                    "immortalityDuration": {
-                        "$ref": "#/components/schemas/AdRewardInstructionValue"
-                    },
-                    "immunityDuration": {
+                    "unlimitedTicketsDuration": {
                         "$ref": "#/components/schemas/AdRewardInstructionValue"
                     },
                     "joker": {
@@ -6989,7 +6970,7 @@
                     "fiftyFifty": {
                         "$ref": "#/components/schemas/AdRewardInstructionValue"
                     },
-                    "insurance": {
+                    "stash": {
                         "$ref": "#/components/schemas/AdRewardInstructionValue"
                     },
                     "experience": {
@@ -7003,9 +6984,8 @@
                     "isRecurring",
                     "recursionType",
                     "recursionDuration",
-                    "lives",
-                    "immortalityDuration",
-                    "immunityDuration",
+                    "tickets",
+                    "unlimitedTicketsDuration",
                     "joker",
                     "majority",
                     "fiftyFifty",
@@ -7080,17 +7060,12 @@
                             "placementCode": "2x-end-game",
                             "status": "a",
                             "rewardInstructions": {
-                                "lives": {
+                                "tickets": {
                                     "value": 1,
                                     "multiplier": 1,
                                     "type": "v"
                                 },
-                                "immortalityDuration": {
-                                    "value": 1,
-                                    "multiplier": 1,
-                                    "type": "v"
-                                },
-                                "immunityDuration": {
+                                "unlimitedTicketsDuration": {
                                     "value": 1,
                                     "multiplier": 1,
                                     "type": "v"
@@ -7110,7 +7085,7 @@
                                     "multiplier": 1,
                                     "type": "v"
                                 },
-                                "insurance": {
+                                "stash": {
                                     "value": 1,
                                     "multiplier": 1,
                                     "type": "v"
@@ -8772,26 +8747,26 @@
                 ],
                 "description": "This is a simple object which is used to provide active league related information to the client."
             },
-            "LifeInfo": {
-                "title": "LifeInfo",
+            "TicketInfo": {
+                "title": "TicketInfo",
                 "type": "object",
-                "description": "Holds simple details about a user's life.",
+                "description": "Holds simple details about a players'tickets.",
                 "properties": {
                     "currentCount": {
                         "type": "integer",
                         "minimum": 0,
                         "example": 4,
-                        "description": "Current life count of the user."
+                        "description": "Current ticket count of the user."
                     },
                     "secondsToRegenerate": {
                         "type": "integer",
                         "minimum": 0,
                         "example": 120,
-                        "description": "Seconds remaining for life regenration."
+                        "description": "Seconds remaining for ticket regenration."
                     },
                     "isFull": {
                         "type": "boolean",
-                        "description": "A marker to quickly check if the user has restored all his lives."
+                        "description": "A marker to quickly check if the user has restored all his tickets."
                     }
                 },
                 "required": [
