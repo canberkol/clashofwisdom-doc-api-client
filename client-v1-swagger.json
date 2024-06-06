@@ -1376,7 +1376,7 @@
                 "operationId": "post-player",
                 "responses": {
                     "200": {
-                        "description": "If successful, response's result set will return Player model (https://docs.bonetwork.co/bilgisavasi/player).",
+                        "description": "If successful, response's result set will return Player model. You must include a device id to attempt the registration process",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1386,17 +1386,7 @@
                                     "Example-200.0000": {
                                         "value": {
                                             "result": {
-                                                "pagination": {
-                                                    "isCircular": true,
-                                                    "prevLink": null,
-                                                    "nextLink": null,
-                                                    "lastLink": null,
-                                                    "firstLink": null,
-                                                    "totalItems": 1,
-                                                    "itemsPerPage": 50,
-                                                    "pageCount": 1,
-                                                    "currentPage": 1
-                                                },
+                                                "pagination": null,
                                                 "set": {
                                                     "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
                                                     "alias": "tsemmui",
@@ -1407,10 +1397,14 @@
                                                         "pointsToNextLevel": 500
                                                     },
                                                     "powerUps": {
-                                                        "life": 18,
+                                                        "tickets": 18,
                                                         "joker": 139,
                                                         "fiftyFifty": 5,
-                                                        "majority": 12
+                                                        "majority": 12,
+                                                        "unlimitedTicketsDuration": {
+                                                            "isActive": true,
+                                                            "validUntil": "2019-08-24T14:15:22Z"
+                                                        }
                                                     },
                                                     "coins": 1259,
                                                     "categoryStats": [
@@ -1451,41 +1445,18 @@
                         "X-Api-Key": []
                     }
                 ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Player"
-                            },
-                            "examples": {
-                                "Example-1": {
-                                    "value": {
-                                        "uuid": null,
-                                        "alias": "tsemmui",
-                                        "avatar": null,
-                                        "levelSummary": {
-                                            "currentLevel": 0,
-                                            "accumulatedPoints": 0,
-                                            "pointsToNextLevel": 0
-                                        },
-                                        "powerUps": {
-                                            "life": 6,
-                                            "joker": 10,
-                                            "fiftyFifty": 10,
-                                            "majority": 10
-                                        },
-                                        "coins": 1000,
-                                        "categoryStats": [],
-                                        "appleId": null,
-                                        "googleId": "d1bf5978-8398-454a-8430-49396d97fc7f"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "description": "Body must include Player model \n(https://docs.bonetwork.co/bilgisavasi/player)."
-                },
-                "parameters": []
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "in": "header",
+                        "name": "X-Device-Id",
+                        "description": "This is the device specific id, generated for the user.",
+                        "required": true
+                    }
+                ]
             }
         },
         "/player/login": {
@@ -1497,7 +1468,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "If successful, response's result set will return Player model (https://docs.bonetwork.co/bilgisavasi/player).",
+                        "description": "If successful, response's result set will return Player model.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1507,17 +1478,7 @@
                                     "Example-200.0000": {
                                         "value": {
                                             "result": {
-                                                "pagination": {
-                                                    "isCircular": true,
-                                                    "prevLink": null,
-                                                    "nextLink": null,
-                                                    "lastLink": null,
-                                                    "firstLink": null,
-                                                    "totalItems": 1,
-                                                    "itemsPerPage": 50,
-                                                    "pageCount": 1,
-                                                    "currentPage": 1
-                                                },
+                                                "pagination": null,
                                                 "set": {
                                                     "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
                                                     "alias": "tsemmui",
@@ -1528,17 +1489,13 @@
                                                         "pointsToNextLevel": 500
                                                     },
                                                     "powerUps": {
-                                                        "life": 2,
-                                                        "insurance": 18,
+                                                        "tickets": 2,
+                                                        "stash": 18,
                                                         "joker": 139,
                                                         "fiftyFifty": 5,
                                                         "majority": 12,
-                                                        "immortality": {
+                                                        "unlimitedTicketsDuration": {
                                                             "isActive": true,
-                                                            "validUntil": "2019-08-24T14:15:22Z"
-                                                        },
-                                                        "immunity": {
-                                                            "isActive": false,
                                                             "validUntil": "2019-08-24T14:15:22Z"
                                                         }
                                                     },
@@ -1573,7 +1530,130 @@
                     }
                 },
                 "operationId": "get-login-player",
-                "description": "Use this endpoint to grab a specific player's standard profile information. If id equals to \"null\", the information provided will be equal to the player who is tied to the session token provided in header with key X-Session-Token.",
+                "description": "Use this endpoint to login a specific user to the system.",
+                "security": [
+                    {
+                        "X-Api-Key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "in": "header",
+                        "name": "X-Player-Id",
+                        "description": "This should be supplied only if there is a player id available in device memory."
+                    },
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "in": "header",
+                        "name": "X-Device-Id",
+                        "description": "This is the device specific id, generated for the user.",
+                        "required": true
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "X-Firebase-Token",
+                        "description": "This is the unique identifier supplied for the player/device by Firebase. It must be send only if there is a value obtained from Firebase."
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Login Player with Username and Password",
+                "tags": [
+                    "players"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "If successful, response's result set will return Player model.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponse"
+                                },
+                                "examples": {
+                                    "Example-200.0000": {
+                                        "value": {
+                                            "result": {
+                                                "pagination": null,
+                                                "set": {
+                                                    "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
+                                                    "alias": "tsemmui",
+                                                    "avatar": "/cdn/avatar/tsemmui-avatar.png",
+                                                    "levelSummary": {
+                                                        "currentLevel": 0,
+                                                        "accumulatedPoints": 14,
+                                                        "pointsToNextLevel": 500
+                                                    },
+                                                    "powerUps": {
+                                                        "tickets": 2,
+                                                        "stash": 18,
+                                                        "joker": 139,
+                                                        "fiftyFifty": 5,
+                                                        "majority": 12,
+                                                        "unlimitedTicketsDuration": {
+                                                            "isActive": true,
+                                                            "validUntil": "2019-08-24T14:15:22Z"
+                                                        }
+                                                    },
+                                                    "coins": 1259,
+                                                    "categoryStats": [
+                                                        {
+                                                            "tag": "history",
+                                                            "successRate": "0,24",
+                                                            "correct": 129,
+                                                            "incorrect": 55
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
+                                            "code": "200.000",
+                                            "message": "Your request has been successfully completed."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401.Generic"
+                    },
+                    "412": {
+                        "$ref": "#/components/responses/412.Generic"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500.Generic"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginForm"
+                            },
+                            "examples": {
+                                "Example-1": {
+                                    "value": {
+                                        "username": "You5eR",
+                                        "password": "passw0rtH!"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": "This endpoint enables username/password logins."
+                },
+                "operationId": "post-login-player",
+                "description": "Use this endpoint to login a specific user to the system with the user's alias/username and password.",
                 "security": [
                     {
                         "X-Api-Key": []
@@ -2032,6 +2112,7 @@
                                                     "updatedAt": "2019-08-24T14:15:22Z",
                                                     "status": "a",
                                                     "placementCode": "combo-reward-ad",
+                                                    "title": "Endgame 2X Coin Combo",
                                                     "rewardInstructions": {
                                                         "tickets": {
                                                             "value": 1,
@@ -6836,6 +6917,7 @@
                     "Example-1": {
                         "id": 2423,
                         "placementCode": "2x-end-game",
+                        "title": "Endgame Combo Rewarded Ad",
                         "status": "a",
                         "rewardInstructions": {
                             "tickets": {
@@ -6899,6 +6981,11 @@
                         "example": "2x-end-game",
                         "description": "Unique semantic identifier."
                     },
+                    "title":{
+                        "type": "string",
+                        "example": "End Game 2X Coin Rewarded Ad",
+                        "description": "Descriptive text."
+                    },
                     "status": {
                         "type": "string",
                         "enum": [
@@ -6925,6 +7012,7 @@
                 "required": [
                     "id",
                     "placementCode",
+                    "title",
                     "status",
                     "rewardInstructions",
                     "createdAt",
@@ -7055,9 +7143,10 @@
                         "rewardedAt": "2019-08-24T14:15:22Z",
                         "nextRewardTryAt": "2019-08-24T14:15:22Z",
                         "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
-                        "adPlaement": {
+                        "adPlacement": {
                             "id": 2423,
                             "placementCode": "2x-end-game",
+                            "title": "Endgame 2X Coin Rewarded Ad",
                             "status": "a",
                             "rewardInstructions": {
                                 "tickets": {
@@ -7154,7 +7243,7 @@
                         "format": "uuid",
                         "description": "UUID of player who has viewed the ad."
                     },
-                    "adPlaement": {
+                    "adPlacement": {
                         "$ref": "#/components/schemas/AdPlacement"
                     },
                     "adNetwork": {
@@ -7173,7 +7262,7 @@
                 "required": [
                     "initializedAt",
                     "player",
-                    "adPlaement"
+                    "adPlacement"
                 ]
             },
             "AppInfo": {
@@ -7665,28 +7754,17 @@
                 "description": "Holds default settinfs of apps.",
                 "x-examples": {
                     "Example-1": {
-                        "locale": "tr-tr",
-                        "gameEffects": true,
-                        "gameMusic": true,
-                        "notificationSettings": {
-                            "leaderboardNotifications": "push",
-                            "gameResultNotifications": "push",
-                            "marketingNotifications": "push",
-                            "paymentNotifications": "email",
-                            "systemNotifications": "email",
-                            "legalNotifications": "email"
-                        },
                         "value": {
                             "locale": "tr-tr",
                             "gameEffects": true,
                             "gameMusic": true,
                             "notificationSettings": {
-                                "leaderboardNotifications": "push",
-                                "gameResultNotifications": "push",
-                                "marketingNotifications": "push",
-                                "paymentNotifications": "email",
-                                "systemNotifications": "email",
-                                "legalNotifications": "email"
+                                "leaderboard": "push",
+                                "gameResult": "push",
+                                "marketing": "push",
+                                "payment": "email",
+                                "system": "email",
+                                "legal": "email"
                             }
                         }
                     }
@@ -7730,19 +7808,13 @@
                 "description": "This is a collection that store's players' notification settings.",
                 "x-examples": {
                     "Example-1": {
-                        "leaderboardNotifications": "push",
-                        "gameResultNotifications": "push",
-                        "marketingNotifications": "push",
-                        "paymentNotifications": "email",
-                        "systemNotifications": "email",
-                        "legalNotifications": "email",
                         "value": {
-                            "leaderboardNotifications": "push",
-                            "gameResultNotifications": "push",
-                            "marketingNotifications": "push",
-                            "paymentNotifications": "email",
-                            "systemNotifications": "email",
-                            "legalNotifications": "email"
+                            "leaderboard": "push",
+                            "gameResult": "push",
+                            "marketing": "push",
+                            "payment": "email",
+                            "system": "email",
+                            "legal": "email"
                         }
                     }
                 },
@@ -7751,7 +7823,7 @@
                     "app"
                 ],
                 "properties": {
-                    "leaderboardNotifications": {
+                    "leaderboard": {
                         "type": "string",
                         "description": "Should player be notified for leaderboard related notifications...",
                         "example": "push",
@@ -7762,7 +7834,7 @@
                             "off"
                         ]
                     },
-                    "gameResultNotifications": {
+                    "gameResult": {
                         "type": "string",
                         "description": "Should player be notified for game result related notifications...",
                         "enum": [
@@ -7772,7 +7844,7 @@
                         ],
                         "example": "push"
                     },
-                    "marketingNotifications": {
+                    "marketing": {
                         "type": "string",
                         "description": "Should player be notified for promotional reasons...",
                         "enum": [
@@ -7782,7 +7854,7 @@
                         ],
                         "example": "push"
                     },
-                    "paymentNotifications": {
+                    "payment": {
                         "type": "string",
                         "description": "Should player be notified for payment related notifications...",
                         "enum": [
@@ -7792,7 +7864,7 @@
                         ],
                         "example": "email"
                     },
-                    "systemNotifications": {
+                    "system": {
                         "type": "string",
                         "description": "System maintenance, upgrade etc.",
                         "example": "email",
@@ -7802,7 +7874,7 @@
                             "off"
                         ]
                     },
-                    "legalNotifications": {
+                    "legal": {
                         "type": "string",
                         "description": "Should player be notified for legal purposes such as update in user agreement, being banned, etc.",
                         "enum": [
@@ -7814,12 +7886,12 @@
                     }
                 },
                 "required": [
-                    "leaderboardNotifications",
-                    "gameResultNotifications",
+                    "leaderboard",
+                    "gameResult",
                     "marketingNotifications",
-                    "paymentNotifications",
-                    "systemNotifications",
-                    "legalNotifications"
+                    "payment",
+                    "system",
+                    "legal"
                 ]
             },
             "GameplayAnswer": {
@@ -8747,6 +8819,36 @@
                 ],
                 "description": "This is a simple object which is used to provide active league related information to the client."
             },
+            "LoginForm": {
+                "title": "LoginForm",
+                "type": "object",
+                "x-examples": {
+                    "Example-1": {
+                        "value": {
+                            "username": "u5er",
+                            "password": "pa55W0Rth"
+                        }
+                    }
+                },
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "description": "Player's alias.",
+                        "example": "u5er"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Player's inputted password",
+                        "format": "password",
+                        "readOnly": true
+                    }
+                },
+                "required": [
+                    "username",
+                    "password"
+                ],
+                "description": "Represents a login form."
+            },
             "TicketInfo": {
                 "title": "TicketInfo",
                 "type": "object",
@@ -8841,15 +8943,15 @@
                                 "gameEffects": true,
                                 "gameMusic": true,
                                 "notificationSettings": {
-                                    "leaderboardNotifications": "push",
-                                    "gameResultNotifications": "push",
-                                    "marketingNotifications": "push",
-                                    "paymentNotifications": "email",
-                                    "systemNotifications": "email",
-                                    "legalNotifications": "email"
+                                    "leaderboard": "push",
+                                    "gameResult": "push",
+                                    "marketing": "push",
+                                    "payment": "email",
+                                    "system": "email",
+                                    "legal": "email"
                                 }
                             },
-                            "playerStanding": {
+                            "pvpStanding": {
                                 "id": 342,
                                 "year": 2021,
                                 "month": 3,
@@ -8949,7 +9051,7 @@
                     "settings": {
                         "$ref": "#/components/schemas/PlayerSettings"
                     },
-                    "playerStanding": {
+                    "pvpStanding": {
                         "$ref": "#/components/schemas/PlayerLeaderboardStanding"
                     }
                 },
@@ -8962,7 +9064,8 @@
                     "coins",
                     "categoryStats",
                     "appleId",
-                    "googleId"
+                    "googleId",
+                    "pvpStanding"
                 ]
             },
             "PlayerSummary": {
