@@ -8826,7 +8826,7 @@
                     "Example-1": {
                         "value": {
                             "username": "u5er",
-                            "password": "pa55W0Rth"
+                            "password": "pa55W0Rth!"
                         }
                     }
                 },
@@ -8913,16 +8913,12 @@
                                 "pointsToNextLevel": 500
                             },
                             "powerUps": {
-                                "life": 2,
-                                "insurance": 18,
+                                "tickets": 2,
+                                "stash": 18,
                                 "joker": 139,
                                 "fiftyFifty": 5,
                                 "majority": 12,
-                                "immortality": {
-                                    "isActive": true,
-                                    "validUntil": "2019-08-24T14:15:22Z"
-                                },
-                                "immunity": {
+                                "unlimitedTicketsDuration": {
                                     "isActive": true,
                                     "validUntil": "2019-08-24T14:15:22Z"
                                 }
