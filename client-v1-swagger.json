@@ -1720,17 +1720,7 @@
                                     "Example-200.0000": {
                                         "value": {
                                             "result": {
-                                                "pagination": {
-                                                    "isCircular": true,
-                                                    "prevLink": null,
-                                                    "nextLink": null,
-                                                    "lastLink": null,
-                                                    "firstLink": null,
-                                                    "totalItems": 1,
-                                                    "itemsPerPage": 50,
-                                                    "pageCount": 1,
-                                                    "currentPage": 1
-                                                },
+                                                "pagination": null,
                                                 "set": {
                                                     "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
                                                     "alias": "tsemmui",
@@ -1741,17 +1731,13 @@
                                                         "pointsToNextLevel": 500
                                                     },
                                                     "powerUps": {
-                                                        "life": 2,
-                                                        "insurance": 18,
+                                                        "tickets": 2,
+                                                        "stash": 18,
                                                         "joker": 139,
                                                         "fiftyFifty": 5,
                                                         "majority": 12,
-                                                        "immortality": {
+                                                        "unlimitedTicketsDuration": {
                                                             "isActive": true,
-                                                            "validUntil": "2019-08-24T14:15:22Z"
-                                                        },
-                                                        "immunity": {
-                                                            "isActive": false,
                                                             "validUntil": "2019-08-24T14:15:22Z"
                                                         }
                                                     },
@@ -12350,35 +12336,8 @@
                     "tag"
                 ]
             },
-            "ImmunityInfo": {
-                "title": "ImmunityInfo",
-                "type": "object",
-                "description": "This helper info provides details about player's immunity status.",
-                "properties": {
-                    "isActive": {
-                        "type": "boolean",
-                        "description": "If active set to true."
-                    },
-                    "validUntil": {
-                        "type": "string",
-                        "description": "Time when the power will drain.",
-                        "format": "date-time",
-                        "readOnly": true
-                    }
-                },
-                "required": [
-                    "isActive",
-                    "validUntil"
-                ],
-                "x-examples": {
-                    "example-1": {
-                        "isActive": true,
-                        "validUntil": "2019-08-24T14:15:22Z"
-                    }
-                }
-            },
-            "ImmortalityInfo": {
-                "title": "ImmortalityInfo",
+            "UnlimitedTicketInfo": {
+                "title": "UnlimitedTicketInfo",
                 "type": "object",
                 "description": "This helper info provides details about player's immortality status.",
                 "properties": {
