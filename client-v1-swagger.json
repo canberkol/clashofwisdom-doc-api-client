@@ -1184,17 +1184,7 @@
                   "Example-200.0000": {
                     "value": {
                       "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
+                        "pagination": null,
                         "set": null
                       },
                       "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
@@ -1259,7 +1249,7 @@
                     "rewardedAt": null,
                     "status": 0,
                     "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
-                    "question": 234,
+                    "question": "fe2cfcf0-e870-4360-a41e-3b3b5331f2a4",
                     "playerComments": "Soruda yazım hatası bulunuyor.",
                     "issueType": "t",
                     "issueId": null,
@@ -11055,397 +11045,6 @@
         ],
         "x-examples": {
           "Example-1": {
-            "id": 232,
-            "theme": null,
-            "difficultyLevel": 8,
-            "countQuestions": 10,
-            "fee": 0,
-            "questions": [
-              {
-                "id": 3215,
-                "question": "Which actor did not play the role \"Bruce Wayne\" in any of the Batman movies?",
-                "bannerImage": "null",
-                "difficultyLevel": 2,
-                "choices": [
-                  {
-                    "label": "Christopher Nolan",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Bruce Willis",
-                    "isCorrect": true
-                  },
-                  {
-                    "label": "Val Kilmer",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Michael Keaton",
-                    "isCorrect": false
-                  }
-                ],
-                "duration": 20,
-                "rewards": {
-                  "coins": 10,
-                  "experience": 50,
-                  "score": 5,
-                  "powerups": {
-                    "life": 18,
-                    "joker": 139,
-                    "fiftyFifty": 5,
-                    "majority": 12
-                  }
-                },
-                "tag": "history"
-              },
-              {
-                "id": 981,
-                "question": "What two colors are in Turkish flag?",
-                "bannerImage": "null",
-                "difficultyLevel": 2,
-                "choices": [
-                  {
-                    "label": "Red-Black",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Black-White",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Red-White",
-                    "isCorrect": true
-                  },
-                  {
-                    "label": "Green-Purple",
-                    "isCorrect": false
-                  }
-                ],
-                "duration": 20,
-                "rewards": {
-                  "coins": 10,
-                  "experience": 50,
-                  "score": 5,
-                  "powerups": {
-                    "life": 18,
-                    "joker": 139,
-                    "fiftyFifty": 5,
-                    "majority": 12
-                  }
-                },
-                "tag": "history"
-              },
-              {
-                "id": 681,
-                "question": "Which actor played the original Terminator?",
-                "bannerImage": "null",
-                "difficultyLevel": 3,
-                "choices": [
-                  {
-                    "label": "Arnold Schwarzenneger",
-                    "isCorrect": true
-                  },
-                  {
-                    "label": "Sylverster Stallone",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Danny DeVito",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Chris Hemsworth",
-                    "isCorrect": false
-                  }
-                ],
-                "duration": 20,
-                "rewards": {
-                  "coins": 10,
-                  "experience": 50,
-                  "score": 5,
-                  "powerups": {
-                    "life": 18,
-                    "joker": 139,
-                    "fiftyFifty": 5,
-                    "majority": 12
-                  }
-                },
-                "tag": "history"
-              },
-              {
-                "id": 6576,
-                "question": "Which profession did Arnold Schwarzenneger not do?",
-                "bannerImage": "null",
-                "difficultyLevel": 6,
-                "choices": [
-                  {
-                    "label": "Actor",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Body Builder",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Politician",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Cook",
-                    "isCorrect": true
-                  }
-                ],
-                "duration": 20,
-                "rewards": {
-                  "coins": 10,
-                  "experience": 50,
-                  "score": 5,
-                  "powerups": {
-                    "life": 18,
-                    "joker": 139,
-                    "fiftyFifty": 5,
-                    "majority": 12
-                  }
-                },
-                "tag": "history"
-              },
-              {
-                "id": 433,
-                "question": "Who is regarded as the founding father of the Republic of Turkiye?",
-                "bannerImage": "null",
-                "difficultyLevel": 1,
-                "choices": [
-                  {
-                    "label": "Mustafa Kemal AtatÃ¼rk",
-                    "isCorrect": true
-                  },
-                  {
-                    "label": "Ä°smet Ä°nÃ¶nÃ¼",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "KazÄ±m Karabekir",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Kenan Evren",
-                    "isCorrect": true
-                  }
-                ],
-                "duration": 20,
-                "rewards": {
-                  "coins": 10,
-                  "experience": 50,
-                  "score": 5,
-                  "powerups": {
-                    "life": 18,
-                    "joker": 139,
-                    "fiftyFifty": 5,
-                    "majority": 12
-                  }
-                },
-                "tag": "history"
-              },
-              {
-                "id": 31,
-                "question": "What color are the taxis in New York City?",
-                "bannerImage": "null",
-                "difficultyLevel": 4,
-                "choices": [
-                  {
-                    "label": "Black",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Purple",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Yellow",
-                    "isCorrect": true
-                  },
-                  {
-                    "label": "Green",
-                    "isCorrect": true
-                  }
-                ],
-                "duration": 20,
-                "rewards": {
-                  "coins": 10,
-                  "experience": 50,
-                  "score": 5,
-                  "powerups": {
-                    "life": 18,
-                    "joker": 139,
-                    "fiftyFifty": 5,
-                    "majority": 12
-                  }
-                },
-                "tag": "history"
-              },
-              {
-                "id": 4322,
-                "question": "Who played Eva Peron in the movie Don'T Cry For Me Argentina?",
-                "bannerImage": "null",
-                "difficultyLevel": 7,
-                "choices": [
-                  {
-                    "label": "Madonna",
-                    "isCorrect": true
-                  },
-                  {
-                    "label": "Eva Mendes",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Nicole Kidman",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Cate Blanchett",
-                    "isCorrect": false
-                  }
-                ],
-                "duration": 20,
-                "rewards": {
-                  "coins": 10,
-                  "experience": 50,
-                  "score": 5,
-                  "powerups": {
-                    "life": 18,
-                    "joker": 139,
-                    "fiftyFifty": 5,
-                    "majority": 12
-                  }
-                },
-                "tag": "history"
-              },
-              {
-                "id": 5321,
-                "question": "What does BMW stand for?",
-                "bannerImage": "null",
-                "difficultyLevel": 6,
-                "choices": [
-                  {
-                    "label": "Best Motor Work",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Binary Machine World",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Bayerishe Motoren Werke",
-                    "isCorrect": true
-                  },
-                  {
-                    "label": "Beautiful Miraculous Women",
-                    "isCorrect": false
-                  }
-                ],
-                "duration": 20,
-                "rewards": {
-                  "coins": 10,
-                  "experience": 50,
-                  "score": 5,
-                  "powerups": {
-                    "life": 18,
-                    "joker": 139,
-                    "fiftyFifty": 5,
-                    "majority": 12
-                  }
-                },
-                "tag": "history"
-              },
-              {
-                "id": 9966,
-                "question": "In which year did Covid-19 pandemic struck the entire world?",
-                "bannerImage": "null",
-                "difficultyLevel": 2,
-                "choices": [
-                  {
-                    "label": "2015",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "2000",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "1990",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "2020",
-                    "isCorrect": true
-                  }
-                ],
-                "duration": 20,
-                "rewards": {
-                  "coins": 10,
-                  "experience": 50,
-                  "score": 5,
-                  "powerups": {
-                    "life": 18,
-                    "joker": 139,
-                    "fiftyFifty": 5,
-                    "majority": 12
-                  }
-                },
-                "tag": "history"
-              },
-              {
-                "id": 2342,
-                "question": "Which of the following is not a mobile phone brand?",
-                "bannerImage": "null",
-                "difficultyLevel": 5,
-                "choices": [
-                  {
-                    "label": "LG",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "Citroen",
-                    "isCorrect": true
-                  },
-                  {
-                    "label": "Apple",
-                    "isCorrect": false
-                  },
-                  {
-                    "label": "OnePlus",
-                    "isCorrect": true
-                  }
-                ],
-                "duration": 20,
-                "rewards": {
-                  "coins": 10,
-                  "experience": 50,
-                  "score": 5,
-                  "powerups": {
-                    "life": 18,
-                    "joker": 139,
-                    "fiftyFifty": 5,
-                    "majority": 12
-                  }
-                },
-                "tag": "history"
-              }
-            ],
-            "maxRewards": {
-              "coins": 100,
-              "experience": 500,
-              "powerups": {
-                "life": 0,
-                "insurance": 0,
-                "joker": 0,
-                "fiftyFifty": 0,
-                "majority": 0,
-                "immortalityCount": 0,
-                "immunityCount": 0
-              },
-              "score": 3
-            },
             "value": {
               "id": 232,
               "theme": null,
@@ -11456,7 +11055,7 @@
                 {
                   "id": 3215,
                   "question": "Which actor did not play the role \"Bruce Wayne\" in any of the Batman movies?",
-                  "bannerImage": "null",
+                  "bannerImage": null,
                   "difficultyLevel": 2,
                   "choices": [
                     {
@@ -11482,18 +11081,20 @@
                     "experience": 50,
                     "score": 5,
                     "powerups": {
-                      "life": 18,
-                      "joker": 139,
-                      "fiftyFifty": 5,
-                      "majority": 12
+                      "tickets": 0,
+                      "joker": 1,
+                      "fiftyFifty": 0,
+                      "majority": 0,
+                      "stash": 0,
+                      "unlimitedTickets": null
                     }
                   },
-                  "tag": "history"
+                  "tag": "movies"
                 },
                 {
                   "id": 981,
                   "question": "What two colors are in Turkish flag?",
-                  "bannerImage": "null",
+                  "bannerImage": null,
                   "difficultyLevel": 2,
                   "choices": [
                     {
@@ -11519,18 +11120,20 @@
                     "experience": 50,
                     "score": 5,
                     "powerups": {
-                      "life": 18,
-                      "joker": 139,
-                      "fiftyFifty": 5,
-                      "majority": 12
+                      "tickets": 0,
+                      "joker": 0,
+                      "fiftyFifty": 1,
+                      "majority": 1,
+                      "stash": 0,
+                      "unlimitedTickets": null
                     }
                   },
-                  "tag": "history"
+                  "tag": "world-flags"
                 },
                 {
                   "id": 681,
                   "question": "Which actor played the original Terminator?",
-                  "bannerImage": "null",
+                  "bannerImage": null,
                   "difficultyLevel": 3,
                   "choices": [
                     {
@@ -11556,18 +11159,20 @@
                     "experience": 50,
                     "score": 5,
                     "powerups": {
-                      "life": 18,
-                      "joker": 139,
-                      "fiftyFifty": 5,
-                      "majority": 12
+                      "tickets": 0,
+                      "joker": 0,
+                      "fiftyFifty": 1,
+                      "majority": 0,
+                      "stash": 0,
+                      "unlimitedTickets": null
                     }
                   },
-                  "tag": "history"
+                  "tag": "movies"
                 },
                 {
                   "id": 6576,
                   "question": "Which profession did Arnold Schwarzenneger not do?",
-                  "bannerImage": "null",
+                  "bannerImage": null,
                   "difficultyLevel": 6,
                   "choices": [
                     {
@@ -11593,30 +11198,32 @@
                     "experience": 50,
                     "score": 5,
                     "powerups": {
-                      "life": 18,
-                      "joker": 139,
-                      "fiftyFifty": 5,
-                      "majority": 12
+                      "tickets": 0,
+                      "joker": 0,
+                      "fiftyFifty": 0,
+                      "majority": 1,
+                      "stash": 1,
+                      "unlimitedTickets": null
                     }
                   },
-                  "tag": "history"
+                  "tag": "hollywood"
                 },
                 {
                   "id": 433,
                   "question": "Who is regarded as the founding father of the Republic of Turkiye?",
-                  "bannerImage": "null",
+                  "bannerImage": null,
                   "difficultyLevel": 1,
                   "choices": [
                     {
-                      "label": "Mustafa Kemal AtatÃ¼rk",
+                      "label": "Mustafa Kemal Atatürk",
                       "isCorrect": true
                     },
                     {
-                      "label": "Ä°smet Ä°nÃ¶nÃ¼",
+                      "label": "İsmet İnönü",
                       "isCorrect": false
                     },
                     {
-                      "label": "KazÄ±m Karabekir",
+                      "label": "Kazım Karabekir",
                       "isCorrect": false
                     },
                     {
@@ -11630,18 +11237,20 @@
                     "experience": 50,
                     "score": 5,
                     "powerups": {
-                      "life": 18,
-                      "joker": 139,
-                      "fiftyFifty": 5,
-                      "majority": 12
+                      "tickets": 0,
+                      "joker": 0,
+                      "fiftyFifty": 1,
+                      "majority": 1,
+                      "stash": 0,
+                      "unlimitedTickets": null
                     }
                   },
-                  "tag": "history"
+                  "tag": "middle-east"
                 },
                 {
                   "id": 31,
                   "question": "What color are the taxis in New York City?",
-                  "bannerImage": "null",
+                  "bannerImage": null,
                   "difficultyLevel": 4,
                   "choices": [
                     {
@@ -11667,17 +11276,19 @@
                     "experience": 50,
                     "score": 5,
                     "powerups": {
-                      "life": 18,
-                      "joker": 139,
-                      "fiftyFifty": 5,
-                      "majority": 12
+                      "tickets": 0,
+                      "joker": 0,
+                      "fiftyFifty": 0,
+                      "majority": 0,
+                      "stash": 0,
+                      "unlimitedTickets": null
                     }
                   },
-                  "tag": "history"
+                  "tag": "colors"
                 },
                 {
                   "id": 4322,
-                  "question": "Who played Eva Peron in the movie Don'T Cry For Me Argentina?",
+                  "question": "Who played Eva Peron in the movie Don't Cry For Me Argentina?",
                   "bannerImage": "null",
                   "difficultyLevel": 7,
                   "choices": [
@@ -11704,13 +11315,15 @@
                     "experience": 50,
                     "score": 5,
                     "powerups": {
-                      "life": 18,
-                      "joker": 139,
-                      "fiftyFifty": 5,
-                      "majority": 12
+                      "tickets": 0,
+                      "joker": 0,
+                      "fiftyFifty": 0,
+                      "majority": 1,
+                      "stash": 0,
+                      "unlimitedTickets": null
                     }
                   },
-                  "tag": "history"
+                  "tag": "movies"
                 },
                 {
                   "id": 5321,
@@ -11741,13 +11354,15 @@
                     "experience": 50,
                     "score": 5,
                     "powerups": {
-                      "life": 18,
-                      "joker": 139,
-                      "fiftyFifty": 5,
-                      "majority": 12
+                      "tickets": 0,
+                      "joker": 0,
+                      "fiftyFifty": 1,
+                      "majority": 0,
+                      "stash": 1,
+                      "unlimitedTickets": null
                     }
                   },
-                  "tag": "history"
+                  "tag": "automotive-industry"
                 },
                 {
                   "id": 9966,
@@ -11778,13 +11393,15 @@
                     "experience": 50,
                     "score": 5,
                     "powerups": {
-                      "life": 18,
-                      "joker": 139,
-                      "fiftyFifty": 5,
-                      "majority": 12
+                      "tickets": 0,
+                      "joker": 1,
+                      "fiftyFifty": 0,
+                      "majority": 0,
+                      "stash": 0,
+                      "unlimitedTickets": null
                     }
                   },
-                  "tag": "history"
+                  "tag": "diseases"
                 },
                 {
                   "id": 2342,
@@ -11815,27 +11432,28 @@
                     "experience": 50,
                     "score": 5,
                     "powerups": {
-                      "life": 18,
-                      "joker": 139,
-                      "fiftyFifty": 5,
-                      "majority": 12
+                      "tickets": 0,
+                      "joker": 0,
+                      "fiftyFifty": 0,
+                      "majority": 0,
+                      "stash": 0,
+                      "unlimitedTickets": null
                     }
                   },
-                  "tag": "history"
+                  "tag": "technology"
                 }
               ],
               "maxRewards": {
                 "coins": 100,
                 "experience": 500,
                 "powerups": {
-                  "life": 0,
-                  "insurance": 0,
-                  "joker": 0,
-                  "fiftyFifty": 0,
-                  "majority": 0,
-                  "immortalityCount": 0,
-                  "immunityCount": 0
-                },
+                      "tickets": 0,
+                      "joker": 0,
+                      "fiftyFifty": 0,
+                      "majority": 0,
+                      "stash": 0,
+                      "unlimitedTickets": null
+                    },
                 "score": 3
               }
             }
@@ -11949,41 +11567,6 @@
         ],
         "x-examples": {
           "Example-1": {
-            "id": 3215,
-            "question": "Which actor did not play the role \"Bruce Wayne\" in any of the Batman movies?",
-            "bannerImage": "null",
-            "difficultyLevel": 2,
-            "choices": [
-              {
-                "label": "Christopher Nolan",
-                "isCorrect": false
-              },
-              {
-                "label": "Bruce Willis",
-                "isCorrect": true
-              },
-              {
-                "label": "Val Kilmer",
-                "isCorrect": false
-              },
-              {
-                "label": "Michael Keaton",
-                "isCorrect": false
-              }
-            ],
-            "duration": 20,
-            "rewards": {
-              "coins": 10,
-              "experience": 50,
-              "score": 5,
-              "powerups": {
-                "life": 18,
-                "joker": 139,
-                "fiftyFifty": 5,
-                "majority": 12
-              }
-            },
-            "tag": "history",
             "value": {
               "id": 3215,
               "question": "Which actor did not play the role \"Bruce Wayne\" in any of the Batman movies?",
@@ -12017,13 +11600,15 @@
                 "experience": 50,
                 "score": 5,
                 "powerups": {
-                  "tickets": 18,
-                  "joker": 139,
-                  "fiftyFifty": 5,
-                  "majority": 12
+                    "tickets": 0,
+                    "stash": 0,
+                    "joker": 0,
+                    "fiftyFifty": 0,
+                    "majority": 0,
+                    "unlimitedTickets": null
                 }
               },
-              "tag": "history"
+              "tag": "movies"
             }
           }
         },
@@ -12408,14 +11993,14 @@
           },
           "status": {
             "type": "integer",
-            "description": "https://docs.bonetwork.co/bilgisavasi/trivia-question-issue-statuses",
+            "description": "Issue status. 0: submitted, 1: under review, 2: resolved",
             "example": 0,
             "enum": [
               0,
               1,
               2
             ],
-            "minimum": 1,
+            "minimum": 0,
             "maximum": 2
           },
           "player": {
@@ -12424,10 +12009,8 @@
             "description": "Player who has submitted the issue."
           },
           "question": {
-            "type": "integer",
-            "minimum": 1,
-            "example": 234,
-            "description": "The disputed question's id if it is known to the player.",
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "playerComments": {
@@ -12445,7 +12028,7 @@
               "t"
             ],
             "example": "t",
-            "description": "https://docs.bonetwork.co/bilgisavasi/trivia-question-issue-types"
+            "description": "Issue's category. g: tag error, h: hint error, i: correct choice error, o: other, t: typo"
           },
           "issueId": {
             "type": "integer",
@@ -12486,7 +12069,7 @@
             "rewardedAt": "2019-08-24T14:15:22Z",
             "status": 0,
             "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
-            "question": 234,
+            "question": "fe2cfcf0-e870-4360-a41e-3b3b5331f2a4",
             "playerComments": "Soruda yazım hatası bulunuyor.",
             "issueType": "g",
             "issueId": 41444,
