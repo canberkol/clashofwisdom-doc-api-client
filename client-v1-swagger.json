@@ -41,6 +41,126 @@
     }
   ],
   "paths": {
+    
+    "/ad-placement/{code}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "example": "2x-coins-end-game"
+          },
+          "name": "code",
+          "in": "path",
+          "required": true,
+          "description": "Ad placement code must match to one of the entries within the database. Please contact project manager to see which code to use at different screens."
+        }
+      ],
+      "get": {
+        "summary": "Retrieve Ad Placement Details by Code",
+        "responses": {
+          "200": {
+            "description": "If successful, response's result set will return Player model (https://docs.bonetwork.co/bilgisavasi/player).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                },
+                "examples": {
+                  "Example-200.0000": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": {
+                          "id": 5455,
+                          "createdAt": "2019-08-24T14:15:22Z",
+                          "updatedAt": "2019-08-24T14:15:22Z",
+                          "status": "a",
+                          "placementCode": "combo-reward-ad",
+                          "title": "Endgame 2X Coin Combo",
+                          "rewardInstructions": {
+                            "tickets": {
+                              "value": 1,
+                              "multiplier": 1,
+                              "type": "v"
+                            },
+                            "unlimitedTicketsDuration": {
+                              "value": 24,
+                              "multiplier": 1,
+                              "type": "v"
+                            },
+                            "joker": {
+                              "value": 1,
+                              "multiplier": 1,
+                              "type": "v"
+                            },
+                            "majority": {
+                              "value": 0,
+                              "multiplier": 1,
+                              "type": "v"
+                            },
+                            "fiftyFifty": {
+                              "value": 0,
+                              "multiplier": 1,
+                              "type": "v"
+                            },
+                            "stash": {
+                              "value": 0,
+                              "multiplier": 1,
+                              "type": "v"
+                            },
+                            "experience": {
+                              "value": 0,
+                              "multiplier": 2,
+                              "type": "m"
+                            },
+                            "coins": {
+                              "value": 100,
+                              "multiplier": 1,
+                              "type": "v"
+                            }
+                          }
+                        }
+                      },
+                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
+                      "code": "200.000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  },
+                  "Example-200.0404": {
+                    "value": {
+                      "result": null,
+                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
+                      "code": "200.0404",
+                      "message": "No recods found matching your criteria."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401.Generic"
+          },
+          "412": {
+            "$ref": "#/components/responses/412.Generic"
+          },
+          "500": {
+            "$ref": "#/components/responses/500.Generic"
+          }
+        },
+        "operationId": "get-ad-placement-code",
+        "description": "Use this endpoint to grab details of a specific ad-placement",
+        "security": [
+          {
+            "X-Session-Token": []
+          }
+        ],
+        "parameters": [],
+        "tags": [
+          "rewarded-ads"
+        ]
+      }
+    },
     "/gameplays/finalize": {
       "post": {
         "summary": "Finalize Played Games",
@@ -1168,369 +1288,6 @@
       },
       "parameters": []
     },
-    "/support/request/question": {
-      "parameters": [],
-      "post": {
-        "summary": "Submit Trivia Question Related Issue",
-        "responses": {
-          "200": {
-            "description": "If successful, response's result set will return null with a response code of \"200.0000\".",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000": {
-                    "value": {
-                      "result": {
-                        "pagination": null,
-                        "set": null
-                      },
-                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "operationId": "post-support-request-question",
-        "description": "Use this endpoint to register players' issue requests related to trivia questions.",
-        "security": [
-          {
-            "X-Session-Token": []
-          }
-        ],
-        "parameters": [
-          {
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "in": "header",
-            "name": "X-Player-Id",
-            "description": "This should be supplied only if there is a player id available in device memory."
-          },
-          {
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "in": "header",
-            "name": "X-Device-Id",
-            "description": "This is the device specific id, generated for the user.",
-            "required": true
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TQIssueRequest"
-              },
-              "examples": {
-                "Example-1": {
-                  "value": {
-                    "id": 6554,
-                    "createdAt": "2019-08-24T14:15:22Z",
-                    "respondedAt": null,
-                    "rewardedAt": null,
-                    "status": 0,
-                    "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
-                    "question": "fe2cfcf0-e870-4360-a41e-3b3b5331f2a4",
-                    "playerComments": "Soruda yazım hatası bulunuyor.",
-                    "issueType": "t",
-                    "issueId": null,
-                    "response": null,
-                    "rewardInformation": null
-                  }
-                }
-              }
-            }
-          },
-          "description": "https://docs.bonetwork.co/bilgisavasi/socialaccountinfo"
-        },
-        "tags": [
-          "support"
-        ]
-      }
-    },
-    "/support/suggest/question": {
-      "parameters": [],
-      "post": {
-        "summary": "Suggest New Trivia Question",
-        "responses": {
-          "200": {
-            "description": "If successful, response's result set will return the record id of the added suggestion.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000": {
-                    "value": {
-                      "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
-                        "set": 1259
-                      },
-                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "operationId": "post-support-suggest-question",
-        "description": "Use this endpoint to let players suggest new questions.\n",
-        "security": [
-          {
-            "X-Session-Token": []
-          }
-        ],
-        "parameters": [
-          {
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "in": "header",
-            "name": "X-Player-Id",
-            "description": "This should be supplied only if there is a player id available in device memory."
-          },
-          {
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "in": "header",
-            "name": "X-Device-Id",
-            "description": "This is the device specific id, generated for the user.",
-            "required": true
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TriviaQuizQuestion"
-              },
-              "examples": {
-                "Example-1": {
-                  "value": {
-                    "id": null,
-                    "question": "Which actor did not play the role \"Bruce Wayne\" in any of the Batman movies?",
-                    "bannerImage": "/cdn/bannerImage.jpg",
-                    "choices": [
-                      {
-                        "label": "Christopher Nolan",
-                        "isCorrect": false,
-                        "answerCount": 0
-                      },
-                      {
-                        "label": "Val Kilmer",
-                        "isCorrect": false,
-                        "answerCount": 0
-                      },
-                      {
-                        "label": "Jack Nicholson",
-                        "isCorrect": true,
-                        "answerCount": 0
-                      },
-                      {
-                        "label": "Michael Keaton",
-                        "isCorrect": false,
-                        "answerCount": 0
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "description": "https://docs.bonetwork.co/bilgisavasi/socialaccountinfo"
-        },
-        "tags": [
-          "support"
-        ]
-      }
-    },
-    "/ad-placement/{code}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string",
-            "example": "2x-coins-end-game"
-          },
-          "name": "code",
-          "in": "path",
-          "required": true,
-          "description": "Ad placement code must match to one of the entries within the database. Please contact project manager to see which code to use at different screens."
-        }
-      ],
-      "get": {
-        "summary": "Retrieve Ad Placement Details by Code",
-        "responses": {
-          "200": {
-            "description": "If successful, response's result set will return Player model (https://docs.bonetwork.co/bilgisavasi/player).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000": {
-                    "value": {
-                      "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
-                        "set": {
-                          "id": 5455,
-                          "createdAt": "2019-08-24T14:15:22Z",
-                          "updatedAt": "2019-08-24T14:15:22Z",
-                          "status": "a",
-                          "placementCode": "combo-reward-ad",
-                          "title": "Endgame 2X Coin Combo",
-                          "rewardInstructions": {
-                            "tickets": {
-                              "value": 1,
-                              "multiplier": 1,
-                              "type": "v"
-                            },
-                            "unlimitedTicketsDuration": {
-                              "value": 24,
-                              "multiplier": 1,
-                              "type": "v"
-                            },
-                            "joker": {
-                              "value": 1,
-                              "multiplier": 1,
-                              "type": "v"
-                            },
-                            "majority": {
-                              "value": 0,
-                              "multiplier": 1,
-                              "type": "v"
-                            },
-                            "fiftyFifty": {
-                              "value": 0,
-                              "multiplier": 1,
-                              "type": "v"
-                            },
-                            "stash": {
-                              "value": 0,
-                              "multiplier": 1,
-                              "type": "v"
-                            },
-                            "experience": {
-                              "value": 0,
-                              "multiplier": 2,
-                              "type": "m"
-                            },
-                            "coins": {
-                              "value": 100,
-                              "multiplier": 1,
-                              "type": "v"
-                            }
-                          }
-                        }
-                      },
-                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  },
-                  "Example-200.0404": {
-                    "value": {
-                      "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
-                        "set": {}
-                      },
-                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.0404",
-                      "message": "No recods found matching your criteria."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "operationId": "get-ad-placement-code",
-        "description": "Use this endpoint to grab details of a specific ad-placement",
-        "security": [
-          {
-            "X-Session-Token": []
-          }
-        ],
-        "parameters": [],
-        "tags": [
-          "rewarded-ads"
-        ]
-      }
-    },
     "/player": {
       "post": {
         "summary": "Register New Player",
@@ -2167,7 +1924,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfull response will return URL of the avatar as a value of resukt.set.",
+            "description": "Successful response will return URL of the avatar as a value of resukt.set.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2242,47 +1999,6 @@
           "description": "Amount of coins to add."
         }
       ],
-      "patch": {
-        "summary": "Add New Coins to Player",
-        "operationId": "patch-player-id-coins-amount",
-        "responses": {
-          "200": {
-            "description": "If process is handled successfully new total value is returned as result.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000-1": {
-                    "value": {
-                      "result": {
-                        "set": 350
-                      },
-                      "sessionToken": null,
-                      "code": "200.000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "description": "Use this endpoint to increment player's coin amount by provided amount.\n",
-        "tags": [
-          "panel"
-        ]
-      },
       "delete": {
         "summary": "Remove Coins of Player",
         "operationId": "delete-player-id-coins-amount",
@@ -2319,115 +2035,9 @@
             "$ref": "#/components/responses/500.Generic"
           }
         },
-        "description": "Use this endpoint to decrement player's coin amount by provided amount.",
+        "description": "Use this endpoint to decrement player's coin amount by provided amount. This endpoint only works if the session's player and the provided id matches.",
         "tags": [
           "panel"
-        ]
-      }
-    },
-    "/player/{id}/experience/{amount}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "Player's uuid."
-        },
-        {
-          "schema": {
-            "type": "string",
-            "example": "13"
-          },
-          "name": "amount",
-          "in": "path",
-          "required": true,
-          "description": "Amount of experience to add."
-        }
-      ],
-      "patch": {
-        "summary": "Add New XP Points to Player",
-        "operationId": "patch-player-id-experience-amount",
-        "responses": {
-          "200": {
-            "description": "If process is handled successfully new total value is returned as result.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000-1": {
-                    "value": {
-                      "result": {
-                        "set": 350
-                      },
-                      "sessionToken": null,
-                      "code": "200.000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "description": "Use this endpoint to increment player's coin amount by provided amount.",
-        "tags": [
-          "panel"
-        ]
-      },
-      "delete": {
-        "summary": "Remove XP Points from Player",
-        "operationId": "delete-player-id-experience-amount",
-        "responses": {
-          "200": {
-            "description": "If process is handled successfully new total value is returned as result.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000-1": {
-                    "value": {
-                      "result": {
-                        "set": 350
-                      },
-                      "sessionToken": null,
-                      "code": "200.000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "description": "Use this endpoint to decrement player's coin amount by provided amount.",
-        "tags": [
-          "players"
         ]
       }
     },
@@ -2454,7 +2064,7 @@
                             "gameplayStatus": "f",
                             "playerScore": 32,
                             "opponentScore": 21,
-                            "playerStatus": "w",
+                            "winStatus": "w",
                             "playerAlias": "BugsBunny",
                             "opponentAlias": "Arı Maya",
                             "playerAvatar": "bb.gif",
@@ -2466,7 +2076,7 @@
                             "gameplayStatus": "f",
                             "playerScore": 90,
                             "opponentScore": 90,
-                            "playerStatus": "t",
+                            "winStatus": "t",
                             "playerAlias": "BugsBunny",
                             "opponentAlias": "Kitap Kurdu",
                             "playerAvatar": "bb.gif",
@@ -2478,7 +2088,7 @@
                             "gameplayStatus": "w",
                             "playerScore": 32,
                             "opponentScore": 0,
-                            "playerStatus": "t",
+                            "winStatus": "t",
                             "playerAlias": "BugsBunny",
                             "opponentAlias": "Hugo",
                             "playerAvatar": "bb.gif",
@@ -2494,17 +2104,7 @@
                   "Example-200.0404": {
                     "value": {
                       "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
+                        "pagination": null,
                         "set": {}
                       },
                       "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
@@ -2523,6 +2123,7 @@
             "$ref": "#/components/responses/412.Generic"
           },
           "500": {
+            
             "$ref": "#/components/responses/500.Generic"
           }
         },
@@ -2587,20 +2188,7 @@
                   },
                   "Example-200.0404": {
                     "value": {
-                      "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
-                        "set": {}
-                      },
+                      "result": null,
                       "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
                       "code": "200.0404",
                       "message": "No recods found matching your criteria."
@@ -2672,17 +2260,7 @@
                   "Example-200.0404": {
                     "value": {
                       "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
+                        "pagination": null,
                         "set": {}
                       },
                       "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
@@ -2762,17 +2340,7 @@
                   "Example-200.0404": {
                     "value": {
                       "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
+                        "pagination": null,
                         "set": {}
                       },
                       "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
@@ -2831,17 +2399,7 @@
                   "Example-200.0000": {
                     "value": {
                       "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
+                        "pagination": null,
                         "set": 1500
                       },
                       "sessionToken": null,
@@ -2852,17 +2410,7 @@
                   "Example-200.0404": {
                     "value": {
                       "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
+                        "pagination": null,
                         "set": {}
                       },
                       "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
@@ -2893,57 +2441,75 @@
         "description": "Use this endpoint to retrieve user's level related info."
       }
     },
-    "/player/{id}/power-ups": {
-      "get": {
-        "summary": "Retrieve Player's Power-ups",
-        "tags": [
-          "players"
-        ],
+    "/player/{id}/power-up/{key}": {
+      "delete": {
+        "summary": "Decrement Player's Power-up",
+        "operationId": "delete-player-id-power-up-key",
         "responses": {
           "200": {
-            "description": "Successful response returns PlaywerPowerUps model (https://docs.bonetwork.co/bilgisavasi/ekUX-playerpowerups) as value in result.set.",
+            "description": "Successful response returns UnlimitedTicketInfo, or a scalar value as value in result.set.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ApiResponse"
                 },
                 "examples": {
-                  "Example-200.0000": {
+                  "Example-200.0000-fiftyFifty": {
                     "value": {
                       "result": {
                         "pagination": null,
-                        "set": {
-                          "life": 2,
-                          "joker": 3,
-                          "fiftyFifty": 12,
-                          "majorirty": 3,
-                          "insurance": 4
-                        }
+                        "set": 8
                       },
                       "sessionToken": null,
                       "code": "200.0000",
                       "message": "Your request has been successfully completed."
                     }
                   },
-                  "Example-200.0404": {
+                  "Example-200.0000-majority": {
                     "value": {
                       "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
-                        "set": {}
+                        "pagination": null,
+                        "set": 28
                       },
-                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.0404",
-                      "message": "No recods found matching your criteria."
+                      "sessionToken": null,
+                      "code": "200.0000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  },
+                  "Example-200.0000-tickers": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": 4
+                      },
+                      "sessionToken": null,
+                      "code": "200.0000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  },
+                  "Example-200.0000-joker": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": 40
+                      },
+                      "sessionToken": null,
+                      "code": "200.0000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  },
+                  "Example-200.0000-unlimited-ticket-info": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": {
+                          "isActive": true,
+                          "validUntil": "2019-08-24T14:15:22Z"
+                        }
+                      },
+                      "sessionToken": null,
+                      "code": "200.0000",
+                      "message": "Your request has been successfully completed."
                     }
                   }
                 }
@@ -2951,7 +2517,27 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/401.Generic"
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                },
+                "examples": {
+                  "Example-401.0001": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": "null"
+                      },
+                      "sessionToken": null,
+                      "code": "401.0001",
+                      "message": "Your request has been successfully completed."
+                    }
+                  }
+                }
+              }
+            }
           },
           "412": {
             "$ref": "#/components/responses/412.Generic"
@@ -2960,23 +2546,11 @@
             "$ref": "#/components/responses/500.Generic"
           }
         },
-        "operationId": "get-player-id-power-ups",
-        "description": "Use this endpoint to get the latest information of a given player's power-up counts."
+        "description": "Use this endpoint if the player decides to user one of her/his power-ups. This endpoint decrements the given power-up of a user by \"one\". If there are no available power-up to use an error will bi returned.",
+        "tags": [
+          "players"
+        ]
       },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string",
-            "format": "uri"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "Player's uuid."
-        }
-      ]
-    },
-    "/player/{id}/power-up/{key}": {
       "get": {
         "summary": "Retrieve Total Power-Up Count of Player",
         "tags": [
@@ -3094,65 +2668,17 @@
           "required": true,
           "description": "The key of the power-up to grab."
         }
-      ],
-      "delete": {
-        "summary": "Decrement Player's Power-up",
-        "operationId": "delete-player-id-power-up--keykey",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-401.0001": {
-                    "value": {
-                      "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
-                        "set": "null"
-                      },
-                      "sessionToken": null,
-                      "code": "401.0001",
-                      "message": "Your request has been successfully completed."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "description": "Use this endpoint if the player decides to user one of her/his power-ups. This endpoint decrements the given power-up of a user by \"one\". If there are no available power-up to use an error will bi returned.",
+      ]
+    },
+    "/player/{id}/power-ups": {
+      "get": {
+        "summary": "Retrieve Player's Power-ups",
         "tags": [
           "players"
-        ]
-      },
-      "post": {
-        "summary": "Make An In-Game Power-Up Purchase",
-        "operationId": "post-player-id-power-up-key",
+        ],
         "responses": {
           "200": {
-            "description": "200-success",
+            "description": "Successful response returns PlaywerPowerUps model (https://docs.bonetwork.co/bilgisavasi/ekUX-playerpowerups) as value in result.set.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3162,43 +2688,30 @@
                   "Example-200.0000": {
                     "value": {
                       "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
-                        "set": 1500
+                        "pagination": null,
+                        "set": {
+                          "tickets": 2,
+                          "joker": 3,
+                          "fiftyFifty": 12,
+                          "majorirty": 3,
+                          "stash": 4,
+                          "unlimitedTickets": null
+                        }
                       },
                       "sessionToken": null,
                       "code": "200.0000",
                       "message": "Your request has been successfully completed."
                     }
                   },
-                  "Example-200.0800": {
+                  "Example-200.0404": {
                     "value": {
                       "result": {
-                        "set": null,
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": "offset=9&limit=50",
-                          "nextLink": "offset=1&limit=50",
-                          "lastLink": "offset=10&limit=50",
-                          "firstLink": "offset=10&limit=50",
-                          "totalItems": 500,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        }
+                        "pagination": null,
+                        "set": {}
                       },
                       "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.0800",
-                      "message": "You do not have enough 'ganimet' to complete this purchase."
+                      "code": "200.0404",
+                      "message": "No recods found matching your criteria."
                     }
                   }
                 }
@@ -3215,15 +2728,161 @@
             "$ref": "#/components/responses/500.Generic"
           }
         },
-        "description": "Use this endpoint when the player wants to make an \"in gameplay\" purchase of a powerup.",
+        "operationId": "get-player-id-power-ups",
+        "description": "Use this endpoint to get the latest information of a given player's power-up counts."
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "format": "uri"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Player's uuid."
+        }
+      ]
+    },
+    
+    "/player/{id}/standing/at/{period}/{week}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "period",
+          "in": "path",
+          "required": true,
+          "description": "Period in YYYYMM format."
+        },
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "week",
+          "in": "path",
+          "required": true,
+          "description": "Week number."
+        },
+        {
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Uuid of the player."
+        }
+      ],
+      "get": {
+        "summary": "Retrieve Player's Standing Summary by Period and Week",
+        "tags": [
+          "leaderboards"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response returns a PlayerPvpLeaderboardStanding",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                },
+                "examples": {
+                  "Example-200.0000": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": {
+                          "id": 342,
+                          "year": 2021,
+                          "month": 3,
+                          "week": 34,
+                          "division": 3,
+                          "group": 0,
+                          "league": 2,
+                          "title": "Diamond II - Week 52",
+                          "standing": {
+                            "player": {
+                              "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
+                              "alias": "tsemmui",
+                              "avatar": "/cdn/avatar/tsemmui-avatar.png"
+                            },
+                            "currentRank": 1,
+                            "accumulatedPoints": 54555,
+                            "accumulatedScore": 0,
+                            "zoneCode": "promotion",
+                            "totalPlayers": 40,
+                            "rewardInfo": {
+                              "coins": 10,
+                              "experience": 50,
+                              "powerups": {
+                                "tickets": 2,
+                                "stash": 18,
+                                "joker": 139,
+                                "fiftyFifty": 5,
+                                "majority": 12,
+                                "unlimitedTicketDuration": {
+                                  "isActive": true,
+                                  "validUntil": "2019-08-24T14:15:22Z"
+                                }      
+                              },
+                              "score": 5
+                            }
+                          },
+                          "weekTitle": "Week 52",
+                          "endsAt": "2019-08-24T14:15:22Z",
+                          "handle": "diamond1"
+                        }
+                      },
+                      "sessionToken": null,
+                      "code": "200.000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  },
+                  "Example-200.0404": {
+                    "value": {
+                      "result": {
+                        "pagination": {
+                          "isCircular": true,
+                          "prevLink": null,
+                          "nextLink": null,
+                          "lastLink": null,
+                          "firstLink": null,
+                          "totalItems": 1,
+                          "itemsPerPage": 50,
+                          "pageCount": 1,
+                          "currentPage": 1
+                        },
+                        "set": {}
+                      },
+                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
+                      "code": "200.0404",
+                      "message": "No recods found matching your criteria."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401.Generic"
+          },
+          "412": {
+            "$ref": "#/components/responses/412.Generic"
+          },
+          "500": {
+            "$ref": "#/components/responses/500.Generic"
+          }
+        },
+        "operationId": "get-player-standing-id-period-period-and-week",
         "security": [
           {
-            "X-Api-Key": []
+            "X-Session-Token": []
           }
         ],
-        "tags": [
-          "players"
-        ]
+        "description": "Use this endpoint to get the standing summary of the given player. This endpoint returns information of the player only. The other ranked players within the same leaderboard are not shown. To get a ranking list please see /leaderboard/of/{player}/period/{period}/week/{week} endpoint."
       }
     },
     "/player/{id}/standing/current": {
@@ -3244,7 +2903,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful response returns PlayerLEaderboardStanding model (https://docs.bonetwork.co/bilgisavasi/playerleaderboardstanding) as value in result.set.",
+            "description": "Successful response returns PlayerPvpLeaderboardStanding model.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3254,50 +2913,47 @@
                   "Example-200.0000": {
                     "value": {
                       "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
+                        "pagination": null,
                         "set": {
                           "id": 342,
+                          "year": 2021,
+                          "month": 3,
                           "week": 34,
-                          "period": 202012,
+                          "division": 3,
                           "group": 0,
                           "league": 2,
-                          "title": "Elmas I Ligi",
-                          "weekTitle": "2. Hafta",
-                          "handle": "diamond2",
+                          "title": "Diamond II - Week 52",
                           "standing": {
                             "player": {
                               "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
                               "alias": "tsemmui",
                               "avatar": "/cdn/avatar/tsemmui-avatar.png"
                             },
-                            "currentRank": 3,
-                            "accumulatedPoints": 532,
-                            "accumlatedScore": 5310,
+                            "currentRank": 1,
+                            "accumulatedPoints": 54555,
+                            "accumulatedScore": 0,
                             "zoneCode": "promotion",
                             "totalPlayers": 40,
                             "rewardInfo": {
                               "coins": 10,
                               "experience": 50,
                               "powerups": {
-                                "life": 5,
-                                "insurance": 5,
-                                "joker": 5,
+                                "tickets": 2,
+                                "stash": 18,
+                                "joker": 139,
                                 "fiftyFifty": 5,
-                                "majority": 5
+                                "majority": 12,
+                                "unlimitedTicketDuration": {
+                                  "isActive": true,
+                                  "validUntil": "2019-08-24T14:15:22Z"
+                                }      
                               },
-                              "score": 0
+                              "score": 5
                             }
-                          }
+                          },
+                          "weekTitle": "Week 52",
+                          "endsAt": "2019-08-24T14:15:22Z",
+                          "handle": "diamond1"
                         }
                       },
                       "sessionToken": null,
@@ -3349,7 +3005,7 @@
         ]
       }
     },
-    "/player/{id}/stats/category-success": {
+    "/player/{id}/stats/by-tags": {
       "parameters": [
         {
           "schema": {
@@ -3361,13 +3017,13 @@
         }
       ],
       "get": {
-        "summary": "Retrieve Player Stats (Category-Success)",
+        "summary": "Retrieve Player Stats By Tags",
         "tags": [
           "players"
         ],
         "responses": {
           "200": {
-            "description": "Successful response returns a collection of PlayerTagStatItemmodel\n(https://docs.bonetwork.co/bilgisavasi/playertagstatitem)",
+            "description": "Successful response returns a collection of PlayerTagStatItemmodel.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3413,17 +3069,7 @@
                   "Example-200.0404": {
                     "value": {
                       "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
+                        "pagination": null,
                         "set": {}
                       },
                       "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
@@ -3452,139 +3098,6 @@
             "X-Session-Token": []
           }
         ]
-      }
-    },
-    "/player-standing/{player}/period/{period}/week/{week}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "period",
-          "in": "path",
-          "required": true,
-          "description": "Period in YYYYMM format."
-        },
-        {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "week",
-          "in": "path",
-          "required": true,
-          "description": "Week number."
-        },
-        {
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": "player",
-          "in": "path",
-          "required": true,
-          "description": "Uuid of the player."
-        }
-      ],
-      "get": {
-        "summary": "Retrieve Player's Standing Summary by Period and Week",
-        "tags": [
-          "leaderboards"
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response returns a collection of PlayerLeaderboardStandingmodels\n(https://docs.bonetwork.co/bilgisavasi/playerleaderboardstanding)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000": {
-                    "value": {
-                      "result": {
-                        "pagination": null,
-                        "set": {
-                          "id": 342,
-                          "week": 34,
-                          "period": 202012,
-                          "group": 0,
-                          "league": 2,
-                          "title": "Elmas II Ligi",
-                          "weekTitle": "21. Hafta",
-                          "handle": "diamond2",
-                          "standing": {
-                            "player": {
-                              "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
-                              "alias": "tsemmui",
-                              "avatar": "/cdn/avatar/tsemmui-avatar.png"
-                            },
-                            "currentRank": 3,
-                            "accumulatedPoints": 532,
-                            "accumlatedScore": 5310,
-                            "zoneCode": "promotion",
-                            "totalPlayers": 40,
-                            "rewardInfo": {
-                              "coins": 10,
-                              "experience": 50,
-                              "powerups": {
-                                "life": 5,
-                                "insurance": 5,
-                                "joker": 5,
-                                "fiftyFifty": 5,
-                                "majority": 5
-                              },
-                              "score": 0
-                            }
-                          }
-                        }
-                      },
-                      "sessionToken": null,
-                      "code": "200.000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  },
-                  "Example-200.0404": {
-                    "value": {
-                      "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
-                        "set": {}
-                      },
-                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.0404",
-                      "message": "No recods found matching your criteria."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "operationId": "get-player-standing-id-period-period-and-week",
-        "security": [
-          {
-            "X-Session-Token": []
-          }
-        ],
-        "description": "Use this endpoint to get the standing summary of the given player. This endpoint returns information of the player only. The other ranked players within the same leaderboard are not shown. To get a ranking list please see /leaderboard/of/{player}/period/{period}/week/{week} endpoint."
       }
     },
     "/rewarded-ad/reward/for/{adPlacementCode}/{networkCode}": {
@@ -3655,7 +3168,7 @@
           "name": "networkCode",
           "in": "path",
           "required": true,
-          "description": "See https://docs.bonetwork.co/bilgisavasi/ad-network-codes for all available codes."
+          "description": "See Loop documentation for all available codes."
         },
         {
           "schema": {
@@ -6077,6 +5590,218 @@
         ]
       }
     },
+    
+    "/support/request/question": {
+      "parameters": [],
+      "post": {
+        "summary": "Submit Trivia Question Related Issue",
+        "responses": {
+          "200": {
+            "description": "If successful, response's result set will return null with a response code of \"200.0000\".",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                },
+                "examples": {
+                  "Example-200.0000": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": null
+                      },
+                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
+                      "code": "200.000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401.Generic"
+          },
+          "412": {
+            "$ref": "#/components/responses/412.Generic"
+          },
+          "500": {
+            "$ref": "#/components/responses/500.Generic"
+          }
+        },
+        "operationId": "post-support-request-question",
+        "description": "Use this endpoint to register players' issue requests related to trivia questions.",
+        "security": [
+          {
+            "X-Session-Token": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "in": "header",
+            "name": "X-Player-Id",
+            "description": "This should be supplied only if there is a player id available in device memory."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "in": "header",
+            "name": "X-Device-Id",
+            "description": "This is the device specific id, generated for the user.",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TQIssueRequest"
+              },
+              "examples": {
+                "Example-1": {
+                  "value": {
+                    "id": 6554,
+                    "createdAt": "2019-08-24T14:15:22Z",
+                    "respondedAt": null,
+                    "rewardedAt": null,
+                    "status": 0,
+                    "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
+                    "question": "fe2cfcf0-e870-4360-a41e-3b3b5331f2a4",
+                    "playerComments": "Soruda yazım hatası bulunuyor.",
+                    "issueType": "t",
+                    "issueId": null,
+                    "response": null,
+                    "rewardInformation": null
+                  }
+                }
+              }
+            }
+          },
+          "description": "https://docs.bonetwork.co/bilgisavasi/socialaccountinfo"
+        },
+        "tags": [
+          "support"
+        ]
+      }
+    },
+    "/support/suggest/question": {
+      "parameters": [],
+      "post": {
+        "summary": "Suggest New Trivia Question",
+        "responses": {
+          "200": {
+            "description": "If successful, response's result set will return the record id of the added suggestion.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                },
+                "examples": {
+                  "Example-200.0000": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": 1259
+                      },
+                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
+                      "code": "200.000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401.Generic"
+          },
+          "412": {
+            "$ref": "#/components/responses/412.Generic"
+          },
+          "500": {
+            "$ref": "#/components/responses/500.Generic"
+          }
+        },
+        "operationId": "post-support-suggest-question",
+        "description": "Use this endpoint to let players suggest new questions.\n",
+        "security": [
+          {
+            "X-Session-Token": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "in": "header",
+            "name": "X-Player-Id",
+            "description": "This should be supplied only if there is a player id available in device memory."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "in": "header",
+            "name": "X-Device-Id",
+            "description": "This is the device specific id, generated for the user.",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TriviaQuizQuestion"
+              },
+              "examples": {
+                "Example-1": {
+                  "value": {
+                    "id": null,
+                    "question": "Which actor did not play the role \"Bruce Wayne\" in any of the Batman movies?",
+                    "bannerImage": null,
+                    "choices": [
+                      {
+                        "label": "Christopher Nolan",
+                        "isCorrect": false,
+                        "answerCount": 0
+                      },
+                      {
+                        "label": "Val Kilmer",
+                        "isCorrect": false,
+                        "answerCount": 0
+                      },
+                      {
+                        "label": "Jack Nicholson",
+                        "isCorrect": true,
+                        "answerCount": 0
+                      },
+                      {
+                        "label": "Michael Keaton",
+                        "isCorrect": false,
+                        "answerCount": 0
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "description": "Let's user suggest new questions."
+        },
+        "tags": [
+          "support"
+        ]
+      }
+    },
     "/sync/game-center/{gcCode}/player/{gcPlayerId}": {
       "parameters": [
         {
@@ -6646,17 +6371,46 @@
         "description": "This object defines reward actions to be completed in a standard way when an ad is viewd.",
         "x-examples": {
           "Example-1": {
-            "isRecurring": false,
-            "recursionType": "x",
-            "recursionDuration": 1,
-            "tickets": 6,
-            "unlimitedTicketsDuration": 24,
-            "joker": 10,
-            "majority": 0,
-            "fiftyFifty": 0,
-            "stash": 0,
-            "experience": 100,
-            "coins": 50
+            "tickets": {
+              "value": 1,
+              "multiplier": 1,
+              "type": "v"
+            },
+            "unlimitedTicketsDuration": {
+              "value": 24,
+              "multiplier": 1,
+              "type": "v"
+            },
+            "joker": {
+              "value": 1,
+              "multiplier": 1,
+              "type": "v"
+            },
+            "majority": {
+              "value": 0,
+              "multiplier": 1,
+              "type": "v"
+            },
+            "fiftyFifty": {
+              "value": 0,
+              "multiplier": 1,
+              "type": "v"
+            },
+            "stash": {
+              "value": 0,
+              "multiplier": 1,
+              "type": "v"
+            },
+            "experience": {
+              "value": 0,
+              "multiplier": 2,
+              "type": "m"
+            },
+            "coins": {
+              "value": 100,
+              "multiplier": 1,
+              "type": "v"
+            }
           }
         },
         "x-tags": [
@@ -9473,51 +9227,6 @@
           "pvpStanding"
         ]
       },
-      "PlayerSummary": {
-        "title": "PlayerSummary",
-        "type": "object",
-        "x-tags": [
-          "models",
-          "players"
-        ],
-        "description": "This object is a simplified representation of a \"player\" that includes uuid, username, and avatar info.",
-        "x-examples": {
-          "Example-1": {
-            "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
-            "alias": "tsemmui",
-            "avatar": "/cdn/avatar/tsemmui-avatar.png",
-            "value": {
-              "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
-              "alias": "tsemmui",
-              "avatar": "/cdn/avatar/tsemmui-avatar.png"
-            }
-          }
-        },
-        "properties": {
-          "uuid": {
-            "type": "string",
-            "description": "System defined unique identifier of the user. For post, it should be set to null.",
-            "format": "uuid",
-            "nullable": true
-          },
-          "alias": {
-            "type": "string",
-            "example": "tsemmui",
-            "description": "Player's alias / username. This is visible to everyone within the game."
-          },
-          "avatar": {
-            "type": "string",
-            "example": "/cdn/avatar/tsemmui-avatar.png",
-            "description": "This is the player's public avatar. If the player has not set an avatar then this field must be filled with a random avatar image that is created by the system.",
-            "nullable": true
-          }
-        },
-        "required": [
-          "uuid",
-          "alias",
-          "avatar"
-        ]
-      },
       "PlayerLevelSummary": {
         "title": "PlayerLevelSummary",
         "type": "object",
@@ -9626,6 +9335,51 @@
           "joker",
           "fiftyFifty",
           "majority"
+        ]
+      },     
+      "PlayerSummary": {
+        "title": "PlayerSummary",
+        "type": "object",
+        "x-tags": [
+          "models",
+          "players"
+        ],
+        "description": "This object is a simplified representation of a \"player\" that includes uuid, username, and avatar info.",
+        "x-examples": {
+          "Example-1": {
+            "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
+            "alias": "tsemmui",
+            "avatar": "/cdn/avatar/tsemmui-avatar.png",
+            "value": {
+              "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
+              "alias": "tsemmui",
+              "avatar": "/cdn/avatar/tsemmui-avatar.png"
+            }
+          }
+        },
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "description": "System defined unique identifier of the user. For post, it should be set to null.",
+            "format": "uuid",
+            "nullable": true
+          },
+          "alias": {
+            "type": "string",
+            "example": "tsemmui",
+            "description": "Player's alias / username. This is visible to everyone within the game."
+          },
+          "avatar": {
+            "type": "string",
+            "example": "/cdn/avatar/tsemmui-avatar.png",
+            "description": "This is the player's public avatar. If the player has not set an avatar then this field must be filled with a random avatar image that is created by the system.",
+            "nullable": true
+          }
+        },
+        "required": [
+          "uuid",
+          "alias",
+          "avatar"
         ]
       },
       "PlayerTagStatItem": {
