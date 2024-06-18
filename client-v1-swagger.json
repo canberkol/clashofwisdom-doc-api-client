@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Clash of Wisdom",
-    "version": "1.0.1",
+    "version": "1.0.9",
     "description": "Clash of Wisdom is a PvP trivia game created by Ravio Games. This documentation provides information only for developers who are building functionality in iOS, Android and other channels.",
     "contact": {
       "name": "Raviosoft, A.Ş.",
@@ -2046,7 +2046,7 @@
         "summary": "Retrieve Player's Pvp Gameplays",
         "responses": {
           "200": {
-            "description": "Successful sresponse returns PvpResultSummary model (https://docs.bonetwork.co/bilgisavasi/pvpresultsummary) as value in result.set",
+            "description": "Successful response returns PvpResultSummary model as value in result.set",
             "content": {
               "application/json": {
                 "schema": {
@@ -2059,7 +2059,7 @@
                         "pagination": null,
                         "set": [
                           {
-                            "gameplayId": 34224239,
+                            "gameplayId": 34214239,
                             "gameplayProgressId": 422555521,
                             "gameplayStatus": "f",
                             "playerScore": 32,
@@ -2084,7 +2084,7 @@
                           },
                           {
                             "gameplayId": 34224539,
-                            "gameplayProgressId": 422589521,
+                            "gameplayProgressId": 422589721,
                             "gameplayStatus": "w",
                             "playerScore": 32,
                             "opponentScore": 0,
@@ -3100,12 +3100,12 @@
         ]
       }
     },
-    "/rewarded-ad/reward/for/{adPlacementCode}/{networkCode}": {
+    "/rewarded-ad/view": {
       "post": {
-        "summary": "Start Reward Log Before Viewing of Ad Placement",
+        "summary": "Register Ad View",
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Returned id is the id of the AdViewLogItem.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3137,8 +3137,8 @@
             "$ref": "#/components/responses/500.Generic"
           }
         },
-        "operationId": "post-rewarded-ad-reward-for-adPlacementCode-networkCode",
-        "description": "Use this endpoint to create a reward log record before display ad to player.",
+        "operationId": "post-rewarded-ad-view",
+        "description": "Use this endpoint to register the ad view for the first time a player watches an ad.",
         "security": [
           {
             "X-Api-Key": []
@@ -3149,37 +3149,104 @@
           "rewarded-ads"
         ],
         "requestBody": {
-          "$ref": "#/components/requestBodies/RewardedAdRB"
+          "$ref": "#/components/schemas/AdViewLogItem"
         }
       },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string",
-            "enum": [
-              "ads",
-              "amb",
-              "ayt",
-              "fba",
-              "uty"
-            ],
-            "example": "amb"
+      "put": {
+        "summary": "Update Ad View",
+        "responses": {
+          "200": {
+            "description": "Returned id is the id of the AdViewLogItem.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                },
+                "examples": {
+                  "200.0000": {
+                    "value": {
+                      "result": {
+                        "set": 333,
+                        "pagination": null
+                      },
+                      "sessionToken": null,
+                      "code": "200.0000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  }
+                }
+              }
+            }
           },
-          "name": "networkCode",
-          "in": "path",
-          "required": true,
-          "description": "See Loop documentation for all available codes."
+          "401": {
+            "$ref": "#/components/responses/401.Generic"
+          },
+          "412": {
+            "$ref": "#/components/responses/412.Generic"
+          },
+          "500": {
+            "$ref": "#/components/responses/500.Generic"
+          }
         },
+        "operationId": "put-rewarded-ad-view",
+        "description": "Use this endpoint to update ad view log.",
+        "security": [
+          {
+            "X-Api-Key": []
+          }
+        ],
+        "parameters": [],
+        "tags": [
+          "rewarded-ads"
+        ],
+        "requestBody": {
+          "$ref": "#/components/schemas/AdViewLogItem"
+        }
+      },
+      "parameters": []
+    },
+    "/rewarded-ad/reward/{viewId}": {
+      "parameters": [
         {
           "schema": {
             "type": "string"
           },
-          "name": "adPlacementCode",
+          "name": "viewId",
           "in": "path",
           "required": true,
-          "description": "This must match to oe of the ad placement codes stored in database."
+          "description": "Reward view log identification number."
         }
-      ]
+      ],
+      "put": {
+        "summary": "Grant Reward to Player",
+        "operationId": "put-rewarded-ad-reward-logId",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200.0000.Player"
+          },
+          "401": {
+            "$ref": "#/components/responses/401.Generic"
+          },
+          "412": {
+            "$ref": "#/components/responses/412.Generic"
+          },
+          "500": {
+            "$ref": "#/components/responses/500.Generic"
+          }
+        },
+        "description": "Use this endpoint to grant rewards to players after they watch ads.",
+        "security": [
+          {
+            "X-Session-Token": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/schemas/AdViewLogItem"
+        },
+        "tags": [
+          "rewarded-ads"
+        ]
+      }
     },
     "/leaderboard/of/{player}/current": {
       "parameters": [
@@ -6208,49 +6275,6 @@
           }
         ]
       }
-    },
-    "/rewarded-ad/reward/{logId}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "logId",
-          "in": "path",
-          "required": true,
-          "description": "Reward log identification number."
-        }
-      ],
-      "put": {
-        "summary": "Complete Reward Log After Viewing Ad",
-        "operationId": "put-rewarded-ad-reward-logId",
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/200.0000.Player"
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "description": "Use this endpoint to complete an existing reward log which is waiting to close. And also gives rewards of viewing to player.",
-        "security": [
-          {
-            "X-Session-Token": []
-          }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/CompleteRewardLogRB"
-        },
-        "tags": [
-          "rewarded-ads"
-        ]
-      }
     }
   },
   "components": {
@@ -6502,6 +6526,224 @@
         ]
       },
       "AdRewardLogItem": {
+        "title": "AdRewardLogItem",
+        "type": "object",
+        "x-tags": [
+          "models",
+          "players"
+        ],
+        "description": "This object is the representation of ad reward logs.",
+        "x-examples": {
+          "Example-1": {
+            "id": 23423,
+            "initializedAt": "2019-08-24T14:15:22Z",
+            "rewardedAt": "2019-08-24T14:15:22Z",
+            "nextRewardTryAt": null,
+            "status": "c",
+            "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
+            "adPlacement": 4411,
+            "networkTransactionId": "3b3bb3312234-ae2cfcf0",
+            "rewardInstructionLog": {
+              "gameplay": null,
+              "gameType": null,
+              "instructions": {
+                "tickets": {
+                  "value": 1,
+                  "multiplier": 1,
+                  "type": "v"
+                },
+                "unlimitedTicketsDuration": {
+                  "value": 24,
+                  "multiplier": 1,
+                  "type": "v"
+                },
+                "joker": {
+                  "value": 1,
+                  "multiplier": 1,
+                  "type": "v"
+                },
+                "majority": {
+                  "value": 0,
+                  "multiplier": 1,
+                  "type": "v"
+                },
+                "fiftyFifty": {
+                  "value": 0,
+                  "multiplier": 1,
+                  "type": "v"
+                },
+                "stash": {
+                  "value": 0,
+                  "multiplier": 1,
+                  "type": "v"
+                },
+                "experience": {
+                  "value": 0,
+                  "multiplier": 2,
+                  "type": "m"
+                },
+                "coins": {
+                  "value": 50,
+                  "multiplier": 1,
+                  "type": "v"
+                }
+              },
+              "time": "2019-08-24T14:15:22Z"
+            }
+          }
+        },
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "System defined unique identifier.",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "example": "i",
+            "description": "c,i,p,w",
+            "enum": [
+              "c",
+              "i",
+              "p",
+              "w"
+            ]
+          },
+          "initializedAt": {
+            "type": "string",
+            "description": "Time when the ad view is initialized.",
+            "format": "date-time"
+          },
+          "rewardedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Time when the reward is added to player's account.",
+            "nullable": true
+          },
+          "nextRewardTryAt": {
+            "type": "string",
+            "description": "Used only if the status is stuck in \"w\".",
+            "format": "date-time",
+            "nullable": true
+          },
+          "player": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of player who has viewed the ad."
+          },
+          "adPlacement": {
+            "type": "integer",
+            "description": "The id of the ad placement.",
+            "example": 2144,
+            "minimum": 1
+          },
+          "networkTransactionId": {
+            "type": "string",
+            "example": "ayt",
+            "description": "The transaction id created by the ad network",
+            "nullable": true
+          },
+          "rewardInstructionLog": {
+            "$ref": "#/components/schemas/AdRewardLogItemInstruction"
+          }
+        },
+        "required": [
+          "initializedAt",
+          "player",
+          "adPlacement",
+          "status"
+        ]
+      },
+      "AdRewardLogItemInstruction": {
+        "title": "AdRewardLogItemInstruction",
+        "type": "object",
+        "x-tags": [
+          "models",
+          "players"
+        ],
+        "description": "This model is used with the  AdRewadLogItem.",
+        "x-examples": {
+          "Example-1": {
+            "gameplay": null,
+            "gameType": null,
+            "instructions": {
+              "tickets": {
+                "value": 1,
+                "multiplier": 1,
+                "type": "v"
+              },
+              "unlimitedTicketsDuration": {
+                "value": 24,
+                "multiplier": 1,
+                "type": "v"
+              },
+              "joker": {
+                "value": 1,
+                "multiplier": 1,
+                "type": "v"
+              },
+              "majority": {
+                "value": 0,
+                "multiplier": 1,
+                "type": "v"
+              },
+              "fiftyFifty": {
+                "value": 0,
+                "multiplier": 1,
+                "type": "v"
+              },
+              "stash": {
+                "value": 0,
+                "multiplier": 1,
+                "type": "v"
+              },
+              "experience": {
+                "value": 0,
+                "multiplier": 2,
+                "type": "m"
+              },
+              "coins": {
+                "value": 50,
+                "multiplier": 1,
+                "type": "v"
+              }
+            },
+            "time": "2019-08-24T14:15:22Z"
+          }
+        },
+        "properties": {
+          "gameplay": {
+            "type": "integer",
+            "description": "System defined unique identifier.",
+            "nullable": true
+          },
+          "gameType": {
+            "type": "string",
+            "example": "pvp",
+            "description": "Type of game: solo, pvp",
+            "enum": [
+              "solo",
+              "pvp"
+            ],
+            "nullable": true
+          },
+          "time": {
+            "type": "string",
+            "description": "Time when the reward has been assigned to player.",
+            "format": "date-time"
+          },
+          "instructions": {
+            "$ref": "#/components/schemas/AdRewardInstructions"
+          }
+        },
+        "required": [
+          "gameplay",
+          "gameType",
+          "time",
+          "instructions"
+        ]
+      },
+      "AdViewLogItem": {
         "title": "AdRewardLogItem",
         "type": "object",
         "x-tags": [
@@ -13349,87 +13591,7 @@
       }
     },
     "parameters": {},
-    "requestBodies": {
-      "RewardedAdRB": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "gameplayId": {
-                  "type": "integer"
-                },
-                "gameType": {
-                  "type": "string",
-                  "enum": [
-                    "solo",
-                    "pvp"
-                  ]
-                }
-              },
-              "required": [
-                "gameplayId",
-                "gameType"
-              ]
-            },
-            "examples": {
-              "Example": {
-                "value": {
-                  "gameplayId": 1000,
-                  "gameType": "solo"
-                }
-              }
-            }
-          }
-        },
-        "description": ""
-      },
-      "CompleteRewardLogRB": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "status": {
-                  "type": "boolean",
-                  "description": "Success status for viewing ad"
-                },
-                "failReason": {
-                  "type": "string",
-                  "description": "Fail reason if status is false. Available reasons are: c: cancelled from player, u: cant find ad from providers, i: internet disconnection, o: other",
-                  "enum": [
-                    "c",
-                    "u",
-                    "i",
-                    "o"
-                  ],
-                  "nullable": true
-                }
-              },
-              "required": [
-                "status",
-                "failReason"
-              ]
-            },
-            "examples": {
-              "Example-Success": {
-                "value": {
-                  "status": true,
-                  "failReason": null
-                }
-              },
-              "Example-Failure": {
-                "value": {
-                  "status": false,
-                  "failReason": "i"
-                }
-              }
-            }
-          }
-        },
-        "description": ""
-      }
-    }
+    "requestBodies": {}
   },
   "security": [
     {
