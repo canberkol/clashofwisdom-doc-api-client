@@ -41,7 +41,6 @@
     }
   ],
   "paths": {
-    
     "/ad-placement/{code}": {
       "parameters": [
         {
@@ -556,6 +555,438 @@
             "X-Session-Token": []
           }
         ],
+        "tags": [
+          "pvp-gameplay"
+        ]
+      }
+    },
+    
+    "/gameplay/progress": {
+      "post": {
+        "summary": "Register Gameplay Progress of a Player",
+        "operationId": "post-gameplay-progress",
+        "responses": {
+          "200": {
+            "description": "On success, it returns 200.0000 with PvpResult model (https://docs.bonetwork.co/bilgisavasi/pvpresult). If the opponent is still playing the game is still active and not finalized, then ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                },
+                "examples": {
+                  "Example-200.0000": {
+                    "value": {
+                      "result": {
+                        "set": {
+                          "id": 732423,
+                          "gameplayId": 34224239,
+                          "gameplayStatus": "w",
+                          "playerScore": 32,
+                          "opponentScore": 21,
+                          "playerStatus": "t",
+                          "opponentProgress": {
+                            "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
+                            "lastAnsweredQuestion": 3,
+                            "correctAnswers": 3,
+                            "powerUpsUsed": {
+                              "life": 18,
+                              "joker": 139,
+                              "fiftyFifty": 5,
+                              "majority": 12
+                            },
+                            "status": "s",
+                            "coinsAccumulated": 45,
+                            "coinsInsured": 30,
+                            "lastInsuranceCheckpoint": 8,
+                            "startedAt": "2019-08-24T14:15:22Z",
+                            "updatedAt": "2019-08-24T14:15:22Z",
+                            "winStatus": "w",
+                            "points": 0,
+                            "score": 0,
+                            "powerUpsEarned": {
+                              "life": 18,
+                              "joker": 139,
+                              "fiftyFifty": 5,
+                              "majority": 12
+                            },
+                            "game": 213321,
+                            "playAnswers": [
+                              {
+                                "id": 2430112,
+                                "status": "a",
+                                "questionIdx": 7,
+                                "selectedChoice": "d",
+                                "isCorrect": true,
+                                "powerUpsUsed": {
+                                  "life": 18,
+                                  "joker": 139,
+                                  "fiftyFifty": 5,
+                                  "majority": 12
+                                },
+                                "question": 7233,
+                                "powerUpsEarned": {
+                                  "life": 0,
+                                  "joker": 0,
+                                  "fiftyFifty": 0,
+                                  "majority": 0
+                                }
+                              }
+                            ],
+                            "experienceEarned": 500
+                          },
+                          "playerProgress": {
+                            "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
+                            "lastAnsweredQuestion": 3,
+                            "correctAnswers": 3,
+                            "powerUpsUsed": {
+                              "life": 18,
+                              "joker": 139,
+                              "fiftyFifty": 5,
+                              "majority": 12
+                            },
+                            "status": "s",
+                            "coinsAccumulated": 45,
+                            "coinsInsured": 30,
+                            "lastInsuranceCheckpoint": 8,
+                            "startedAt": "2019-08-24T14:15:22Z",
+                            "updatedAt": "2019-08-24T14:15:22Z",
+                            "winStatus": "w",
+                            "points": 0,
+                            "score": 0,
+                            "powerUpsEarned": {
+                              "life": 18,
+                              "joker": 139,
+                              "fiftyFifty": 5,
+                              "majority": 12
+                            },
+                            "game": 213321,
+                            "playAnswers": [
+                              {
+                                "id": 2430112,
+                                "status": "a",
+                                "questionIdx": 7,
+                                "selectedChoice": "d",
+                                "isCorrect": true,
+                                "powerUpsUsed": {
+                                  "life": 18,
+                                  "joker": 139,
+                                  "fiftyFifty": 5,
+                                  "majority": 12
+                                },
+                                "question": 7233,
+                                "powerUpsEarned": {
+                                  "life": 0,
+                                  "joker": 0,
+                                  "fiftyFifty": 0,
+                                  "majority": 0
+                                }
+                              }
+                            ],
+                            "experienceEarned": 500
+                          },
+                          "opponentStanding": {
+                            "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
+                            "currentRank": 1,
+                            "accumulatedPoints": 54555,
+                            "accumlatedScore": 0,
+                            "zoneCode": "promotion",
+                            "totalPlayers": 40,
+                            "rewardInfo": null
+                          },
+                          "playerStanding": {
+                            "player": "ae2cfcf1-e870-4360-a41e-3b3bb3312234",
+                            "currentRank": 3,
+                            "accumulatedPoints": 54555,
+                            "accumlatedScore": 0,
+                            "zoneCode": "promotion",
+                            "totalPlayers": 40,
+                            "rewardInfo": null
+                          },
+                          "adPlacement": {
+                            "id": 5455,
+                            "createdAt": "2019-08-24T14:15:22Z",
+                            "updatedAt": "2019-08-24T14:15:22Z",
+                            "status": "a",
+                            "placementCode": "combo-reward-ad",
+                            "rewardInstructions": {
+                              "tickets": {
+                                "value": 1,
+                                "multiplier": 1,
+                                "type": "v"
+                              },
+                              "unlimitedTicketsDuration": {
+                                "value": 24,
+                                "multiplier": 1,
+                                "type": "v"
+                              },
+                              "joker": {
+                                "value": 1,
+                                "multiplier": 1,
+                                "type": "v"
+                              },
+                              "majority": {
+                                "value": 0,
+                                "multiplier": 1,
+                                "type": "v"
+                              },
+                              "fiftyFifty": {
+                                "value": 0,
+                                "multiplier": 1,
+                                "type": "v"
+                              },
+                              "stash": {
+                                "value": 0,
+                                "multiplier": 1,
+                                "type": "v"
+                              },
+                              "experience": {
+                                "value": 0,
+                                "multiplier": 2,
+                                "type": "m"
+                              },
+                              "coins": {
+                                "value": 100,
+                                "multiplier": 1,
+                                "type": "v"
+                              }
+                            }
+                          }
+                        },
+                        "pagination": null
+                      },
+                      "sessionToken": null,
+                      "code": "200.0000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  },
+                  "Example-200.0406": {
+                    "value": {
+                      "result": {
+                        "set": null,
+                        "pagination": {
+                          "isCircular": true,
+                          "prevLink": "offset=9&limit=50",
+                          "nextLink": "offset=1&limit=50",
+                          "lastLink": "offset=10&limit=50",
+                          "firstLink": "offset=10&limit=50",
+                          "totalItems": 500,
+                          "itemsPerPage": 50,
+                          "pageCount": 1,
+                          "currentPage": 1
+                        }
+                      },
+                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
+                      "code": "200.0406",
+                      "message": "Not all players have finished the game yet. Please wait a little bit and try again to see the final result of the game."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401.Generic"
+          },
+          "412": {
+            "$ref": "#/components/responses/412.Generic"
+          },
+          "500": {
+            "$ref": "#/components/responses/500.Generic"
+          }
+        },
+        "description": "This endpoint is used to register a single gameplay progress. It is mainly used in PVP games to register a player's gameplay progress to the system.\n\n**Flow Diagram**:\n![Flow Diagram](https://s3.eu-central-1.amazonaws.com/docs.bonetwork.co/apps/bilgisavasi/openapi/flows/post.pameplay.progress.png)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GameplayProgress"
+              },
+              "examples": {
+                "Example-1": {
+                  "value": {
+                    "player": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
+                    "lastAnsweredQuestion": 3,
+                    "correctAnswers": 3,
+                    "powerUpsUsed": {
+                      "ticket": 2,
+                      "stash": 18,
+                      "joker": 139,
+                      "fiftyFifty": 5,
+                      "majority": 12,
+                      "unlimitedTickets": null
+                    },
+                    "status": "s",
+                    "coinsAccumulated": 45,
+                    "coinsStashed": 30,
+                    "lastStashedAtIdx": 8,
+                    "startedAt": "2019-08-24T14:15:22Z",
+                    "updatedAt": "2019-08-24T14:15:22Z",
+                    "winStatus": "w",
+                    "points": 0,
+                    "score": 0,
+                    "powerUpsEarned": {
+                      "life": 18,
+                      "joker": 139,
+                      "fiftyFifty": 5,
+                      "majority": 12
+                    },
+                    "game": 213321,
+                    "playerAnswers": [
+                      {
+                        "id": 2430112,
+                        "status": "a",
+                        "questionIdx": 0,
+                        "selectedChoice": "d",
+                        "isCorrect": true,
+                        "powerUpsUsed": {
+                          "ticket": 2,
+                          "stash": 18,
+                          "joker": 139,
+                          "fiftyFifty": 5,
+                          "majority": 12,
+                          "unlimitedTickets": null
+                        },
+                        "question": 7233,
+                        "powerUpsEarned": {
+                          "ticket":0,
+                          "stash": 0,
+                          "joker": 0,
+                          "fiftyFifty": 0,
+                          "majority": 0,
+                          "unlimitedTickets": null
+                        }
+                      },
+                      {
+                        "id": 2430113,
+                        "status": "a",
+                        "questionIdx": 1,
+                        "selectedChoice": "b",
+                        "isCorrect": true,
+                        "powerUpsUsed": {
+                          "ticket": 2,
+                          "stash": 18,
+                          "joker": 139,
+                          "fiftyFifty": 5,
+                          "majority": 12,
+                          "unlimitedTickets": null
+                        },
+                        "question": 7233,
+                        "powerUpsEarned": {
+                          "ticket":0,
+                          "stash": 0,
+                          "joker": 0,
+                          "fiftyFifty": 0,
+                          "majority": 0,
+                          "unlimitedTickets": null
+                        }
+                      },
+                      {
+                        "id": 2430113,
+                        "status": "a",
+                        "questionIdx": 2,
+                        "selectedChoice": "b",
+                        "isCorrect": true,
+                        "powerUpsUsed": {
+                          "ticket": 2,
+                          "stash": 18,
+                          "joker": 139,
+                          "fiftyFifty": 5,
+                          "majority": 12,
+                          "unlimitedTickets": null
+                        },
+                        "question": 7233,
+                        "powerUpsEarned": {
+                          "ticket":0,
+                          "stash": 0,
+                          "joker": 0,
+                          "fiftyFifty": 0,
+                          "majority": 0,
+                          "unlimitedTickets": null
+                        }
+                      },
+                      {
+                        "id": 2430113,
+                        "status": "a",
+                        "questionIdx": 3,
+                        "selectedChoice": "b",
+                        "isCorrect": true,
+                        "powerUpsUsed": {
+                          "ticket": 2,
+                          "stash": 18,
+                          "joker": 139,
+                          "fiftyFifty": 5,
+                          "majority": 12,
+                          "unlimitedTickets": null
+                        },
+                        "question": 7233,
+                        "powerUpsEarned": {
+                          "ticket":0,
+                          "stash": 0,
+                          "joker": 0,
+                          "fiftyFifty": 0,
+                          "majority": 0,
+                          "unlimitedTickets": null
+                        }
+                      },
+                      {
+                        "id": 2430113,
+                        "status": "a",
+                        "questionIdx": 4,
+                        "selectedChoice": "b",
+                        "isCorrect": true,
+                        "powerUpsUsed": {
+                          "ticket": 2,
+                          "stash": 18,
+                          "joker": 139,
+                          "fiftyFifty": 5,
+                          "majority": 12,
+                          "unlimitedTickets": null
+                        },
+                        "question": 7233,
+                        "powerUpsEarned": {
+                          "ticket":0,
+                          "stash": 0,
+                          "joker": 0,
+                          "fiftyFifty": 0,
+                          "majority": 0,
+                          "unlimitedTickets": null
+                        }
+                      },
+                      {
+                        "id": 2430113,
+                        "status": "a",
+                        "questionIdx": 5,
+                        "selectedChoice": "b",
+                        "isCorrect": true,
+                        "powerUpsUsed": {
+                          "ticket": 2,
+                          "stash": 18,
+                          "joker": 139,
+                          "fiftyFifty": 5,
+                          "majority": 12,
+                          "unlimitedTickets": null
+                        },
+                        "question": 7233,
+                        "powerUpsEarned": {
+                          "ticket":0,
+                          "stash": 0,
+                          "joker": 0,
+                          "fiftyFifty": 0,
+                          "majority": 0,
+                          "unlimitedTickets": null
+                        }
+                      }
+                    ],
+                    "xpEarned": 500
+                  }
+
+
+                }
+              }
+            }
+          },
+          "description": "A single gameplay progress must be submitted within the body. The submitted gameplay progress must have a valid ID and it should belong to the user who owns the current session unless the user has necessary management privileges. https://docs.bonetwork.co/bilgisavasi/gameplayprogress"
+        },
         "tags": [
           "pvp-gameplay"
         ]
@@ -1287,6 +1718,579 @@
         ]
       },
       "parameters": []
+    },
+    
+    "/leaderboard/of-group/{groupId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer",
+            "example": 1312
+          },
+          "name": "groupId",
+          "in": "path",
+          "required": true,
+          "description": "Leaderboard group id."
+        }
+      ],
+      "get": {
+        "summary": "Retrieve Leaderboard By Group Id",
+        "tags": [
+          "leaderboards"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response returns LEaderboardScreen model. If Pagination model is filled, the given instructions are for the contents of \"standings\" property.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                },
+                "examples": {
+                  "Example-200.0000": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": {
+                          "id": 342,
+                          "year": 2021,
+                          "month": 3,
+                          "week": 34,
+                          "division": 3,
+                          "group": 0,
+                          "leaderboard": 2,
+                          "title": "Diamond II - 52. Week",
+                          "standings": [
+                            {
+                              "player": {
+                                "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
+                                "alias": "tsemmui",
+                                "avatar": "/cdn/avatar/tsemmui-avatar.png"
+                              },
+                              "currentRank": 1,
+                              "accumulatedPoints": 54555,
+                              "accumlatedScore": 0,
+                              "zoneCode": "promotion",
+                              "totalPlayers": 40,
+                              "rewardInfo": {
+                                "coins": 10,
+                                "experience": 50,
+                                "powerups": {
+                                  "life": 2,
+                                  "insurance": 18,
+                                  "joker": 139,
+                                  "fiftyFifty": 5,
+                                  "majority": 12,
+                                  "immortality": {
+                                    "isActive": true,
+                                    "validUntil": "2019-08-24T14:15:22Z"
+                                  },
+                                  "immunity": {
+                                    "isActive": true,
+                                    "validUntil": "2019-08-24T14:15:22Z"
+                                  }
+                                },
+                                "score": 5
+                              }
+                            }
+                          ],
+                          "endsAt": "2019-08-24T14:15:22Z",
+                          "weekTitle": "Week 52",
+                          "handle": "diamond2",
+                          "rewardDistribution": {
+                            "isActive": false,
+                            "rewards": [
+                              {
+                                "coins": 10,
+                                "experience": 50,
+                                "score": 5,
+                                "powerups": {
+                                  "tickets": 2,
+                                  "stash": 18,
+                                  "joker": 139,
+                                  "fiftyFifty": 5,
+                                  "majority": 12,
+                                  "unlimitedTickets": {
+                                    "isActive": true,
+                                    "validUntil": "2019-08-24T14:15:22Z"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      "sessionToken": null,
+                      "code": "200.000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  },
+                  "Example-200.0404": {
+                    "value": {
+                      "result": {
+                        "pagination": {
+                          "isCircular": true,
+                          "prevLink": null,
+                          "nextLink": null,
+                          "lastLink": null,
+                          "firstLink": null,
+                          "totalItems": 1,
+                          "itemsPerPage": 50,
+                          "pageCount": 1,
+                          "currentPage": 1
+                        },
+                        "set": {}
+                      },
+                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
+                      "code": "200.0404",
+                      "message": "No recods found matching your criteria."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401.Generic"
+          },
+          "412": {
+            "$ref": "#/components/responses/412.Generic"
+          },
+          "500": {
+            "$ref": "#/components/responses/500.Generic"
+          }
+        },
+        "operationId": "get-leaderboard-of-group-groupId",
+        "description": "Use this endpoint to get a leaderboar'S player rankings for the given period and week for the leaderboard that the given player belongs to.",
+        "security": [
+          {
+            "X-Session-Token": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "period",
+            "description": "Get a specific leaderboard by period. If ommitted current period is returned."
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "maximum": 53,
+              "minimum": 1
+            },
+            "in": "query",
+            "name": "week",
+            "description": "Get a specific leaderboard by week number. If ommitted current week is returned."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "promotion",
+                "normal",
+                "demotion"
+              ],
+              "example": "promotion"
+            },
+            "in": "query",
+            "name": "zoneCode",
+            "description": "Use this to get only the list of players located in the given zone of the leaderboard."
+          }
+        ]
+      }
+    },
+    "/leaderboard/of-player/{player}/current": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": "player",
+          "in": "path",
+          "required": true,
+          "description": "UUID of player."
+        }
+      ],
+      "get": {
+        "summary": "Retrieve Player's Current LeaderBoard",
+        "tags": [
+          "leaderboards"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response returns LeaderboardScreen model. If Pagination model is filled, the given instructions are for the contents of \"standings\" property. (https://docs.bonetwork.co/bilgisavasi/leaderboardscreen)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                },
+                "examples": {
+                  "Example-200.0000": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": {
+                          "id": 342,
+                          "year": 2021,
+                          "month": 3,
+                          "week": 34,
+                          "division": 3,
+                          "group": 0,
+                          "leaderboard": 2,
+                          "title": "Diamond II - 52. Week",
+                          "standings": [
+                            {
+                              "player": {
+                                "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
+                                "alias": "tsemmui",
+                                "avatar": "/cdn/avatar/tsemmui-avatar.png"
+                              },
+                              "currentRank": 1,
+                              "accumulatedPoints": 54555,
+                              "accumlatedScore": 0,
+                              "zoneCode": "promotion",
+                              "totalPlayers": 40,
+                              "rewardInfo": {
+                                "coins": 10,
+                                "experience": 50,
+                                "powerups": {
+                                  "life": 2,
+                                  "insurance": 18,
+                                  "joker": 139,
+                                  "fiftyFifty": 5,
+                                  "majority": 12,
+                                  "immortality": {
+                                    "isActive": true,
+                                    "validUntil": "2019-08-24T14:15:22Z"
+                                  },
+                                  "immunity": {
+                                    "isActive": true,
+                                    "validUntil": "2019-08-24T14:15:22Z"
+                                  }
+                                },
+                                "score": 5
+                              }
+                            }
+                          ],
+                          "endsAt": "2019-08-24T14:15:22Z",
+                          "weekTitle": "Week 52",
+                          "handle": "diamond2",
+                          "rewardDistribution": {
+                            "isActive": false,
+                            "rewards": [
+                              {
+                                "coins": 10,
+                                "experience": 50,
+                                "score": 5,
+                                "powerups": {
+                                  "tickets": 2,
+                                  "stash": 18,
+                                  "joker": 139,
+                                  "fiftyFifty": 5,
+                                  "majority": 12,
+                                  "unlimitedTickets": {
+                                    "isActive": true,
+                                    "validUntil": "2019-08-24T14:15:22Z"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      "sessionToken": null,
+                      "code": "200.000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  },
+                  "Example-200.0404": {
+                    "value": {
+                      "result": {
+                        "pagination": {
+                          "isCircular": true,
+                          "prevLink": null,
+                          "nextLink": null,
+                          "lastLink": null,
+                          "firstLink": null,
+                          "totalItems": 1,
+                          "itemsPerPage": 50,
+                          "pageCount": 1,
+                          "currentPage": 1
+                        },
+                        "set": {}
+                      },
+                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
+                      "code": "200.0404",
+                      "message": "No recods found matching your criteria."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401.Generic"
+          },
+          "412": {
+            "$ref": "#/components/responses/412.Generic"
+          },
+          "500": {
+            "$ref": "#/components/responses/500.Generic"
+          }
+        },
+        "operationId": "get-leaderboard-of-player--player-current",
+        "description": "Use this endpoint to show a leaderboard's player rankings for the most active/current leaderboard of the given player.",
+        "security": [
+          {
+            "X-Session-Token": []
+          }
+        ]
+      }
+    },
+    "/leaderboard/of-player/{player}/period/{period}/week/{week}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer",
+            "example": 202101
+          },
+          "name": "period",
+          "in": "path",
+          "required": true,
+          "description": "YYYYMM formatted integer which is used to segment standings by year & month."
+        },
+        {
+          "schema": {
+            "type": "integer",
+            "example": 3
+          },
+          "name": "week",
+          "in": "path",
+          "required": true,
+          "description": "Week number as integer. Generally an integer between 1 and 53 inclusive. It used to segment standings on a weekly basis."
+        },
+        {
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": "player",
+          "in": "path",
+          "required": true,
+          "description": "Player's uuid."
+        }
+      ],
+      "get": {
+        "summary": "Retrieve Player's LeaderBoard by Period and Week",
+        "tags": [
+          "leaderboards"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response returns LeaderboardScreen model. If Pagination model is filled, the given instructions are for the contents of \"standings\" property.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                },
+                "examples": {
+                  "Example-200.0000": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": {
+                          "id": 342,
+                          "year": 2021,
+                          "month": 3,
+                          "week": 34,
+                          "division": 3,
+                          "group": 0,
+                          "leaderboard": 2,
+                          "title": "Diamond II - 52. Week",
+                          "standings": [
+                            {
+                              "player": {
+                                "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
+                                "alias": "tsemmui",
+                                "avatar": "/cdn/avatar/tsemmui-avatar.png"
+                              },
+                              "currentRank": 1,
+                              "accumulatedPoints": 54555,
+                              "accumlatedScore": 0,
+                              "zoneCode": "promotion",
+                              "totalPlayers": 40,
+                              "rewardInfo": {
+                                "coins": 10,
+                                "experience": 50,
+                                "powerups": {
+                                  "life": 2,
+                                  "insurance": 18,
+                                  "joker": 139,
+                                  "fiftyFifty": 5,
+                                  "majority": 12,
+                                  "immortality": {
+                                    "isActive": true,
+                                    "validUntil": "2019-08-24T14:15:22Z"
+                                  },
+                                  "immunity": {
+                                    "isActive": true,
+                                    "validUntil": "2019-08-24T14:15:22Z"
+                                  }
+                                },
+                                "score": 5
+                              }
+                            }
+                          ],
+                          "endsAt": "2019-08-24T14:15:22Z",
+                          "weekTitle": "Week 52",
+                          "handle": "diamond2",
+                          "rewardDistribution": {
+                            "isActive": false,
+                            "rewards": [
+                              {
+                                "coins": 10,
+                                "experience": 50,
+                                "score": 5,
+                                "powerups": {
+                                  "tickets": 2,
+                                  "stash": 18,
+                                  "joker": 139,
+                                  "fiftyFifty": 5,
+                                  "majority": 12,
+                                  "unlimitedTickets": {
+                                    "isActive": true,
+                                    "validUntil": "2019-08-24T14:15:22Z"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      "sessionToken": null,
+                      "code": "200.000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  },
+                  "Example-200.0404": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": {}
+                      },
+                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
+                      "code": "200.0404",
+                      "message": "No recods found matching your criteria."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401.Generic"
+          },
+          "412": {
+            "$ref": "#/components/responses/412.Generic"
+          },
+          "500": {
+            "$ref": "#/components/responses/500.Generic"
+          }
+        },
+        "operationId": "get-leaderboard-of-player-player-period-period-week-week",
+        "description": "Use this endpoint to get a leaderboar'S player rankings for the given period and week for the leaderboard that the given player belongs to.",
+        "security": [
+          {
+            "X-Session-Token": []
+          }
+        ]
+      }
+    },
+    
+    "/leaderboards": {
+      "get": {
+        "summary": "List PvP Leaderboards",
+        "tags": [
+          "leaderboards"
+        ],
+        "responses": {
+          "200": {
+            "description": "Result set holds a list of Leaderboard models. (https://docs.bonetwork.co/bilgisavasi/leaderboard)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                },
+                "examples": {
+                  "Example-200.0000": {
+                    "value": {
+                      "result": {
+                        "set": [
+                          {
+                            "id": 1,
+                            "title": "Diamond I",
+                            "groupCount": 1,
+                            "playersPerGroup": 40,
+                            "playerCount": 40,
+                            "maxPlayers": 40,
+                            "levelUpTo": null,
+                            "levelDownTo": 2
+                          },
+                          {
+                            "id": 2,
+                            "title": "Diamond II",
+                            "groupCount": 2,
+                            "playersPerGroup": 40,
+                            "playerCount": 40,
+                            "maxPlayers": 80,
+                            "levelUpTo": 1,
+                            "levelDownTo": 3
+                          }
+                        ],
+                        "pagination": {
+                          "isCircular": true,
+                          "prevLink": "offset=9&limit=50",
+                          "nextLink": "offset=1&limit=50",
+                          "lastLink": "offset=10&limit=50",
+                          "firstLink": "offset=10&limit=50",
+                          "totalItems": 500,
+                          "itemsPerPage": 50,
+                          "pageCount": 1,
+                          "currentPage": 1
+                        }
+                      },
+                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
+                      "code": "200.0000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401.Generic"
+          },
+          "412": {
+            "$ref": "#/components/responses/412.Generic"
+          },
+          "500": {
+            "$ref": "#/components/responses/500.Generic"
+          }
+        },
+        "operationId": "get-leaderboards",
+        "description": "Use this endpoint to list the defined leaderboards and their meta information.",
+        "security": [
+          {
+            "X-Api-Key": []
+          }
+        ]
+      }
     },
     "/player": {
       "post": {
@@ -2123,7 +3127,6 @@
             "$ref": "#/components/responses/412.Generic"
           },
           "500": {
-            
             "$ref": "#/components/responses/500.Generic"
           }
         },
@@ -2744,7 +3747,6 @@
         }
       ]
     },
-    
     "/player/{id}/standing/at/{period}/{week}": {
       "parameters": [
         {
@@ -2826,7 +3828,7 @@
                                 "unlimitedTicketDuration": {
                                   "isActive": true,
                                   "validUntil": "2019-08-24T14:15:22Z"
-                                }      
+                                }
                               },
                               "score": 5
                             }
@@ -2946,7 +3948,7 @@
                                 "unlimitedTicketDuration": {
                                   "isActive": true,
                                   "validUntil": "2019-08-24T14:15:22Z"
-                                }      
+                                }
                               },
                               "score": 5
                             }
@@ -3100,6 +4102,268 @@
         ]
       }
     },
+        "/purchase/coin": {
+      "parameters": [],
+      "post": {
+        "summary": "Make Purchase by Coins",
+        "operationId": "post-purchase-coin",
+        "responses": {
+          "200": {
+            "description": "Successful response returns TransactionReceipt model.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                },
+                "examples": {
+                  "Example-200.0000": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": {
+                          "transactionId": 21234234,
+                          "storeCode": "coi",
+                          "storeTransactionId": null,
+                          "status": "c",
+                          "failCode": null,
+                          "player": "840295a6-0cf5-43df-ba0a-d155f1f50e8e",
+                          "sku": "ios-coin-500",
+                          "qty": 1,
+                          "totalAmount": 500.00,
+                          "currency": "COI",
+                          "purchasedAt": "2019-08-24T14:15:22Z",
+                          "playerBalances": {
+                            "coins": 10,
+                            "experience": 50,
+                            "score": 5,
+                            "powerups": {
+                              "tickets": 6,
+                              "stash": 50,
+                              "joker": 18,
+                              "fiftyFifty": 24,
+                              "majority": 19,
+                              "unlimitedTickets": null
+                            }
+                          }
+                        }
+                      },
+                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
+                      "code": "200.000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401.Generic"
+          },
+          "412": {
+            "$ref": "#/components/responses/412.Generic"
+          },
+          "500": {
+            "$ref": "#/components/responses/500.Generic"
+          }
+        },
+        "description": "This endpoint is used to register players' purchases that require payments by only game coins.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransactionBasic"
+              },
+              "examples": {
+                "Example-1": {
+                  "value": {
+                    "id": 878855,
+                    "storeCode": "coi",
+                    "storeTransactionId": null,
+                    "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
+                    "product": "string",
+                    "quantity": 1
+                  }
+                }
+              }
+            }
+          },
+          "description": "TransactionBasic model must be supplied."
+        }
+      }
+    },
+    "/purchase/iap": {
+      "parameters": [],
+      "post": {
+        "summary": "Create/Register a Store Transaction",
+        "operationId": "post-purchase-iap",
+        "responses": {
+          "200": {
+            "description": "Successful response returns TransactionReceipt model.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                },
+                "examples": {
+                  "Example-200.0000": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": {
+                          "transactionId": 21234234,
+                          "storeCode": "iaa",
+                          "storeTransactionId": 3245434323532,
+                          "status": "c",
+                          "failCode": null,
+                          "player": "840295a6-0cf5-43df-ba0a-d155f1f50e8e",
+                          "sku": "ios-coin-500",
+                          "qty": 1,
+                          "totalAmount": 500.00,
+                          "currency": "COI",
+                          "purchasedAt": "2019-08-24T14:15:22Z",
+                          "playerBalances": {
+                            "coins": 10,
+                            "experience": 50,
+                            "score": 5,
+                            "powerups": {
+                              "tickets": 6,
+                              "stash": 50,
+                              "joker": 18,
+                              "fiftyFifty": 24,
+                              "majority": 19,
+                              "unlimitedTickets": null
+                            }
+                          }
+                        }
+                      },
+                      "sessionToken": null,
+                      "code": "200.000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401.Generic"
+          },
+          "412": {
+            "$ref": "#/components/responses/412.Generic"
+          },
+          "500": {
+            "$ref": "#/components/responses/500.Generic"
+          }
+        },
+        "description": "This endpoint is used to create a new transaction in the database. The transaction must be registered with the status \"w\".",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransactionBasic"
+              },
+              "examples": {
+                "Example-1": {
+                  "value": {
+                    "id": null,
+                    "storeCode": "iaa",
+                    "storeTransactionId": null,
+                    "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
+                    "product": "ios-coin-500",
+                    "quantity": 1
+                  }
+                }
+              }
+            }
+          },
+          "description": "TransactionBasic model must be supplied."
+        },
+        "tags": [
+          "in-app purchase"
+        ],
+        "security": [
+          {
+            "X-Session-Token": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "Update a Store Transaction",
+        "operationId": "put-purchase-iap",
+        "responses": {
+          "200": {
+            "description": "Successful response returns TransactionBasic model with the ID number.\n(https://docs.bonetwork.co/bilgisavasi/transactionbasic)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                },
+                "examples": {
+                  "Example-200.0000": {
+                    "value": {
+                      "result": {
+                        "pagination": null,
+                        "set": {
+                          "id": 833588874,
+                          "storeCode": "iai",
+                          "storeTransactionId": null,  
+                          "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
+                          "product": "coins-500",
+                          "quantity": 1
+                        }
+                      },
+                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
+                      "code": "200.000",
+                      "message": "Your request has been successfully completed."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401.Generic"
+          },
+          "412": {
+            "$ref": "#/components/responses/412.Generic"
+          },
+          "500": {
+            "$ref": "#/components/responses/500.Generic"
+          }
+        },
+        "description": "This endpoint MUST be called once the response from app stores' fetched after a purchase request.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransactionReceipt"
+              },
+              "examples": {
+                "Example-1": {
+                  "value": {
+                    "transactionId": 21234234,
+                    "storeCode": "iai",
+                    "storeTransactionId": null,
+                    "status": "c",
+                    "failCode": null,
+                    "player": "840295a6-0cf5-43df-ba0a-d155f1f50e8e",
+                    "sku": "ios-coin-500",
+                    "qty": 1,
+                    "totalAmount": 12.00,
+                    "currency": "USD",
+                    "purchasedAt": "2019-08-24T14:15:22Z",
+                    "playerBalances": null
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "in-app purchase"
+        ]
+      }
+    },
     "/rewarded-ad/view": {
       "post": {
         "summary": "Register Ad View",
@@ -3248,1906 +4512,6 @@
         ]
       }
     },
-    "/leaderboard/of/{player}/current": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": "player",
-          "in": "path",
-          "required": true,
-          "description": "UUID of player."
-        }
-      ],
-      "get": {
-        "summary": "Retrieve Player's Current LeaderBoard",
-        "tags": [
-          "leaderboards"
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response returns LeaderboardScreen model. If Pagination model is filled, the given instructions are for the contents of \"standings\" property. (https://docs.bonetwork.co/bilgisavasi/leaderboardscreen)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000": {
-                    "value": {
-                      "result": {
-                        "pagination": null,
-                        "set": {
-                          "id": 342,
-                          "week": 34,
-                          "period": 202012,
-                          "group": 0,
-                          "league": 2,
-                          "title": "Gümüş III Ligi",
-                          "weekTitle": "52. Hafta",
-                          "handle": "diamond2",
-                          "standings": [
-                            {
-                              "player": {
-                                "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
-                                "alias": "tsemmui",
-                                "avatar": "/cdn/avatar/tsemmui-avatar.png"
-                              },
-                              "currentRank": 1,
-                              "accumulatedPoints": 545,
-                              "accumlatedScore": 5450,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "002cfcf0-e870-4360-a41e-3b3bbff22234",
-                                "alias": "azi",
-                                "avatar": "/cdn/avatar/azi-avatar.png"
-                              },
-                              "currentRank": 2,
-                              "accumulatedPoints": 532,
-                              "accumlatedScore": 5320,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-ff70-4360-a41e-3b3bb356a234",
-                                "alias": "furki",
-                                "avatar": "/cdn/avatar/furki-avatar.png"
-                              },
-                              "currentRank": 3,
-                              "accumulatedPoints": 532,
-                              "accumlatedScore": 5310,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "022cfcf0-e870-4360-a41e-3b3bb3522234",
-                                "alias": "TypeHoon",
-                                "avatar": "/cdn/avatar/typehoon-avatar.png"
-                              },
-                              "currentRank": 4,
-                              "accumulatedPoints": 520,
-                              "accumlatedScore": 5200,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-d870-4360-a41e-3b3bb3522234",
-                                "alias": "Tali",
-                                "avatar": "/cdn/avatar/tali-avatar.png"
-                              },
-                              "currentRank": 5,
-                              "accumulatedPoints": 520,
-                              "accumlatedScore": 5200,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "eb2cfcf1-e870-4360-f51e-3b3bb3522234",
-                                "alias": "Honor",
-                                "avatar": "/cdn/avatar/honor-avatar.png"
-                              },
-                              "currentRank": 6,
-                              "accumulatedPoints": 519,
-                              "accumlatedScore": 5220,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e871-4360-a41e-3b3bb3522234",
-                                "alias": "nuked",
-                                "avatar": "/cdn/avatar/nuked-avatar.png"
-                              },
-                              "currentRank": 7,
-                              "accumulatedPoints": 519,
-                              "accumlatedScore": 5190,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "af2cfcf0-e870-4360-a41e-3b3bb3522234",
-                                "alias": "Tool GA",
-                                "avatar": "/cdn/avatar/toolga-avatar.png"
-                              },
-                              "currentRank": 8,
-                              "accumulatedPoints": 500,
-                              "accumlatedScore": 5000,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e870-4360-a41e-3b3bcf522234",
-                                "alias": "UV",
-                                "avatar": "/cdn/avatar/uv-avatar.png"
-                              },
-                              "currentRank": 9,
-                              "accumulatedPoints": 500,
-                              "accumlatedScore": 4999,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e870-a360-a41e-3b3bb3522234",
-                                "alias": "K-dir",
-                                "avatar": "/cdn/avatar/kdir-avatar.png"
-                              },
-                              "currentRank": 10,
-                              "accumulatedPoints": 499,
-                              "accumlatedScore": 4990,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e870-4360-a41e-3b3bb35ff234",
-                                "alias": "Dinem",
-                                "avatar": "/cdn/avatar/dinem-avatar.png"
-                              },
-                              "currentRank": 11,
-                              "accumulatedPoints": 499,
-                              "accumlatedScore": 4989,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e87d-4360-a41e-3b3bb3a22234",
-                                "alias": "Cybill",
-                                "avatar": "/cdn/avatar/cybill-avatar.png"
-                              },
-                              "currentRank": 12,
-                              "accumulatedPoints": 420,
-                              "accumlatedScore": 4200,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb00dd22-df79-06ef-ef26-af0fc35abfa1",
-                                "alias": "daa",
-                                "avatar": "/cdn/avatar/daa-avatar.png"
-                              },
-                              "currentRank": 13,
-                              "accumulatedPoints": 410,
-                              "accumlatedScore": 4103,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            },
-                            {
-                              "player": {
-                                "uuid": "1b0cdd06-0f1c-0606-2a2f-0f1fc39dbf00",
-                                "alias": "eoz",
-                                "avatar": "/cdn/avatar/eoz-avatar.png"
-                              },
-                              "currentRank": 14,
-                              "accumulatedPoints": 405,
-                              "accumlatedScore": 4102,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            },
-                            {
-                              "player": {
-                                "uuid": "af00f421-df44-d6e6-4f2a-0f1ac44abf00",
-                                "alias": "ravioli",
-                                "avatar": "/cdn/avatar/ravioli-avatar.png"
-                              },
-                              "currentRank": 15,
-                              "accumulatedPoints": 499,
-                              "accumlatedScore": 4990,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            }
-                          ],
-                          "endsAt": "2022-08-24T14:15:22Z"
-                        }
-                      },
-                      "sessionToken": null,
-                      "code": "200.000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  },
-                  "Example-200.0404": {
-                    "value": {
-                      "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
-                        "set": {}
-                      },
-                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.0404",
-                      "message": "No recods found matching your criteria."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "operationId": "get-leaderboard-of-id-current",
-        "description": "Use this endpoint to show a leaderboard's player rankings for the most active/current leaderboard of the given player.",
-        "security": [
-          {
-            "X-Session-Token": []
-          }
-        ]
-      }
-    },
-    "/leaderboard/of/{player}/period/{period}/week/{week}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "integer",
-            "example": 202101
-          },
-          "name": "period",
-          "in": "path",
-          "required": true,
-          "description": "YYYYMM formatted integer which is used to segment standings by year & month."
-        },
-        {
-          "schema": {
-            "type": "integer",
-            "example": 3
-          },
-          "name": "week",
-          "in": "path",
-          "required": true,
-          "description": "Week number as integer. Generally an integer between 1 and 53 inclusive. It used to segment standings on a weekly basis."
-        },
-        {
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": "player",
-          "in": "path",
-          "required": true,
-          "description": "Player's uuid."
-        }
-      ],
-      "get": {
-        "summary": "Retrieve Player's LeaderBoard by Period and Week",
-        "tags": [
-          "leaderboards"
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response returns LEaderboardScreen model. If Pagination model is filled, the given instructions are for the contents of \"standings\" property. (https://docs.bonetwork.co/bilgisavasi/leaderboardscreen)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000": {
-                    "value": {
-                      "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
-                        "set": {
-                          "id": 342,
-                          "week": 34,
-                          "period": 202012,
-                          "group": 0,
-                          "league": 2,
-                          "title": "Bronz II Ligi",
-                          "weekTitle": "11. Hafta",
-                          "handle": "diamond2",
-                          "standings": [
-                            {
-                              "player": {
-                                "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
-                                "alias": "tsemmui",
-                                "avatar": "/cdn/avatar/tsemmui-avatar.png"
-                              },
-                              "currentRank": 1,
-                              "accumulatedPoints": 545,
-                              "accumlatedScore": 5450,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "002cfcf0-e870-4360-a41e-3b3bbff22234",
-                                "alias": "azi",
-                                "avatar": "/cdn/avatar/azi-avatar.png"
-                              },
-                              "currentRank": 2,
-                              "accumulatedPoints": 532,
-                              "accumlatedScore": 5320,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-ff70-4360-a41e-3b3bb356a234",
-                                "alias": "furki",
-                                "avatar": "/cdn/avatar/furki-avatar.png"
-                              },
-                              "currentRank": 3,
-                              "accumulatedPoints": 532,
-                              "accumlatedScore": 5310,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "022cfcf0-e870-4360-a41e-3b3bb3522234",
-                                "alias": "TypeHoon",
-                                "avatar": "/cdn/avatar/typehoon-avatar.png"
-                              },
-                              "currentRank": 4,
-                              "accumulatedPoints": 520,
-                              "accumlatedScore": 5200,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-d870-4360-a41e-3b3bb3522234",
-                                "alias": "Tali",
-                                "avatar": "/cdn/avatar/tali-avatar.png"
-                              },
-                              "currentRank": 5,
-                              "accumulatedPoints": 520,
-                              "accumlatedScore": 5200,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "eb2cfcf1-e870-4360-f51e-3b3bb3522234",
-                                "alias": "Honor",
-                                "avatar": "/cdn/avatar/honor-avatar.png"
-                              },
-                              "currentRank": 6,
-                              "accumulatedPoints": 519,
-                              "accumlatedScore": 5220,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e871-4360-a41e-3b3bb3522234",
-                                "alias": "nuked",
-                                "avatar": "/cdn/avatar/nuked-avatar.png"
-                              },
-                              "currentRank": 7,
-                              "accumulatedPoints": 519,
-                              "accumlatedScore": 5190,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "af2cfcf0-e870-4360-a41e-3b3bb3522234",
-                                "alias": "Tool GA",
-                                "avatar": "/cdn/avatar/toolga-avatar.png"
-                              },
-                              "currentRank": 8,
-                              "accumulatedPoints": 500,
-                              "accumlatedScore": 5000,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e870-4360-a41e-3b3bcf522234",
-                                "alias": "UV",
-                                "avatar": "/cdn/avatar/uv-avatar.png"
-                              },
-                              "currentRank": 9,
-                              "accumulatedPoints": 500,
-                              "accumlatedScore": 4999,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e870-a360-a41e-3b3bb3522234",
-                                "alias": "K-dir",
-                                "avatar": "/cdn/avatar/kdir-avatar.png"
-                              },
-                              "currentRank": 10,
-                              "accumulatedPoints": 499,
-                              "accumlatedScore": 4990,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e870-4360-a41e-3b3bb35ff234",
-                                "alias": "Dinem",
-                                "avatar": "/cdn/avatar/dinem-avatar.png"
-                              },
-                              "currentRank": 11,
-                              "accumulatedPoints": 499,
-                              "accumlatedScore": 4989,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e87d-4360-a41e-3b3bb3a22234",
-                                "alias": "Cybill",
-                                "avatar": "/cdn/avatar/cybill-avatar.png"
-                              },
-                              "currentRank": 12,
-                              "accumulatedPoints": 420,
-                              "accumlatedScore": 4200,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb00dd22-df79-06ef-ef26-af0fc35abfa1",
-                                "alias": "daa",
-                                "avatar": "/cdn/avatar/daa-avatar.png"
-                              },
-                              "currentRank": 13,
-                              "accumulatedPoints": 410,
-                              "accumlatedScore": 4103,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            },
-                            {
-                              "player": {
-                                "uuid": "1b0cdd06-0f1c-0606-2a2f-0f1fc39dbf00",
-                                "alias": "eoz",
-                                "avatar": "/cdn/avatar/eoz-avatar.png"
-                              },
-                              "currentRank": 14,
-                              "accumulatedPoints": 405,
-                              "accumlatedScore": 4102,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            },
-                            {
-                              "player": {
-                                "uuid": "af00f421-df44-d6e6-4f2a-0f1ac44abf00",
-                                "alias": "ravioli",
-                                "avatar": "/cdn/avatar/ravioli-avatar.png"
-                              },
-                              "currentRank": 15,
-                              "accumulatedPoints": 499,
-                              "accumlatedScore": 4990,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            }
-                          ],
-                          "endsAt": "2022-08-24T14:15:22Z"
-                        }
-                      },
-                      "sessionToken": null,
-                      "code": "200.000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  },
-                  "Example-200.0404": {
-                    "value": {
-                      "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
-                        "set": {}
-                      },
-                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.0404",
-                      "message": "No recods found matching your criteria."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "operationId": "get-leaderboard-of-id-period-period-week-week",
-        "description": "Use this endpoint to get a leaderboar'S player rankings for the given period and week for the leaderboard that the given player belongs to.",
-        "security": [
-          {
-            "X-Session-Token": []
-          }
-        ]
-      }
-    },
-    "/leaderboard/of/group/{groupId}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "integer",
-            "example": 1312
-          },
-          "name": "groupId",
-          "in": "path",
-          "required": true,
-          "description": "Leaderboard group id."
-        }
-      ],
-      "get": {
-        "summary": "Retrieve Leaderboard By Group Id",
-        "tags": [
-          "leaderboards"
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response returns LEaderboardScreen model. If Pagination model is filled, the given instructions are for the contents of \"standings\" property. (https://docs.bonetwork.co/bilgisavasi/leaderboardscreen)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000": {
-                    "value": {
-                      "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
-                        "set": {
-                          "id": 342,
-                          "week": 34,
-                          "period": 202012,
-                          "group": 0,
-                          "league": 2,
-                          "title": "Altın II Ligi",
-                          "weekTitle": "4. Hafta",
-                          "handle": "diamond2",
-                          "standings": [
-                            {
-                              "player": {
-                                "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
-                                "alias": "tsemmui",
-                                "avatar": "/cdn/avatar/tsemmui-avatar.png"
-                              },
-                              "currentRank": 1,
-                              "accumulatedPoints": 545,
-                              "accumlatedScore": 5450,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "002cfcf0-e870-4360-a41e-3b3bbff22234",
-                                "alias": "azi",
-                                "avatar": "/cdn/avatar/azi-avatar.png"
-                              },
-                              "currentRank": 2,
-                              "accumulatedPoints": 532,
-                              "accumlatedScore": 5320,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-ff70-4360-a41e-3b3bb356a234",
-                                "alias": "furki",
-                                "avatar": "/cdn/avatar/furki-avatar.png"
-                              },
-                              "currentRank": 3,
-                              "accumulatedPoints": 532,
-                              "accumlatedScore": 5310,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "022cfcf0-e870-4360-a41e-3b3bb3522234",
-                                "alias": "TypeHoon",
-                                "avatar": "/cdn/avatar/typehoon-avatar.png"
-                              },
-                              "currentRank": 4,
-                              "accumulatedPoints": 520,
-                              "accumlatedScore": 5200,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-d870-4360-a41e-3b3bb3522234",
-                                "alias": "Tali",
-                                "avatar": "/cdn/avatar/tali-avatar.png"
-                              },
-                              "currentRank": 5,
-                              "accumulatedPoints": 520,
-                              "accumlatedScore": 5200,
-                              "zoneCode": "promotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "eb2cfcf1-e870-4360-f51e-3b3bb3522234",
-                                "alias": "Honor",
-                                "avatar": "/cdn/avatar/honor-avatar.png"
-                              },
-                              "currentRank": 6,
-                              "accumulatedPoints": 519,
-                              "accumlatedScore": 5220,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e871-4360-a41e-3b3bb3522234",
-                                "alias": "nuked",
-                                "avatar": "/cdn/avatar/nuked-avatar.png"
-                              },
-                              "currentRank": 7,
-                              "accumulatedPoints": 519,
-                              "accumlatedScore": 5190,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "af2cfcf0-e870-4360-a41e-3b3bb3522234",
-                                "alias": "Tool GA",
-                                "avatar": "/cdn/avatar/toolga-avatar.png"
-                              },
-                              "currentRank": 8,
-                              "accumulatedPoints": 500,
-                              "accumlatedScore": 5000,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e870-4360-a41e-3b3bcf522234",
-                                "alias": "UV",
-                                "avatar": "/cdn/avatar/uv-avatar.png"
-                              },
-                              "currentRank": 9,
-                              "accumulatedPoints": 500,
-                              "accumlatedScore": 4999,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e870-a360-a41e-3b3bb3522234",
-                                "alias": "K-dir",
-                                "avatar": "/cdn/avatar/kdir-avatar.png"
-                              },
-                              "currentRank": 10,
-                              "accumulatedPoints": 499,
-                              "accumlatedScore": 4990,
-                              "zoneCode": "normal",
-                              "totalPlayers": 40,
-                              "rewardInfo": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 5,
-                                  "insurance": 5,
-                                  "joker": 5,
-                                  "fiftyFifty": 5,
-                                  "majority": 5
-                                },
-                                "score": 0
-                              }
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e870-4360-a41e-3b3bb35ff234",
-                                "alias": "Dinem",
-                                "avatar": "/cdn/avatar/dinem-avatar.png"
-                              },
-                              "currentRank": 11,
-                              "accumulatedPoints": 499,
-                              "accumlatedScore": 4989,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb2cfcf0-e87d-4360-a41e-3b3bb3a22234",
-                                "alias": "Cybill",
-                                "avatar": "/cdn/avatar/cybill-avatar.png"
-                              },
-                              "currentRank": 12,
-                              "accumulatedPoints": 420,
-                              "accumlatedScore": 4200,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            },
-                            {
-                              "player": {
-                                "uuid": "bb00dd22-df79-06ef-ef26-af0fc35abfa1",
-                                "alias": "daa",
-                                "avatar": "/cdn/avatar/daa-avatar.png"
-                              },
-                              "currentRank": 13,
-                              "accumulatedPoints": 410,
-                              "accumlatedScore": 4103,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            },
-                            {
-                              "player": {
-                                "uuid": "1b0cdd06-0f1c-0606-2a2f-0f1fc39dbf00",
-                                "alias": "eoz",
-                                "avatar": "/cdn/avatar/eoz-avatar.png"
-                              },
-                              "currentRank": 14,
-                              "accumulatedPoints": 405,
-                              "accumlatedScore": 4102,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            },
-                            {
-                              "player": {
-                                "uuid": "af00f421-df44-d6e6-4f2a-0f1ac44abf00",
-                                "alias": "ravioli",
-                                "avatar": "/cdn/avatar/ravioli-avatar.png"
-                              },
-                              "currentRank": 15,
-                              "accumulatedPoints": 499,
-                              "accumlatedScore": 4990,
-                              "zoneCode": "demotion",
-                              "totalPlayers": 40,
-                              "rewardInfo": null
-                            }
-                          ],
-                          "endsAt": "2022-08-24T14:15:22Z"
-                        }
-                      },
-                      "sessionToken": null,
-                      "code": "200.000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  },
-                  "Example-200.0404": {
-                    "value": {
-                      "result": {
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": null,
-                          "nextLink": null,
-                          "lastLink": null,
-                          "firstLink": null,
-                          "totalItems": 1,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        },
-                        "set": {}
-                      },
-                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.0404",
-                      "message": "No recods found matching your criteria."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "operationId": "get-leaderboard-of-group-groupId",
-        "description": "Use this endpoint to get a leaderboar'S player rankings for the given period and week for the leaderboard that the given player belongs to.",
-        "security": [
-          {
-            "X-Session-Token": []
-          }
-        ],
-        "parameters": [
-          {
-            "schema": {
-              "type": "integer"
-            },
-            "in": "query",
-            "name": "period",
-            "description": "Get a specific leaderboard by period. If ommitted current period is returned."
-          },
-          {
-            "schema": {
-              "type": "integer",
-              "maximum": 53,
-              "minimum": 1
-            },
-            "in": "query",
-            "name": "week",
-            "description": "Get a specific leaderboard by week number. If ommitted current week is returned."
-          },
-          {
-            "schema": {
-              "type": "string",
-              "enum": [
-                "promotion",
-                "normal",
-                "demotion"
-              ],
-              "example": "promotion"
-            },
-            "in": "query",
-            "name": "zoneCode",
-            "description": "Use this to get only the list of players located in the given zone of the leaderboard."
-          }
-        ]
-      }
-    },
-    "/purchase/register/{sku}/{qty}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string",
-            "example": "ganimet-50-ios"
-          },
-          "name": "sku",
-          "in": "path",
-          "required": true,
-          "description": "Stock code of the product."
-        },
-        {
-          "schema": {
-            "type": "integer",
-            "example": 1,
-            "minimum": 1,
-            "maximum": 10
-          },
-          "name": "qty",
-          "in": "path",
-          "required": true,
-          "description": "Total quantity purchased."
-        }
-      ],
-      "post": {
-        "summary": "Register Successful Purchase",
-        "operationId": "post-purchase-register-sku-qty",
-        "responses": {
-          "200": {
-            "description": "Successful response returns Transaction model\n(https://docs.bonetwork.co/bilgisavasi/transaction)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000": {
-                    "value": {
-                      "result": {
-                        "pagination": null,
-                        "set": {
-                          "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
-                          "alias": "tsemmui",
-                          "avatar": "/cdn/avatar/tsemmui-avatar.png",
-                          "levelSummary": {
-                            "currentLevel": 0,
-                            "accumulatedPoints": 14,
-                            "pointsToNextLevel": 500
-                          },
-                          "powerUps": {
-                            "life": 18,
-                            "joker": 139,
-                            "fiftyFifty": 5,
-                            "majority": 12
-                          },
-                          "coins": 1259,
-                          "categoryStats": [
-                            {
-                              "tag": "history",
-                              "successRate": "0,24",
-                              "correct": 129,
-                              "incorrect": 55
-                            }
-                          ]
-                        }
-                      },
-                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "description": "This endpoint is used to register a successfully completed purchase of user. This endpoint logs the user purchase, checks it with the corresponding store and defines the rewards instructed in product definition to player.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {}
-              }
-            }
-          },
-          "description": ""
-        },
-        "tags": [
-          "in-app purchase"
-        ]
-      }
-    },
-    "/purchase/from/store": {
-      "parameters": [],
-      "post": {
-        "summary": "Create a Store Transaction",
-        "operationId": "post-purchase-from-store",
-        "responses": {
-          "200": {
-            "description": "Successful response returns Transaction Basic model with the ID number.\n(https://docs.bonetwork.co/bilgisavasi/transactionbasic)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000": {
-                    "value": {
-                      "result": {
-                        "pagination": null,
-                        "set": {
-                          "id": 289,
-                          "storeId": null,
-                          "player": "df9118ca-776b-11ec-b3cc-026a9134889a",
-                          "product": 7,
-                          "quantity": 1
-                        }
-                      },
-                      "sessionToken": null,
-                      "code": "200.000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "description": "This endpoint is used to create a new transaction in the database. The transaction must be registered with the status \"w\".",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TransactionBasic"
-              },
-              "examples": {
-                "Example-1": {
-                  "value": {
-                    "id": null,
-                    "storeId": "someId",
-                    "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
-                    "product": "string",
-                    "quantity": 1
-                  }
-                }
-              }
-            }
-          },
-          "description": "TransactionBasic model must be supplied."
-        },
-        "tags": [
-          "in-app purchase"
-        ],
-        "security": [
-          {
-            "X-Session-Token": []
-          }
-        ]
-      },
-      "put": {
-        "summary": "Update a Store Transaction",
-        "operationId": "put-purchase-from-store",
-        "responses": {
-          "200": {
-            "description": "Successful response returns Transaction Basic model with the ID number.\n(https://docs.bonetwork.co/bilgisavasi/transactionbasic)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000": {
-                    "value": {
-                      "result": {
-                        "pagination": null,
-                        "set": {
-                          "id": 2322,
-                          "storeId": "someId",
-                          "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
-                          "product": "string",
-                          "quantity": 1
-                        }
-                      },
-                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "description": "This endpoint MUST be called once the response from app stores' fetched after a purchase request.",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TransactionWithStoreInfo"
-              },
-              "examples": {
-                "Example-1": {
-                  "value": {
-                    "storeId": "someId",
-                    "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
-                    "product": "some.sku",
-                    "quantity": 1,
-                    "isSuccessful": true,
-                    "failReason": "something, can even be a json object"
-                  }
-                }
-              }
-            }
-          },
-          "description": "TransactionWithStoreInfo model must be supplied.\n\n<!-- theme: warning -->\n> ## Attention\n> \n> **id** and **storeId** are required for this endpoint. **id** is transaction identification number, **storeId** is token from store."
-        },
-        "tags": [
-          "in-app purchase"
-        ]
-      }
-    },
-    "/gameplay/progress": {
-      "post": {
-        "summary": "Register Gameplay Progress of a Player",
-        "operationId": "post-gameplay-progress",
-        "responses": {
-          "200": {
-            "description": "On success, it returns 200.0000 with PvpResult model (https://docs.bonetwork.co/bilgisavasi/pvpresult). If the opponent is still playing the game is still active and not finalized, then ",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000": {
-                    "value": {
-                      "result": {
-                        "set": {
-                          "id": 732423,
-                          "gameplayId": 34224239,
-                          "gameplayStatus": "w",
-                          "playerScore": 32,
-                          "opponentScore": 21,
-                          "playerStatus": "t",
-                          "opponentProgress": {
-                            "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
-                            "lastAnsweredQuestion": 3,
-                            "correctAnswers": 3,
-                            "powerUpsUsed": {
-                              "life": 18,
-                              "joker": 139,
-                              "fiftyFifty": 5,
-                              "majority": 12
-                            },
-                            "status": "s",
-                            "coinsAccumulated": 45,
-                            "coinsInsured": 30,
-                            "lastInsuranceCheckpoint": 8,
-                            "startedAt": "2019-08-24T14:15:22Z",
-                            "updatedAt": "2019-08-24T14:15:22Z",
-                            "winStatus": "w",
-                            "points": 0,
-                            "score": 0,
-                            "powerUpsEarned": {
-                              "life": 18,
-                              "joker": 139,
-                              "fiftyFifty": 5,
-                              "majority": 12
-                            },
-                            "game": 213321,
-                            "playAnswers": [
-                              {
-                                "id": 2430112,
-                                "status": "a",
-                                "questionIdx": 7,
-                                "selectedChoice": "d",
-                                "isCorrect": true,
-                                "powerUpsUsed": {
-                                  "life": 18,
-                                  "joker": 139,
-                                  "fiftyFifty": 5,
-                                  "majority": 12
-                                },
-                                "question": 7233,
-                                "powerUpsEarned": {
-                                  "life": 0,
-                                  "joker": 0,
-                                  "fiftyFifty": 0,
-                                  "majority": 0
-                                }
-                              }
-                            ],
-                            "experienceEarned": 500
-                          },
-                          "playerProgress": {
-                            "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
-                            "lastAnsweredQuestion": 3,
-                            "correctAnswers": 3,
-                            "powerUpsUsed": {
-                              "life": 18,
-                              "joker": 139,
-                              "fiftyFifty": 5,
-                              "majority": 12
-                            },
-                            "status": "s",
-                            "coinsAccumulated": 45,
-                            "coinsInsured": 30,
-                            "lastInsuranceCheckpoint": 8,
-                            "startedAt": "2019-08-24T14:15:22Z",
-                            "updatedAt": "2019-08-24T14:15:22Z",
-                            "winStatus": "w",
-                            "points": 0,
-                            "score": 0,
-                            "powerUpsEarned": {
-                              "life": 18,
-                              "joker": 139,
-                              "fiftyFifty": 5,
-                              "majority": 12
-                            },
-                            "game": 213321,
-                            "playAnswers": [
-                              {
-                                "id": 2430112,
-                                "status": "a",
-                                "questionIdx": 7,
-                                "selectedChoice": "d",
-                                "isCorrect": true,
-                                "powerUpsUsed": {
-                                  "life": 18,
-                                  "joker": 139,
-                                  "fiftyFifty": 5,
-                                  "majority": 12
-                                },
-                                "question": 7233,
-                                "powerUpsEarned": {
-                                  "life": 0,
-                                  "joker": 0,
-                                  "fiftyFifty": 0,
-                                  "majority": 0
-                                }
-                              }
-                            ],
-                            "experienceEarned": 500
-                          },
-                          "opponentStanding": {
-                            "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
-                            "currentRank": 1,
-                            "accumulatedPoints": 54555,
-                            "accumlatedScore": 0,
-                            "zoneCode": "promotion",
-                            "totalPlayers": 40,
-                            "rewardInfo": null
-                          },
-                          "playerStanding": {
-                            "player": "ae2cfcf1-e870-4360-a41e-3b3bb3312234",
-                            "currentRank": 3,
-                            "accumulatedPoints": 54555,
-                            "accumlatedScore": 0,
-                            "zoneCode": "promotion",
-                            "totalPlayers": 40,
-                            "rewardInfo": null
-                          },
-                          "adPlacement": {
-                            "id": 5455,
-                            "createdAt": "2019-08-24T14:15:22Z",
-                            "updatedAt": "2019-08-24T14:15:22Z",
-                            "status": "a",
-                            "placementCode": "combo-reward-ad",
-                            "rewardInstructions": {
-                              "tickets": {
-                                "value": 1,
-                                "multiplier": 1,
-                                "type": "v"
-                              },
-                              "unlimitedTicketsDuration": {
-                                "value": 24,
-                                "multiplier": 1,
-                                "type": "v"
-                              },
-                              "joker": {
-                                "value": 1,
-                                "multiplier": 1,
-                                "type": "v"
-                              },
-                              "majority": {
-                                "value": 0,
-                                "multiplier": 1,
-                                "type": "v"
-                              },
-                              "fiftyFifty": {
-                                "value": 0,
-                                "multiplier": 1,
-                                "type": "v"
-                              },
-                              "stash": {
-                                "value": 0,
-                                "multiplier": 1,
-                                "type": "v"
-                              },
-                              "experience": {
-                                "value": 0,
-                                "multiplier": 2,
-                                "type": "m"
-                              },
-                              "coins": {
-                                "value": 100,
-                                "multiplier": 1,
-                                "type": "v"
-                              }
-                            }
-                          }
-                        },
-                        "pagination": null
-                      },
-                      "sessionToken": null,
-                      "code": "200.0000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  },
-                  "Example-200.0406": {
-                    "value": {
-                      "result": {
-                        "set": null,
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": "offset=9&limit=50",
-                          "nextLink": "offset=1&limit=50",
-                          "lastLink": "offset=10&limit=50",
-                          "firstLink": "offset=10&limit=50",
-                          "totalItems": 500,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        }
-                      },
-                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.0406",
-                      "message": "Not all players have finished the game yet. Please wait a little bit and try again to see the final result of the game."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "description": "This endpoint is used to register a single gameplay progress. It is mainly used in PVP games to register a player's gameplay progress to the system.\n\n**Flow Diagram**:\n![Flow Diagram](https://s3.eu-central-1.amazonaws.com/docs.bonetwork.co/apps/bilgisavasi/openapi/flows/post.pameplay.progress.png)",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GameplayProgress"
-              },
-              "examples": {
-                "Example-1": {
-                  "value": {
-                    "player": {
-                      "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
-                      "alias": "tsemmui",
-                      "avatar": "/cdn/avatar/tsemmui-avatar.png",
-                      "levelSummary": {
-                        "currentLevel": 0,
-                        "accumulatedPoints": 14,
-                        "pointsToNextLevel": 500
-                      },
-                      "powerUps": {
-                        "life": 6,
-                        "joker": 139,
-                        "fiftyFifty": 5,
-                        "majority": 12
-                      },
-                      "coins": 1259,
-                      "categoryStats": [
-                        {
-                          "tag": "history",
-                          "successRate": 0.24,
-                          "correct": 129,
-                          "incorrect": 55
-                        }
-                      ],
-                      "appleId": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
-                      "googleId": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f"
-                    },
-                    "lastAnsweredQuestion": 3,
-                    "correctAnswers": 3,
-                    "powerUpsUsed": {
-                      "life": 2,
-                      "insurance": 18,
-                      "joker": 139,
-                      "fiftyFifty": 5,
-                      "majority": 12
-                    },
-                    "status": "s",
-                    "coinsAccumulated": 45,
-                    "coinsInsured": 30,
-                    "lastInsuranceCheckpoint": 8,
-                    "startedAt": "2019-08-24T14:15:22Z",
-                    "updatedAt": "2019-08-24T14:15:22Z",
-                    "winStatus": "w",
-                    "points": 0,
-                    "score": 0,
-                    "powerUpsEarned": {
-                      "life": 2,
-                      "insurance": 18,
-                      "joker": 139,
-                      "fiftyFifty": 5,
-                      "majority": 12
-                    },
-                    "playerAnswers": [
-                      {
-                        "id": 6454,
-                        "status": "a",
-                        "questionIdx": 7,
-                        "selectedChoice": "b",
-                        "isCorrect": true,
-                        "powerUpsUsed": {
-                          "life": 2,
-                          "insurance": 18,
-                          "joker": 139,
-                          "fiftyFifty": 5,
-                          "majority": 12
-                        },
-                        "question": {
-                          "id": 3215,
-                          "question": "Which actor did not play the role \"Bruce Wayne\" in any of the Batman movies?",
-                          "bannerImage": "/cdn/bannerImage.jpg",
-                          "choices": [
-                            {
-                              "label": "Christopher Nolan",
-                              "isCorrect": true,
-                              "answerCount": 4432
-                            },
-                            {
-                              "label": "Bruce Willis",
-                              "isCorrect": true,
-                              "answerCount": 44332
-                            }
-                          ],
-                          "difficultyLevel": 2,
-                          "duration": 20,
-                          "rewards": {
-                            "coins": 10,
-                            "experience": 50,
-                            "powerups": {
-                              "life": 2,
-                              "insurance": 18,
-                              "joker": 139,
-                              "fiftyFifty": 5,
-                              "majority": 12,
-                              "immortality": {
-                                "isActive": true,
-                                "validUntil": "2019-08-24T14:15:22Z"
-                              },
-                              "immunity": {
-                                "isActive": true,
-                                "validUntil": "2019-08-24T14:15:22Z"
-                              }
-                            },
-                            "score": 5
-                          },
-                          "tag": "history"
-                        },
-                        "powerUpsEarned": {
-                          "life": 2,
-                          "insurance": 18,
-                          "joker": 139,
-                          "fiftyFifty": 5,
-                          "majority": 12
-                        },
-                        "coinsEarned": 0,
-                        "timeSpent": 12,
-                        "pointsEarned": 0,
-                        "scoreEarned": 50,
-                        "experienceEarned": 5,
-                        "askedAt": "2019-08-24T14:15:22Z",
-                        "answeredAt": "2019-08-24T14:15:22Z"
-                      }
-                    ],
-                    "game": 1230987,
-                    "experienceEarned": 200
-                  }
-                }
-              }
-            }
-          },
-          "description": "A single gameplay progress must be submitted within the body. The submitted gameplay progress must have a valid ID and it should belong to the user who owns the current session unless the user has necessary management privileges. https://docs.bonetwork.co/bilgisavasi/gameplayprogress"
-        },
-        "tags": [
-          "pvp-gameplay"
-        ]
-      }
-    },
     "/products": {
       "get": {
         "summary": "List Products",
@@ -5170,7 +4534,7 @@
                           {
                             "id": 6544,
                             "store": "a",
-                            "sku": "ganimet-50-ios",
+                            "sku": "trscht-combo-ios",
                             "storTier": "Tier 1",
                             "price": 5.99,
                             "taxIncluded": true,
@@ -5178,20 +4542,19 @@
                               "isRecurring": false,
                               "recursionType": "x",
                               "recursionDuration": 1,
-                              "lives": 6,
-                              "immortabilityDuration": 24,
-                              "immunityDuration": 0,
-                              "joker": 10,
+                              "tickets": 1,
+                              "unlimitedTicketsDuration": 24,
+                              "joker": 1,
                               "majority": 0,
                               "fiftyFifty": 0,
-                              "insurance": 0,
-                              "experience": 100,
-                              "coins": 50
+                              "stash": 0,
+                              "experience": 0,
+                              "coins": 100
                             },
-                            "currency": "XXGMT",
-                            "title": "Hazine Kesesi Kombo Paketi",
-                            "description": "1.000 Altın + 100 XP + 7 boyunca 2 joker ve 3er adet %50 ve çoğunluk gücü.",
-                            "image": null
+                            "title": "Treasure Chest Combo Package",
+                            "description": "1.000 Coins + 100 XP + 7 days long, 2 jokers + 3 50% powerup everyday",
+                            "currency": "COI",
+                            "image": null  
                           }
                         ],
                         "pagination": {
@@ -5274,183 +4637,6 @@
         ]
       }
     },
-    "/questions/suggested": {
-      "get": {
-        "summary": "List Questions Suggested By the Player",
-        "responses": {
-          "200": {
-            "description": "Successful response returns a collection of product models\n(https://docs.bonetwork.co/bilgisavasi/playertagstatitem)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000": {
-                    "value": {
-                      "result": {
-                        "set": [
-                          {
-                            "id": 1342,
-                            "question": {
-                              "id": 3391215,
-                              "question": "Which actor did not play the role \"Bruce Wayne\" in any of the Batman movies?",
-                              "bannerImage": "/cdn/bannerImage.jpg",
-                              "choices": [
-                                {
-                                  "label": "Christopher Nolan",
-                                  "isCorrect": false,
-                                  "answerCount": 0
-                                },
-                                {
-                                  "label": "Michael Keaton",
-                                  "isCorrect": false,
-                                  "answerCount": 0
-                                },
-                                {
-                                  "label": "Jack Nicholson",
-                                  "isCorrect": true,
-                                  "answerCount": 0
-                                },
-                                {
-                                  "label": "Val Kilmer",
-                                  "isCorrect": false,
-                                  "answerCount": 0
-                                }
-                              ],
-                              "difficultyLevel": 2,
-                              "duration": 20,
-                              "rewards": {
-                                "coins": 10,
-                                "experience": 50,
-                                "powerups": {
-                                  "life": 2,
-                                  "insurance": 18,
-                                  "joker": 139,
-                                  "fiftyFifty": 5,
-                                  "majority": 12,
-                                  "immortality": {
-                                    "isActive": true,
-                                    "validUntil": "2019-08-24T14:15:22Z"
-                                  },
-                                  "immunity": {
-                                    "isActive": true,
-                                    "validUntil": "2019-08-24T14:15:22Z"
-                                  }
-                                },
-                                "score": 5
-                              },
-                              "tag": "history"
-                            },
-                            "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
-                            "status": "a",
-                            "rewarded": false,
-                            "rewardInformation": {
-                              "coins": 10,
-                              "experience": 50,
-                              "powerups": {
-                                "life": 2,
-                                "insurance": 18,
-                                "joker": 139,
-                                "fiftyFifty": 5,
-                                "majority": 12,
-                                "immortality": {
-                                  "isActive": true,
-                                  "validUntil": "2019-08-24T14:15:22Z"
-                                },
-                                "immunity": {
-                                  "isActive": true,
-                                  "validUntil": "2019-08-24T14:15:22Z"
-                                }
-                              },
-                              "score": 5
-                            },
-                            "rejectionReason": null
-                          }
-                        ],
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": "offset=9&limit=50",
-                          "nextLink": "offset=1&limit=50",
-                          "lastLink": "offset=10&limit=50",
-                          "firstLink": "offset=10&limit=50",
-                          "totalItems": 500,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        }
-                      },
-                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.0000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "operationId": "get-questions-suggested",
-        "description": "Use this endpoint to list all questiones suggested by the player.",
-        "security": [
-          {
-            "X-Api-Key": []
-          }
-        ],
-        "parameters": [
-          {
-            "schema": {
-              "type": "string",
-              "enum": [
-                "s",
-                "b"
-              ],
-              "example": "b"
-            },
-            "in": "query",
-            "name": "packageType",
-            "description": "b: paket, s: tek ürün"
-          },
-          {
-            "schema": {
-              "type": "string",
-              "enum": [
-                "KOIN",
-                "TRY"
-              ],
-              "example": "KOIN"
-            },
-            "in": "query",
-            "name": "currency",
-            "description": "KOİN, TRY"
-          },
-          {
-            "schema": {
-              "type": "integer",
-              "uniqueItems": true,
-              "minItems": 0,
-              "example": 15
-            },
-            "in": "query",
-            "name": "group",
-            "description": "Bir gruba ait ürünleri sıralamak için kullanılır.",
-            "required": true
-          }
-        ],
-        "tags": [
-          "players"
-        ]
-      }
-    },
     "/products/by-group": {
       "get": {
         "summary": "List Products Grouped by Categories",
@@ -5472,35 +4658,37 @@
                         "set": [
                           {
                             "id": 2231,
-                            "title": "Güç Paketleri",
-                            "description": "EUR",
+                            "title": "Power Packages",
+                            "description": "Discounted power-up Packages.",
                             "status": "a",
-                            "products": [
+                            "visibleInStore": true,
+                            "products":  [
                               {
-                                "id": 2231,
+                                "id": 6544,
                                 "store": "a",
-                                "sku": "ganimet-50-ios",
-                                "storeTier": "Tier 1",
+                                "sku": "trscht-combo-ios",
+                                "storTier": "Tier 1",
+                                "price": 5.99,
+                                "taxIncluded": true,
                                 "instructions": {
                                   "isRecurring": false,
                                   "recursionType": "x",
                                   "recursionDuration": 1,
-                                  "lives": 6,
-                                  "immortabilityDuration": 24,
-                                  "immunityDuration": 0,
-                                  "joker": 10,
+                                  "tickets": 1,
+                                  "unlimitedTicketsDuration": 24,
+                                  "joker": 1,
                                   "majority": 0,
                                   "fiftyFifty": 0,
-                                  "insurance": 0,
-                                  "experience": 100,
-                                  "coins": 50
+                                  "stash": 0,
+                                  "experience": 0,
+                                  "coins": 100
                                 },
-                                "price": 25.99,
-                                "taxIncluded": true,
-                                "currency": "XXGMT",
-                                "image": null
+                                "title": "Treasure Chest Combo Package",
+                                "description": "1.000 Coins + 100 XP + 7 days long, 2 jokers + 3 50% powerup everyday",
+                                "currency": "COI",
+                                "image": null  
                               }
-                            ]
+                            ]  
                           }
                         ],
                         "pagination": null
@@ -5657,7 +4845,6 @@
         ]
       }
     },
-    
     "/support/request/question": {
       "parameters": [],
       "post": {
@@ -5740,7 +4927,7 @@
                     "status": 0,
                     "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
                     "question": "fe2cfcf0-e870-4360-a41e-3b3b5331f2a4",
-                    "playerComments": "Soruda yazım hatası bulunuyor.",
+                    "playerComments": "There is a typing error..",
                     "issueType": "t",
                     "issueId": null,
                     "response": null,
@@ -5750,7 +4937,7 @@
               }
             }
           },
-          "description": "https://docs.bonetwork.co/bilgisavasi/socialaccountinfo"
+          "description": "TQIssueRequest model."
         },
         "tags": [
           "support"
@@ -5827,7 +5014,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/TriviaQuizQuestion"
+                "$ref": "#/components/schemas/SuggestedQuestion"
               },
               "examples": {
                 "Example-1": {
@@ -5904,17 +5091,7 @@
                     "value": {
                       "result": {
                         "set": null,
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": "offset=9&limit=50",
-                          "nextLink": "offset=1&limit=50",
-                          "lastLink": "offset=10&limit=50",
-                          "firstLink": "offset=10&limit=50",
-                          "totalItems": 500,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        }
+                        "pagination": null
                       },
                       "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
                       "code": "200.0000",
@@ -5953,90 +5130,10 @@
               }
             }
           },
-          "description": "Must supply PlayerGcInfo model (https://docs.bonetwork.co/bilgisavasi/playergcinfo(."
+          "description": "Must supply PlayerGcInfo model."
         },
         "tags": [
           "social-login"
-        ]
-      }
-    },
-    "/leaderboards": {
-      "get": {
-        "summary": "List PvP Leaderboards",
-        "tags": [
-          "leaderboards"
-        ],
-        "responses": {
-          "200": {
-            "description": "Result set holds a list of Leaderboard models. (https://docs.bonetwork.co/bilgisavasi/leaderboard)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                },
-                "examples": {
-                  "Example-200.0000": {
-                    "value": {
-                      "result": {
-                        "set": [
-                          {
-                            "id": 1,
-                            "title": "Elmas I. Ligi",
-                            "groupCount": 1,
-                            "playersPerGroup": 40,
-                            "playerCount": 40,
-                            "maxPlayers": 40,
-                            "levelUpTo": null,
-                            "levelDownTo": 2
-                          },
-                          {
-                            "id": 2,
-                            "title": "Elmas II. Ligi",
-                            "groupCount": 2,
-                            "playersPerGroup": 40,
-                            "playerCount": 40,
-                            "maxPlayers": 80,
-                            "levelUpTo": 1,
-                            "levelDownTo": 3
-                          }
-                        ],
-                        "pagination": {
-                          "isCircular": true,
-                          "prevLink": "offset=9&limit=50",
-                          "nextLink": "offset=1&limit=50",
-                          "lastLink": "offset=10&limit=50",
-                          "firstLink": "offset=10&limit=50",
-                          "totalItems": 500,
-                          "itemsPerPage": 50,
-                          "pageCount": 1,
-                          "currentPage": 1
-                        }
-                      },
-                      "sessionToken": "1a79a4d60de6718e8e5b326e338ae533",
-                      "code": "200.0000",
-                      "message": "Your request has been successfully completed."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401.Generic"
-          },
-          "412": {
-            "$ref": "#/components/responses/412.Generic"
-          },
-          "500": {
-            "$ref": "#/components/responses/500.Generic"
-          }
-        },
-        "operationId": "get-leaderboards",
-        "description": "Use this endpoint to list the defined leaderboards and their meta information.",
-        "security": [
-          {
-            "X-Api-Key": []
-          }
         ]
       }
     },
@@ -7508,7 +6605,6 @@
           "legal"
         ]
       },
-      
       "GameResult": {
         "title": "GameResult",
         "type": "object",
@@ -8815,143 +7911,6 @@
           "game"
         ]
       },
-      "PlayerLeaderboardStanding": {
-        "title": "PlayerLeaderboardStanding",
-        "type": "object",
-        "description": "A simple representation of the leaderboard that includes selected player's standing information.",
-        "x-tags": [
-          "models",
-          "leaderboards"
-        ],
-        "x-examples": {
-          "Example-1": {
-            "value": {
-              "id": 342,
-              "year": 2021,
-              "month": 3,
-              "week": 34,
-              "division": 3,
-              "group": 0,
-              "league": 2,
-              "title": "Elmas II Ligi - 52. Hafta",
-              "standing": {
-                "player": {
-                  "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
-                  "alias": "tsemmui",
-                  "avatar": "/cdn/avatar/tsemmui-avatar.png"
-                },
-                "currentRank": 1,
-                "accumulatedPoints": 54555,
-                "accumlatedScore": 0,
-                "zoneCode": "promotion",
-                "totalPlayers": 40,
-                "rewardInfo": {
-                  "coins": 10,
-                  "experience": 50,
-                  "powerups": {
-                    "tickets": 2,
-                    "stash": 18,
-                    "joker": 139,
-                    "fiftyFifty": 5,
-                    "majority": 12,
-                    "unlimitedTickets": {
-                      "isActive": true,
-                      "validUntil": "2019-08-24T14:15:22Z"
-                    }
-                  },
-                  "score": 5
-                }
-              },
-              "weekTitle": "12. Hafta",
-              "endsAt": "2019-08-24T14:15:22Z",
-              "handle": "diamond2"
-            }
-          }
-        },
-        "x-internal": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "System attained id.",
-            "minimum": 1,
-            "example": 342
-          },
-          "year": {
-            "type": "integer",
-            "minimum": 2020,
-            "maximum": 2199,
-            "description": "Year of the recording.",
-            "example": 2021
-          },
-          "month": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 12,
-            "example": 3,
-            "description": "Month of the recording."
-          },
-          "week": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 52,
-            "example": 34,
-            "description": "Week of the recording."
-          },
-          "division": {
-            "type": "integer",
-            "minimum": 1,
-            "example": 3,
-            "description": "Division that leaderboard belongs.",
-            "maximum": 4
-          },
-          "group": {
-            "type": "integer",
-            "description": "League that leader board belongs."
-          },
-          "league": {
-            "type": "integer",
-            "example": 2,
-            "minimum": 1,
-            "maximum": 4
-          },
-          "title": {
-            "type": "string",
-            "example": "Elmas II Ligi - 52. Hafta",
-            "description": "Title of the leader board."
-          },
-          "standing": {
-            "$ref": "#/components/schemas/LeaderboardStanding"
-          },
-          "weekTitle": {
-            "type": "string",
-            "example": "12. Hafta",
-            "description": "Verbal title of the current league's weekly sub-ivision.",
-            "readOnly": true
-          },
-          "endsAt": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Time when the league closes."
-          },
-          "handle": {
-            "type": "string",
-            "description": "leaderboard's programmatic handle.",
-            "example": "gold1"
-          }
-        },
-        "required": [
-          "id",
-          "year",
-          "month",
-          "week",
-          "division",
-          "group",
-          "league",
-          "title",
-          "weekTitle",
-          "endsAt"
-        ]
-      },
       "LeaderboardScreen": {
         "title": "LeaderboardScreen",
         "type": "object",
@@ -9469,6 +8428,144 @@
           "pvpStanding"
         ]
       },
+      
+      "PlayerLeaderboardStanding": {
+        "title": "PlayerLeaderboardStanding",
+        "type": "object",
+        "description": "A simple representation of the leaderboard that includes selected player's standing information.",
+        "x-tags": [
+          "models",
+          "leaderboards"
+        ],
+        "x-examples": {
+          "Example-1": {
+            "value": {
+              "id": 342,
+              "year": 2021,
+              "month": 3,
+              "week": 34,
+              "division": 3,
+              "group": 0,
+              "league": 2,
+              "title": "Elmas II Ligi - 52. Hafta",
+              "standing": {
+                "player": {
+                  "uuid": "095be615-a8ad-4c33-8e9c-c7612fbf6c9f",
+                  "alias": "tsemmui",
+                  "avatar": "/cdn/avatar/tsemmui-avatar.png"
+                },
+                "currentRank": 1,
+                "accumulatedPoints": 54555,
+                "accumlatedScore": 0,
+                "zoneCode": "promotion",
+                "totalPlayers": 40,
+                "rewardInfo": {
+                  "coins": 10,
+                  "experience": 50,
+                  "powerups": {
+                    "tickets": 2,
+                    "stash": 18,
+                    "joker": 139,
+                    "fiftyFifty": 5,
+                    "majority": 12,
+                    "unlimitedTickets": {
+                      "isActive": true,
+                      "validUntil": "2019-08-24T14:15:22Z"
+                    }
+                  },
+                  "score": 5
+                }
+              },
+              "weekTitle": "12. Hafta",
+              "endsAt": "2019-08-24T14:15:22Z",
+              "handle": "diamond2"
+            }
+          }
+        },
+        "x-internal": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "System attained id.",
+            "minimum": 1,
+            "example": 342
+          },
+          "year": {
+            "type": "integer",
+            "minimum": 2020,
+            "maximum": 2199,
+            "description": "Year of the recording.",
+            "example": 2021
+          },
+          "month": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12,
+            "example": 3,
+            "description": "Month of the recording."
+          },
+          "week": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 52,
+            "example": 34,
+            "description": "Week of the recording."
+          },
+          "division": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 3,
+            "description": "Division that leaderboard belongs.",
+            "maximum": 4
+          },
+          "group": {
+            "type": "integer",
+            "description": "League that leader board belongs."
+          },
+          "league": {
+            "type": "integer",
+            "example": 2,
+            "minimum": 1,
+            "maximum": 4
+          },
+          "title": {
+            "type": "string",
+            "example": "Elmas II Ligi - 52. Hafta",
+            "description": "Title of the leader board."
+          },
+          "standing": {
+            "$ref": "#/components/schemas/LeaderboardStanding"
+          },
+          "weekTitle": {
+            "type": "string",
+            "example": "12. Hafta",
+            "description": "Verbal title of the current league's weekly sub-ivision.",
+            "readOnly": true
+          },
+          "endsAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Time when the league closes."
+          },
+          "handle": {
+            "type": "string",
+            "description": "leaderboard's programmatic handle.",
+            "example": "gold1"
+          }
+        },
+        "required": [
+          "id",
+          "year",
+          "month",
+          "week",
+          "division",
+          "group",
+          "league",
+          "title",
+          "weekTitle",
+          "endsAt"
+        ]
+      },
       "PlayerLevelSummary": {
         "title": "PlayerLevelSummary",
         "type": "object",
@@ -9578,7 +8675,7 @@
           "fiftyFifty",
           "majority"
         ]
-      },     
+      },
       "PlayerSummary": {
         "title": "PlayerSummary",
         "type": "object",
@@ -10720,89 +9817,6 @@
           }
         }
       },
-      "PurchaseResult": {
-        "title": "PurchaseResult",
-        "type": "object",
-        "description": "This object is used to respond purchase requests.",
-        "properties": {
-          "coins": {
-            "type": "integer",
-            "example": 50,
-            "description": "Number of coins assigned."
-          },
-          "experience": {
-            "type": "integer",
-            "example": 50,
-            "description": "Number of experience assigned."
-          },
-          "insurance": {
-            "type": "integer",
-            "example": 0,
-            "description": "Number of insurance power assigned."
-          },
-          "joker": {
-            "type": "integer",
-            "example": 0,
-            "description": "Number of joker power assigned."
-          },
-          "fiftyFifty": {
-            "type": "integer",
-            "example": 7,
-            "description": "Number of fifty-fifty power assigned."
-          },
-          "majority": {
-            "type": "integer",
-            "example": 5,
-            "description": "Number of majority power assigned."
-          },
-          "immortality": {
-            "type": "integer",
-            "example": 24,
-            "description": "Number of hours that immortality will be available."
-          },
-          "immunity": {
-            "type": "integer",
-            "example": 6,
-            "description": "Number of hours that immunity will be available."
-          }
-        },
-        "required": [
-          "coins",
-          "experience",
-          "insurance",
-          "joker",
-          "fiftyFifty",
-          "majority",
-          "immortality",
-          "immunity"
-        ],
-        "x-examples": {
-          "Example-1": {
-            "coins": 50,
-            "experience": 0,
-            "insurance": 0,
-            "joker": 0,
-            "fiftyFifty": 0,
-            "majority": 0,
-            "immortality": 6,
-            "immunity": 0,
-            "value": {
-              "coins": 50,
-              "experience": 0,
-              "insurance": 0,
-              "joker": 0,
-              "fiftyFifty": 0,
-              "majority": 0,
-              "immortality": 6,
-              "immunity": 0
-            }
-          }
-        },
-        "x-tags": [
-          "models",
-          "in-app purchase"
-        ]
-      },
       "RewardDistribution": {
         "title": "RewardDistribution",
         "type": "object",
@@ -11029,6 +10043,165 @@
           "experience",
           "score"
         ]
+      },
+      
+      "SocialAccountInfo": {
+        "title": "SocialAccountInfo",
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Social account token of the player as provided from the social platform SDK.",
+            "format": "uuid"
+          },
+          "email": {
+            "type": "string",
+            "description": "E-mail address of the player.",
+            "format": "email",
+            "nullable": true
+          },
+          "avatar": {
+            "type": "string",
+            "description": "URL of player's social account's avatar.",
+            "nullable": true
+          }
+        },
+        "required": [
+          "token"
+        ],
+        "description": "Holds details from the social account provider in a standardized way.",
+        "x-examples": {
+          "Eexample-1": {
+            "token": "b5507016-7da2-4777-a161-1e8042a6a377",
+            "email": "joe@dalton.org",
+            "avatar": "https://cdn.social-platform.com/user/b5507016-7da2-4777-a161-1e8042a6a377/avatar/joe.png"
+          }
+        }
+      }, 
+      "SuggestedQuestion": {
+        "title": "SuggestedQuestion",
+        "type": "object",
+        "description": "This is a reflection of the suggested_question table.",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 342,
+            "description": "System given id."
+          },
+          "question": {
+            "$ref": "#/components/schemas/TriviaQuizQuestion"
+          },
+          "player": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the player who has submitted this suggestion.",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "a",
+              "r",
+              "u"
+            ],
+            "example": "u",
+            "description": "Status of suggestion. a: accepted, r: rejected, u: under review"
+          },
+          "rewarded": {
+            "type": "boolean",
+            "default": false,
+            "description": "If reward has sent true, then false."
+          },
+          "rewardInformation": {
+            "$ref": "#/components/schemas/RewardInstructions"
+          },
+          "rejectionReason": {
+            "type": "string",
+            "description": "q: does not match to our quality standards, i: contains invalid information, d: duplicate, question already exists",
+            "enum": [
+              "d",
+              "i",
+              "q"
+            ],
+            "nullable": true
+          }
+        },
+        "x-examples": {
+          "Example-1": {
+            "id": 1342,
+            "question": {
+              "id": 3391215,
+              "question": "Which actor did not play the role \"Bruce Wayne\" in any of the Batman movies?",
+              "bannerImage": "/cdn/bannerImage.jpg",
+              "choices": [
+                {
+                  "label": "Christopher Nolan",
+                  "isCorrect": false,
+                  "answerCount": 0
+                },
+                {
+                  "label": "Michael Keaton",
+                  "isCorrect": false,
+                  "answerCount": 0
+                },
+                {
+                  "label": "Jack Nicholson",
+                  "isCorrect": true,
+                  "answerCount": 0
+                },
+                {
+                  "label": "Val Kilmer",
+                  "isCorrect": false,
+                  "answerCount": 0
+                }
+              ],
+              "difficultyLevel": 2,
+              "duration": 20,
+              "rewards": {
+                "coins": 10,
+                "experience": 50,
+                "powerups": {
+                  "life": 2,
+                  "insurance": 18,
+                  "joker": 139,
+                  "fiftyFifty": 5,
+                  "majority": 12,
+                  "immortality": {
+                    "isActive": true,
+                    "validUntil": "2019-08-24T14:15:22Z"
+                  },
+                  "immunity": {
+                    "isActive": true,
+                    "validUntil": "2019-08-24T14:15:22Z"
+                  }
+                },
+                "score": 5
+              },
+              "tag": "history"
+            },
+            "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
+            "status": "a",
+            "rewarded": false,
+            "rewardInformation": {
+              "coins": 10,
+              "experience": 50,
+              "score": 5,
+              "powerups": {
+                "tickets": 2,
+                "stash": 18,
+                "joker": 139,
+                "fiftyFifty": 5,
+                "majority": 12,
+                "unlimitedTickets": {
+                  "isActive": true,
+                  "validUntil": "2019-08-24T14:15:22Z"
+                }
+              }
+            },
+            "rejectionReason": null
+          }
+        }
       },
       "TriviaQuiz": {
         "title": "TrviaQuiz",
@@ -11443,13 +10616,13 @@
                 "coins": 100,
                 "experience": 500,
                 "powerups": {
-                      "tickets": 0,
-                      "joker": 0,
-                      "fiftyFifty": 0,
-                      "majority": 0,
-                      "stash": 0,
-                      "unlimitedTickets": null
-                    },
+                  "tickets": 0,
+                  "joker": 0,
+                  "fiftyFifty": 0,
+                  "majority": 0,
+                  "stash": 0,
+                  "unlimitedTickets": null
+                },
                 "score": 3
               }
             }
@@ -11596,12 +10769,12 @@
                 "experience": 50,
                 "score": 5,
                 "powerups": {
-                    "tickets": 0,
-                    "stash": 0,
-                    "joker": 0,
-                    "fiftyFifty": 0,
-                    "majority": 0,
-                    "unlimitedTickets": null
+                  "tickets": 0,
+                  "stash": 0,
+                  "joker": 0,
+                  "fiftyFifty": 0,
+                  "majority": 0,
+                  "unlimitedTickets": null
                 }
               },
               "tag": "movies"
@@ -11923,39 +11096,6 @@
           "levelDownToB"
         ]
       },
-      "SocialAccountInfo": {
-        "title": "SocialAccountInfo",
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string",
-            "description": "Social account token of the player as provided from the social platform SDK.",
-            "format": "uuid"
-          },
-          "email": {
-            "type": "string",
-            "description": "E-mail address of the player.",
-            "format": "email",
-            "nullable": true
-          },
-          "avatar": {
-            "type": "string",
-            "description": "URL of player's social account's avatar.",
-            "nullable": true
-          }
-        },
-        "required": [
-          "token"
-        ],
-        "description": "Holds details from the social account provider in a standardized way.",
-        "x-examples": {
-          "Eexample-1": {
-            "token": "b5507016-7da2-4777-a161-1e8042a6a377",
-            "email": "joe@dalton.org",
-            "avatar": "https://cdn.social-platform.com/user/b5507016-7da2-4777-a161-1e8042a6a377/avatar/joe.png"
-          }
-        }
-      },
       "TQIssueRequest": {
         "title": "TQIssueRequest",
         "type": "object",
@@ -12095,8 +11235,9 @@
         "description": "This model represents a transaction with the bare minimum requirements.",
         "x-examples": {
           "Example-1": {
-            "id": null,
-            "storeId": "string",
+            "id": 49665,
+            "storeCode": "coi",
+            "storeTransactionId": null,
             "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
             "product": "string",
             "quantity": 1
@@ -12109,7 +11250,18 @@
             "minimum": 1,
             "nullable": true
           },
-          "storeId": {
+          "storeCode": {
+            "type": "string",
+            "description": "Three-letter code of the store.",
+            "nullable": true,
+            "enum": [
+              "coi",
+              "iaa",
+              "iai",
+              "ias"
+            ]
+          },
+          "storeTransactionId": {
             "type": "string",
             "description": "Transaction id obtained from store (app store, playstore etc.).",
             "nullable": true
@@ -12130,173 +11282,104 @@
           }
         }
       },
-      "TransactionWithStoreInfo": {
-        "title": "TransactionWithStoreInfo",
+      "TransactionReceipt": {
+        "title": "TransactionReceipt",
         "type": "object",
-        "description": "This model represents a transaction with the bare minimum requirements + store information.",
+        "description": "This object is a representation of a basic receipt what is generated after each failed or successful purchase.",
         "x-examples": {
-          "example-1": {
-            "storeId": "someId",
-            "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
-            "product": "Some-Sku",
-            "quantity": 1,
-            "isSuccessful": true,
-            "failReason": "..."
+          "Example-1": {
+            "transactionId": 21234234,
+            "storeCode": "coi",
+            "storeTransactionId": null,
+            "status": "c",
+            "failCode": null,
+            "player": "840295a6-0cf5-43df-ba0a-d155f1f50e8e",
+            "sku": "ios-coin-500",
+            "qty": 1,
+            "totalAmount": 500.00,
+            "currency": "COI",
+            "purchasedAt": "2019-08-24T14:15:22Z",
+            "playerBalances": {
+              "coins": 10,
+              "experience": 50,
+              "score": 5,
+              "powerups": {
+                "tickets": 6,
+                "stash": 50,
+                "joker": 18,
+                "fiftyFifty": 24,
+                "majority": 19,
+                "unlimitedTickets": null
+              }
+            }
           }
         },
-        "properties": {
-          "storeId": {
-            "type": "string",
-            "description": "Transaction id obtained from store (app store, playstore etc.).",
-            "nullable": true
-          },
-          "player": {
-            "type": "string",
-            "format": "uuid",
-            "description": "The id of the player who is making the purchase."
-          },
-          "product": {
-            "type": "string",
-            "description": "Id or SKU of the product. Whichever is present.."
-          },
-          "quantity": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "Purchased quantity."
-          },
-          "isSuccessful": {
-            "type": "boolean",
-            "description": "If player's purchase is successfull: true, otherwise: false"
-          },
-          "failReason": {
-            "type": "string",
-            "description": "If not successful, then store provided fail reason / code.",
-            "nullable": true
-          }
-        }
-      },
-      "SuggestedQuestion": {
-        "title": "SuggestedQuestion",
-        "type": "object",
-        "description": "This is a reflection of the suggested_question table.",
         "properties": {
           "id": {
             "type": "integer",
+            "description": "Transaction id - given by the API server.",
             "minimum": 1,
-            "example": 342,
-            "description": "System given id."
+            "nullable": true
           },
-          "question": {
-            "$ref": "#/components/schemas/TriviaQuizQuestion"
+          "storeCode": {
+            "type": "string",
+            "description": "Three-letter code of the store.",
+            "nullable": true,
+            "enum": [
+              "coi",
+              "iaa",
+              "iai",
+              "ias"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "Three-letter code of the store.",
+            "nullable": true,
+            "enum": [
+              "coi",
+              "iaa",
+              "iai",
+              "ias"
+            ]
+          },
+          "failCode": {
+            "type": "string",
+            "description": "If failed, this codewill identify the reason of failure.",
+            "nullable": true
+          },
+          "storeTransactionId": {
+            "type": "string",
+            "description": "Transaction id obtained from store (app store, playstore etc.).",
+            "nullable": true
           },
           "player": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the player who has submitted this suggestion.",
+            "description": "The id of the player who is making the purchase."
+          },
+          "sku": {
+            "type": "string",
+            "description": "Id or SKU of the product. Whichever is present.."
+          },
+          "qty": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Purchased quantity."
+          },
+          "totalAmount": {
+            "type": "number",
+            "minimum": 1,
+            "description": "Total amount of purchase."
+          },
+          "purchasedAt": {
+            "type": "string",
+            "description": "Date when the reward is sent to player.",
+            "format": "date-time",
             "nullable": true
           },
-          "status": {
-            "type": "string",
-            "enum": [
-              "a",
-              "r",
-              "u"
-            ],
-            "example": "u",
-            "description": "Status of suggestion. a: accepted, r: rejected, u: under review"
-          },
-          "rewarded": {
-            "type": "boolean",
-            "default": false,
-            "description": "If reward has sent true, then false."
-          },
-          "rewardInformation": {
+          "playerBalances": {
             "$ref": "#/components/schemas/RewardInstructions"
-          },
-          "rejectionReason": {
-            "type": "string",
-            "description": "q: does not match to our quality standards, i: contains invalid information, d: duplicate, question already exists",
-            "enum": [
-              "d",
-              "i",
-              "q"
-            ],
-            "nullable": true
-          }
-        },
-        "x-examples": {
-          "Example-1": {
-            "id": 1342,
-            "question": {
-              "id": 3391215,
-              "question": "Which actor did not play the role \"Bruce Wayne\" in any of the Batman movies?",
-              "bannerImage": "/cdn/bannerImage.jpg",
-              "choices": [
-                {
-                  "label": "Christopher Nolan",
-                  "isCorrect": false,
-                  "answerCount": 0
-                },
-                {
-                  "label": "Michael Keaton",
-                  "isCorrect": false,
-                  "answerCount": 0
-                },
-                {
-                  "label": "Jack Nicholson",
-                  "isCorrect": true,
-                  "answerCount": 0
-                },
-                {
-                  "label": "Val Kilmer",
-                  "isCorrect": false,
-                  "answerCount": 0
-                }
-              ],
-              "difficultyLevel": 2,
-              "duration": 20,
-              "rewards": {
-                "coins": 10,
-                "experience": 50,
-                "powerups": {
-                  "tickets": 2,
-                  "stash": 18,
-                  "joker": 139,
-                  "fiftyFifty": 5,
-                  "majority": 12,
-                  "unlimitedTickets": {
-                    "isActive": true,
-                    "validUntil": "2019-08-24T14:15:22Z"
-                  }
-                },
-                "score": 5
-              },
-              "tag": "history"
-            },
-            "player": "ae2cfcf0-e870-4360-a41e-3b3bb3312234",
-            "status": "a",
-            "rewarded": false,
-            "rewardInformation": {
-              "coins": 10,
-              "experience": 50,
-              "powerups": {
-                "life": 2,
-                "insurance": 18,
-                "joker": 139,
-                "fiftyFifty": 5,
-                "majority": 12,
-                "immortality": {
-                  "isActive": true,
-                  "validUntil": "2019-08-24T14:15:22Z"
-                },
-                "immunity": {
-                  "isActive": true,
-                  "validUntil": "2019-08-24T14:15:22Z"
-                }
-              },
-              "score": 5
-            },
-            "rejectionReason": null
           }
         }
       }
