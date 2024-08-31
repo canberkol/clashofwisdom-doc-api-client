@@ -433,7 +433,7 @@
           }
         ],
         "tags": [
-          "gameplay"
+          "solo-gameplay"
         ]
       }
     },
@@ -3781,7 +3781,7 @@
       "get": {
         "summary": "Retrieve Player's Standing Summary by Period and Week",
         "tags": [
-          "leaderboards"
+          "players"
         ],
         "responses": {
           "200": {
@@ -4188,7 +4188,10 @@
             }
           },
           "description": "TransactionBasic model must be supplied."
-        }
+        },
+        "tags": [
+          "in-app purchase"
+        ]
       }
     },
     "/purchase/iap": {
