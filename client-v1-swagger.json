@@ -379,6 +379,11 @@
         "description": "Use this endpoint to send the final score of one or more ended games to the server.\n\n**Flow Diagram**:\n![Flow Diagram](https://s3.eu-central-1.amazonaws.com/docs.bonetwork.co/apps/bilgisavasi/openapi/flows/get.gameplays.finalize.png)",
         "tags": [
           "solo-gameplay"
+        ],
+        "security": [
+          {
+            "X-Session-Token": []
+          }
         ]
       }
     },
@@ -989,6 +994,11 @@
         },
         "tags": [
           "pvp-gameplay"
+        ],
+        "security": [
+          {
+            "X-Session-Token": []
+          }
         ]
       }
     },
@@ -2907,6 +2917,11 @@
         "description": "Use this endpoint to update player's joker count.",
         "tags": [
           "players"
+        ],
+        "security": [
+          {
+            "X-Session-Token": []
+          }
         ]
       }
     },
@@ -3134,6 +3149,11 @@
         "description": "Use this endpoint to get the latest (i.e. last 50) gameplays of a player.",
         "tags": [
           "pvp-gameplay"
+        ],
+        "security": [
+          {
+            "X-Session-Token": []
+          }
         ]
       },
       "parameters": [
@@ -3552,6 +3572,11 @@
         "description": "Use this endpoint if the player decides to user one of her/his power-ups. This endpoint decrements the given power-up of a user by \"one\". If there are no available power-up to use an error will bi returned.",
         "tags": [
           "players"
+        ],
+        "security": [
+          {
+            "X-Session-Token": []
+          }
         ]
       },
       "get": {
@@ -3641,7 +3666,12 @@
           }
         },
         "operationId": "get-player-id-power-up-key",
-        "description": "Use this endpoint to get the total number of items that a user possesses for a given power-up.\n\nAvailable keys are:\n- fiftyFifty (integer)\n- unlimitedTicketDuration\n- tickets (integer)\n- majority (integer)\n- joker (integer)"
+        "description": "Use this endpoint to get the total number of items that a user possesses for a given power-up.\n\nAvailable keys are:\n- fiftyFifty (integer)\n- unlimitedTicketDuration\n- tickets (integer)\n- majority (integer)\n- joker (integer)",
+        "security": [
+          {
+            "X-Session-Token": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -3732,7 +3762,12 @@
           }
         },
         "operationId": "get-player-id-power-ups",
-        "description": "Use this endpoint to get the latest information of a given player's power-up counts."
+        "description": "Use this endpoint to get the latest information of a given player's power-up counts.",
+        "security": [
+          {
+            "X-Session-Token": []
+          }
+        ]
       },
       "parameters": [
         {
@@ -4408,7 +4443,7 @@
         "description": "Use this endpoint to register the ad view for the first time a player watches an ad.",
         "security": [
           {
-            "X-Api-Key": []
+            "X-Session-Token": []
           }
         ],
         "parameters": [],
@@ -4459,7 +4494,7 @@
         "description": "Use this endpoint to update ad view log.",
         "security": [
           {
-            "X-Api-Key": []
+            "X-Session-Token": []
           }
         ],
         "parameters": [],
@@ -11440,10 +11475,10 @@
         "type": "apiKey",
         "in": "header",
         "description": "The api key will be provided you by the team lead or project manager.",
-        "name": "Application's API Key."
+        "name": "X-Api-Key"
       },
       "X-Session-Token": {
-        "name": "Session Token",
+        "name": "X-Session-Token",
         "type": "apiKey",
         "in": "header",
         "description": "Session token is a unique token which is assigned to actual users. This information is tied to players id, and used to identify the player who interacts with the system."
